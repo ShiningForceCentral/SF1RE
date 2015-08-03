@@ -54,8 +54,26 @@ static Segments(void) {
 	SegRename(0X0,"ROM");
 	SegClass (0X0,"CODE");
 	SetSegmentType(0X0,2);
-	LowVoids(0x20);
-	HighVoids(0x180000);
+	SegCreate(0X200000,0X204000,0X0,1,1,2);
+	SegRename(0X200000,"SRAM");
+	SegClass (0X200000,"");
+	SegCreate(0XA00000,0XA0FFFF,0X0,0,1,2);
+	SegRename(0XA00000,"Z80");
+	SegClass (0XA00000,"");
+	SegCreate(0XA10000,0XA10FFF,0X0,0,1,2);
+	SegRename(0XA10000,"IO");
+	SegClass (0XA10000,"");
+	SegCreate(0XA11000,0XA11FFF,0X0,0,1,2);
+	SegRename(0XA11000,"CTRL");
+	SegClass (0XA11000,"");
+	SegCreate(0XC00000,0XC00012,0X0,1,1,2);
+	SegRename(0XC00000,"VDP");
+	SegClass (0XC00000,"");
+	SegCreate(0XFF0000,0XFFFFFF,0X0,0,1,2);
+	SegRename(0XFF0000,"RAM");
+	SegClass (0XFF0000,"");
+	LowVoids(0x0);
+	HighVoids(0xFFFFFF);
 }
 
 //------------------------------------------------------------------------
