@@ -33,17 +33,21 @@ static main(void) {
 
 	Message("Relative Jump Tables...");
 	fixRJTs();
+	
+	Message(" DONE.\nRelative Pointer Tables...");		
+	fixRPTs();
+	
 /*	Message(" DONE.\nMap Setups RJTs...");	
 	fixMapSetups();
 	fixMapSetupsSection4();
-	Message(" DONE.\nRelative Pointer Tables...");		
-	fixRPTs();
+
 	Message(" DONE.\nBranch Tables...");		
 	fixBTs();
 	Message(" DONE.\nInstruction Representations...");			
 	fixInstructionRepresentations();
 	Message(" DONE.\nSingle Instructions...");		
 	fixSingleInstructions(); */
+	
 	Message(" DONE.\n");
 	
 	Message("END OF FIXES.\n");
@@ -92,6 +96,15 @@ static fixRJTs() {
 	makeRjt(0x124A14,0x124A1A);	
 	makeRjt(0x124B8A,0x124B90);	
 	makeRjt(0x124EE8,0x124F1A);	
+	makeRjt(0x126498,0x126532);	
+	makeRjt(0x127258,0x127283);	
+	makeRjt(0x127E04,0x127E0C);	
+	makeRjt(0x127E04,0x127E0C);		
+	makeRjt(0x128106,0x12810E);	
+	makeRjt(0x1282A8,0x1282B0);	
+	makeRjt(0x128554,0x12855A);
+	makeRjt(0x128FD6,0x129011);
+	makeRjt(0x12A4EE,0x12A52A);		
 	makeRjt(0x12ABE0,0x12AC1C);	
 	makeRjt(0x12C200,0x12C208);	
 	makeRjt(0x12C49C,0x12C4A6);	
@@ -99,7 +112,7 @@ static fixRJTs() {
 }
 
 static fixRPTs() {
-	//makeRpt(0x47A88,0x47AE8);
+	makeRpt(0x1E892,0x1E8D6);
 }
 
 static fixBTs() {
