@@ -37,14 +37,16 @@ static main(void) {
 	Message(" DONE.\nRelative Pointer Tables...");		
 	fixRPTs();
 	
+	Message(" DONE.\nInstruction Representations...");			
+	fixInstructionRepresentations();
+	
 /*	Message(" DONE.\nMap Setups RJTs...");	
 	fixMapSetups();
 	fixMapSetupsSection4();
 
 	Message(" DONE.\nBranch Tables...");		
 	fixBTs();
-	Message(" DONE.\nInstruction Representations...");			
-	fixInstructionRepresentations();
+
 	Message(" DONE.\nSingle Instructions...");		
 	fixSingleInstructions(); */
 	
