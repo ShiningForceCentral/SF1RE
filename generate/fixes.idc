@@ -77,8 +77,9 @@ static fixRJTs() {
 	makeRjt(0x44A0,0x44AE);		
 	makeRjt(0x44C2,0x44C8);		
 	makeRjt(0x45E2,0x45EE);		
+	makeRjt(0x4602,0x4608);		
 	makeRjt(0x46FA,0x4706);	
-	makeRjt(0x482A,0x4840);	
+	makeRjt(0x482A,0x483E);	
 	makeRjt(0x4C22,0x4C32);
 	makeRjt(0x5A78,0x5A80);	
 	makeRjt(0x5B84,0x5B8C);	
@@ -131,6 +132,7 @@ static fixBTs() {
  *
  *	This script helps to fix these 
  *	instructions :  
+ *	move.w (loc,pc),(a1)+ were displayed as move.w loc,(a1)+. 
  *	move.l a6,usp were displayed as move a6,usp.
  *	jsr (loc).w were displayed as jsr loc.
  *	jsr loc(pc) were displayed as jsr loc.
@@ -165,6 +167,7 @@ static fixInstructionRepresentations(){
 	//if (batch==-1) return;
 	//Batch(batch);
 	
+	fix("32 FA","move.w  (%s,pc),(a1)+","move.w loc,(a1)+","move.w (loc,pc),(a1)+");
 	fix("4E 66","move.l  a6,usp","move a6,usp","move.l a6,usp");
 	
 	fix("4E B8","jsr     (%s).w","jsr loc","jsr (loc).w");
