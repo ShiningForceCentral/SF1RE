@@ -652,8 +652,7 @@ static Bytes_0(void) {
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X8BA);
 	MakeCode	(x=0X8EC);
-	OpOff		(x,	0,	0XFF0E9E);
-	OpOff		(x,	128,	0XFF0E9E);
+	OpHex		(x,	0);
 	MakeCode	(x=0X91C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -834,8 +833,7 @@ static Bytes_0(void) {
 	MakeCode	(0XEF0);
 	MakeCode	(0XF0A);
 	MakeCode	(x=0XF0E);
-	OpOff		(x,	0,	0X0);
-	OpOff		(x,	128,	0X0);
+	OpHex		(x,	0);
 	MakeCode	(0XF42);
 	MakeCode	(0XF52);
 	MakeCode	(x=0XF56);
@@ -3673,6 +3671,7 @@ static Bytes_0(void) {
 	OpHex		(x,	0);
 	MakeCode	(x=0X8844);
 	OpHex		(x,	0);
+	MakeName	(0X8854,	"CursorData");
 	MakeCode	(0X891C);
 	MakeCode	(x=0X8920);
 	OpOff		(x,	0,	0X0);
@@ -5859,6 +5858,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0XF7CE);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeCode	(x=0XF7D4);
+	OpOff		(x,	0,	0X0);
+	OpOff		(x,	128,	0X0);
 }
 
 //------------------------------------------------------------------------
@@ -5868,9 +5870,6 @@ static Bytes_1(void) {
         auto x;
 #define id x
 
-	MakeCode	(x=0XF7D4);
-	OpOff		(x,	0,	0X0);
-	OpOff		(x,	128,	0X0);
 	MakeCode	(0XFA32);
 	MakeCode	(0XFA46);
 	MakeCode	(x=0XFA6C);
@@ -9482,7 +9481,8 @@ static Bytes_1(void) {
 	MakeCode	(x=0X234CE);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
-	MakeCode	(0X234EE);
+	MakeRptCmt	(0X234EE,	"subi.b #$e7,a0\nError : Illegal addressing mode");
+	MakeCode	(0X234F2);
 	MakeCode	(0X2350A);
 	MakeCode	(0X23524);
 	MakeCode	(0X2352A);
@@ -11107,9 +11107,6 @@ static Bytes_1(void) {
 	MakeDword	(x=0X39AD0);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
-	MakeDword	(x=0X39AD4);
-	OpOff		(x,	0,	0X0);
-	OpOff		(x,	128,	0X0);
 }
 
 //------------------------------------------------------------------------
@@ -11119,6 +11116,9 @@ static Bytes_2(void) {
         auto x;
 #define id x
 
+	MakeDword	(x=0X39AD4);
+	OpOff		(x,	0,	0X0);
+	OpOff		(x,	128,	0X0);
 	MakeDword	(x=0X39AD8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -16833,11 +16833,6 @@ static Bytes_2(void) {
 	OpOff		(x,	128,	0X128106);
 	OpOff		(x,	1,	0X128106);
 	OpOff		(x,	129,	0X128106);
-	MakeWord	(x=0X12810C);
-	OpOff		(x,	0,	0X128106);
-	OpOff		(x,	128,	0X128106);
-	OpOff		(x,	1,	0X128106);
-	OpOff		(x,	129,	0X128106);
 }
 
 //------------------------------------------------------------------------
@@ -16847,6 +16842,11 @@ static Bytes_3(void) {
         auto x;
 #define id x
 
+	MakeWord	(x=0X12810C);
+	OpOff		(x,	0,	0X128106);
+	OpOff		(x,	128,	0X128106);
+	OpOff		(x,	1,	0X128106);
+	OpOff		(x,	129,	0X128106);
 	MakeCode	(0X12810E);
 	MakeCode	(0X128114);
 	MakeCode	(0X1281FC);
@@ -17970,8 +17970,6 @@ static Bytes_3(void) {
 	MakeCode	(x=0X130438);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
-	MakeStr		(0X130464,	0X13048A);
-	MakeName	(0X130464,	"aPressstartbuttonn");
 	MakeCode	(0X13048E);
 	MakeCode	(x=0X130498);
 	OpOff		(x,	0,	0X0);
@@ -19780,7 +19778,6 @@ static Functions_0(void) {
 	SetFunctionFlags(0X87AA,0x0);
 	MakeFunction    (0X87D2,0X8986);
 	SetFunctionFlags(0X87D2,0x0);
-	MakeNameEx(0X8854, "CursorData", SN_LOCAL);
 	MakeFunction    (0X8986,0X89FE);
 	SetFunctionFlags(0X8986,0x0);
 	MakeFunction    (0X89FE,0X8A22);
