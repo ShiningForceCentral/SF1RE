@@ -107,7 +107,7 @@ static produceMain(){
 	action = 1;
 	file = fopen("sf1.asm","w");
 	writeHeader(file);
-	
+	 
 	produceSection(file,"01",0x0,			0x1FFFFF,			90,		"Whole game for test !");
 
 
