@@ -108,7 +108,8 @@ static produceMain(){
 	file = fopen("sf1.asm","w");
 	writeHeader(file);
 	 
-	produceSection(file,"01",0x0,			0x1FFFFF,			90,		"Whole game for test !");
+	produceSection(file,"01",0x0,			0x8000,			90,		"Technical layer, low level game engine, ...");
+	produceSection(file,"02",0x8000,			0x1FFFFF,			90,		"Rest of the game");
 
 
 /*

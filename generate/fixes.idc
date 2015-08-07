@@ -115,7 +115,7 @@ static fixRJTs() {
 }
 
 static fixRPTs() {
-	makeRpt(0x1E892,0x1E8D6);
+	// makeRpt(0x1E892,0x1E8D6);
 }
 
 static fixBTs() {

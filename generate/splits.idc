@@ -68,7 +68,9 @@ static splitPTs(file){
 	splitPT(0x1BEEE0, 0x1BEF3C, 0x1C46C2, 0x1C46C2, "pt_SpellGraphics", "SpellGraphics", "spells/", "spellgraphics", 2, 0, file);
 	splitPT(0x1C8004, 0x1C80E4, 0x1D7E26, 0x1D8000, "pt_Portraits", "Portrait", "portraits/", "portrait", 2, 15, file);
 	*/
-	
+	splitPT(0x2D13E, 0x2D20E, 0x37B38, 0x38000, "pt_Portraits", "Portrait", "portraits/", "portrait", 2, 15, file);	
+	splitPT(0x39928, 0x3A0A8, 0x57F5F, 0x58000, "pt_EntitySprites", "EntitySprite", "sprites/entities/", "entitysprite", 3, 15, file);		
+	//splitPT(0x58014, 0x580B8, 0x7F6FF, 0x80000, "pt_TileSets", "TileSet", "graphics/tilesets/", "tileset", 2, 15, file);	
 	splitPT(0x144014, 0x1440A0, 0x1602E2, 0x1602E2, "pt_AllyBattleSprites", "AllyBattleSprite", "sprites/battlesprites/allies/", "allybattlesprite", 2, 0, file);
 	splitPT(0x1602E2, 0x16035E, 0x16186E, 0x16186E, "pt_WeaponSprites", "WeaponSprite", "sprites/weapons/", "weaponsprite", 2, 0, file);		
 	splitPT(0x161A66, 0x161B52, 0x16226A, 0x16226A, "pt_AlliesAnimations", "AllyAnimation", "battles/animations/allies/", "allyanimation", 3, 0, file);
@@ -97,8 +99,8 @@ static splitSingleChunks(file) {
 	splitSingleChunk(0xFB8A,0xFF87,"EnemyNames","chardata/enemynames.bin",file);
 	MakeAlign(0xFF87, 0x10000-0xFF87,15);
 	
-	splitSingleChunk(0x16EA6,0x176A6,"ItemDefs","misc/itemdefs.bin",file);
-	splitSingleChunk(0x176A6,0x1796E,"SpellDefs","spells/spelldefs.bin",file);
+	splitSingleChunk(0x16EA6,0x176A6,"ItemData","misc/itemdata.bin",file);
+	splitSingleChunk(0x176A6,0x1796E,"SpellData","spells/spelldata.bin",file);
 	splitSingleChunk(0x1796E,0x17F3E,"ItemNames","misc/itemnames.bin",file);
 	splitSingleChunk(0x17F3E,0x17FDA,"ClassNames","chardata/classnames.bin",file);
 	MakeAlign(0x17FDA, 0x18000-0x17FDA,15);
@@ -146,7 +148,7 @@ static splitSingleChunks(file) {
 	
 	splitSingleChunk(0x2DDDE,0x2E08E,"StaticWidthFont","misc/staticwidthfont.bin",file);
 	
-	splitSingleChunk(0x2E196,0x2EB34,"t_RelativeTreePointers","scriptbanks/scriptbanktrees.bin",file);
+	splitSingleChunk(0x2E196,0x2EB34,"t_RelativeTreePointers","textbanks/textbanktrees.bin",file);
 	
 	splitSingleChunk(0x4201E,0x425E7,"GameStaff","misc/gamestaff.bin",file);
 	MakeAlign(0x425ED, 0x44000-0x425ED,14);
@@ -253,7 +255,33 @@ static splitSingleChunks(file) {
 	splitSingleChunk(0x1F8000, 0x200000, "","sound/music/bank0.bin",file);
 	*/
 	
-		MakeAlign(0xBEDAC, 0xC0000-0xBEDAC,15);	
+	MakeAlign(0x7E22, 0x8000-0x7E22,15);	
+	
+	splitSingleChunk(0x1E892,0x1EA3A,"TextBankTreesPointers","textbanks/textbanktreepointers.bin",file);
+	splitSingleChunk(0x1EA3A,0x1EFE0,"TextBankTreeData","textbanks/textbanktreedata.bin",file);
+	
+	MakeAlign(0x1F068, 0x20000-0x1F068,15);	
+	
+
+	splitSingleChunk(0x25154,0x25604,"CharacterData","chardata/chardata.bin",file);	
+	splitSingleChunk(0x25640,0x25916,"ItemNames","misc/itemnames.bin",file);
+	splitSingleChunk(0x25916,0x25D06,"ItemData","misc/itemdata.bin",file);
+	splitSingleChunk(0x25D6C,0x260BC,"ClassNames","chardata/classnames.bin",file);	
+	splitSingleChunk(0x260BC,0x26404,"ClassData","chardata/classdata.bin",file);	
+	splitSingleChunk(0x26404,0x26466,"SpellNames","spells/spellnames.bin",file);
+	splitSingleChunk(0x26466,0x26566,"SpellData","spells/spelldata.bin",file);	
+	splitSingleChunk(0x265E6,0x26666,"LandEffectData","battles/landeffectdata.bin",file);		
+	splitSingleChunk(0x26C1A,0x26CCE,"StatGrowthCurves","chardata/growthcurves.bin",file);
+	splitSingleChunk(0x26CCE,0x26D70,"StatGrowthCurvesPromoted","chardata/growthcurvespromoted.bin",file);		
+	splitSingleChunk(0x26D70,0x26E16,"SpellsLearningData","chardata/spellslearningdata.bin",file);			
+	splitSingleChunk(0x2704E,0x2751A,"MapHeaders","maps/mapheaders.bin",file);	
+	splitSingleChunk(0x2751C,0x2BF85,"EnemyData","battles/enemydata.bin",file);		
+	MakeAlign(0x2BF85, 0x2C000-0x2BF85,14);
+	splitSingleChunk(0x2C13E,0x2D13E,"VariableWidthFont","misc/variablewidthfont.bin",file);
+	
+	
+	
+	MakeAlign(0xBEDAC, 0xC0000-0xBEDAC,15);	
 	
 	splitSingleChunk(0x16186E,0x161A66,"plt_WeaponPalettes","sprites/weapons/weaponpalettes.bin",file);
 
@@ -526,7 +554,7 @@ static splitScriptbanks(file) {
 	action=1;
 	//Message("Cleaning from %a to %a ...\n",start,chunkEnd);		
 	for(j=0x131A1C;j<chunkEnd;j++){undefineByte(j);}
-	MakeNameEx(addr,"pt_ScriptBanks",0);
+	MakeNameEx(addr,"pt_TextBanks",0);
 	while(addr<end&&action==1){
 		MakeDword(addr);
 		dref = Dword(addr);
@@ -535,7 +563,7 @@ static splitScriptbanks(file) {
 		//Jump(dref);
 		index = ltoa(i,10);
 		if(strlen(index)==1)index=form("0%s",index);
-		MakeNameEx(dref,form("ScriptBank%s",index),0);
+		MakeNameEx(dref,form("TextBank%s",index),0);
 		addr=addr+4;
 		i++;
 	}
@@ -561,8 +589,8 @@ static splitScriptbanks(file) {
 		if(strlen(index)==1)index=form("0%s",index);
 		//Message(form("dref %s, dataEnd %s\n",ltoa(dref,16),ltoa(dataEnd,16)));
 		MakeData(dref,FF_BYTE,dataEnd-dref,1);
-		SetManualInsn   (dref, form("incbin \"scriptbanks/scriptbank%s.bin\"",index));
-		writestr(file,form("#split\t0x%s,0x%s,scriptbanks/scriptbank%s.bin\n",ltoa(dref,16),ltoa(dataEnd,16),index));
+		SetManualInsn   (dref, form("incbin \"textbanks/textbank%s.bin\"",index));
+		writestr(file,form("#split\t0x%s,0x%s,textbanks/textbank%s.bin\n",ltoa(dref,16),ltoa(dataEnd,16),index));
 		addr=addr+4;
 		i++;
 		//action = AskYN(1,"Ok ?");
@@ -615,7 +643,7 @@ writestr(file,"#dir	sound/\n");
 writestr(file,"#dir	sound/driver\n");
 writestr(file,"#dir	sound/pcm\n");
 writestr(file,"#dir	sound/music\n");
-writestr(file,"#dir	scriptbanks/\n");
+writestr(file,"#dir	textbanks/\n");
 writestr(file,"#dir	battles/\n");
 writestr(file,"#dir	battles/entitysetups/\n");
 writestr(file,"#dir	battles/terrains/\n");
@@ -638,6 +666,8 @@ writestr(file,"#dir	sprites/weapons/\n");
 writestr(file,"#dir	spells/\n");
 writestr(file,"#dir	portraits/\n");
 writestr(file,"#dir	icons/\n");
+writestr(file,"#dir	graphics/\n");
+writestr(file,"#dir	graphics/tilesets/\n");
 writestr(file,"#dir	misc/\n");
 writestr(file,"#dir	misc/specialscreens/\n");
 writestr(file,"#dir	chardata/\n");
