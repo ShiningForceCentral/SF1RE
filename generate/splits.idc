@@ -29,6 +29,10 @@ static splitAll(){
 	splitPTs(file);
 	Message(" DONE.\nSingle Chunks...");	
 	splitSingleChunks(file);	
+	
+	Message(" DONE.\nTilesets...");	
+	splitTilesets(file);
+	
 	/*
 	Message(" DONE.\nMaps ...");
 	splitMaps(file);
@@ -56,7 +60,7 @@ static splitPTs(file){
 	/*
 	splitPT(0x6400C, 0x641D8, 0x9494A, 0x9494A, "pt_MapTiles", "MapTiles", "maps/tilesets/", "tileset", 3, 0, file);
 	splitPT(0x9494A, 0x9498A, 0x94B8A, 0x94B8A, "pt_MapPalettes", "MapPalette", "maps/palettes/", "mappalette", 2, 0, file);		
-	splitPT(0xC8000, 0xC8B40, 0xFFC48, 0x100000, "pt_EntitySprites", "EntitySprite", "sprites/entities/", "entitysprite", 3, 15, file);	
+	splitPT(0xC8000, 0xC8B40, 0xFFC48, 0x100000, "pt_MapSprites", "MapSprite", "graphics/compressed/mapsprites/", "mapsprite", 3, 15, file);	
 	splitPT(0x101EE0, 0x101F58, 0x12A2F8, 0x12A2F8, "pt_Backgrounds", "Background", "backgrounds/", "background", 2, 0, file);
 	splitPT(0x130004, 0x1300DC, 0x17FE4F, 0x180000, "pt_EnemyBattleSprites", "EnemyBattleSprite", "sprites/battlesprites/enemies/", "enemybattlesprite", 2, 15, file);
 	splitPT(0x18001C, 0x18009C, 0x1AA16E, 0x1AA16E, "pt_AllyBattleSprites", "AllyBattleSprite", "sprites/battlesprites/allies/", "allybattlesprite", 2, 0, file);
@@ -542,6 +546,74 @@ static splitBattleSceneGrounds(file) {
 
 }
 
+
+static splitTilesets(file) {
+
+//splitPT(0x58014, 0x580B8, 0x7F6FF, 0x80000, "pt_TileSets", "TileSet", "graphics/tilesets/", "tileset", 2, 15, file);	
+
+	auto i,j,x,s,index,path;
+	auto start,end,lastEntryDataEnd,chunkEnd,addr,dataEnd,from,dref,section,action;
+	i = 0;
+	start = 0x58014;
+	end = 0x580B8;
+	addr = start;
+	lastEntryDataEnd = 0x7F6FF;
+	chunkEnd = 0x80000;
+	action=1;
+	//Message("Cleaning from %a to %a ...\n",start,chunkEnd);		
+	for(j=start;j<chunkEnd;j++){undefineByte(j);}
+	MakeNameEx(addr,"pt_Tilesets",0);
+	while(addr<end&&action==1){
+		MakeDword(addr);
+		dref = Dword(addr);
+		add_dref(addr,dref,dr_O);
+		dref = Dfirst(addr);		
+		//Jump(dref);
+		index = ltoa(i,10);
+		if(strlen(index)==1)index=form("0%s",index);
+		if((dref>=end)&&(strstr(GetTrueName(dref),"Tileset")==-1)){		
+			MakeNameEx(dref,form("Tileset%s",index),0);
+		}
+		addr=addr+4;
+		i++;
+	}
+	i = 0;
+	addr = start;
+	while(addr!=end&&action==1){
+		dref = Dfirst(addr);		
+		//Jump(dref); 
+		dataEnd = 0;
+		j = dref+1;
+		while(dataEnd==0){
+			from = DfirstB(j);
+			while(from!=BADADDR){
+				if(from>=start&&from<chunkEnd){
+					dataEnd = j;
+				}
+	      from=DnextB(addr,from);      
+			}
+			j++;
+			if(j==lastEntryDataEnd) dataEnd = lastEntryDataEnd;
+		}
+		index = ltoa(i,10);
+		if(strlen(index)==1)index=form("0%s",index);
+		//Message(form("dref %s, dataEnd %s\n",ltoa(dref,16),ltoa(dataEnd,16)));
+		if((dref>=end)&&(strstr(GetDisasm(dref),"incbin")==-1)){
+			MakeData(dref,FF_BYTE,dataEnd-dref,1);
+			SetManualInsn   (dref, form("incbin \"graphics/compressed/tilesets/tileset%s.bin\"",index));
+			writestr(file,form("#split\t0x%s,0x%s,graphics/compressed/tilesets/tileset%s.bin\n",ltoa(dref,16),ltoa(dataEnd,16),index));
+		}
+		addr=addr+4;
+		i++;
+		//action = AskYN(1,"Ok ?");
+	}
+	
+	MakeAlign(lastEntryDataEnd, chunkEnd-lastEntryDataEnd,15);
+
+}
+
+
+
 static splitScriptbanks(file) {
 	auto i,j,x,s,index,path;
 	auto start,end,lastEntryDataEnd,chunkEnd,addr,dataEnd,from,dref,section,action;
@@ -639,10 +711,32 @@ static undefineByte(addr){
 
 static initFile(file){
 writestr(file,"/***********************Directories***************************/\n");
+writestr(file,"#dir	graphics/\n");
+writestr(file,"#dir	graphics/compressed\n");
+writestr(file,"#dir	graphics/compressed/portraits\n");
+writestr(file,"#dir	graphics/compressed/mapsprites\n");
+writestr(file,"#dir	graphics/compressed/specialsprites\n");
+writestr(file,"#dir	graphics/compressed/battlesprites\n");
+writestr(file,"#dir	graphics/compressed/battlesprites/allies\n");
+writestr(file,"#dir	graphics/compressed/battlesprites/enemies\n");
+writestr(file,"#dir	graphics/compressed/weapons\n");
+writestr(file,"#dir	graphics/compressed/backgrounds\n");
+writestr(file,"#dir	graphics/compressed/grounds\n");
+writestr(file,"#dir	graphics/compressed/specialscreens\n");
+writestr(file,"#dir	graphics/uncompressed\n");
+writestr(file,"#dir	graphics/uncompressed/icons\n");
+writestr(file,"#dir	graphics/uncompressed/menus\n");
+writestr(file,"#dir	graphics/palettes\n");
+writestr(file,"#dir	text/\n");
+writestr(file,"#dir	text/compressed\n");
+writestr(file,"#dir	text/uncompressed\n");
+writestr(file,"#dir	data/\n");
 writestr(file,"#dir	sound/\n");
 writestr(file,"#dir	sound/driver\n");
 writestr(file,"#dir	sound/pcm\n");
 writestr(file,"#dir	sound/music\n");
+writestr(file,"#dir	sound/instruments\n");
+writestr(file,"#dir	sound/sfx\n");
 writestr(file,"#dir	textbanks/\n");
 writestr(file,"#dir	battles/\n");
 writestr(file,"#dir	battles/entitysetups/\n");
