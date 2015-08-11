@@ -108,8 +108,20 @@ static produceMain(){
 	file = fopen("sf1.asm","w");
 	writeHeader(file);
 	 
-	produceSection(file,"01",0x0,			0x8000,			90,		"Technical layer, low level game engine, ...");
-	produceSection(file,"02",0x8000,			0x1FFFFF,			90,		"Rest of the game");
+	produceSection(file,"01",			0x0,				0x8000,					0x8000-0x7E22,		"Technical layer, low level game engine, ...");
+	produceSection(file,"02",	 0x8000,			 0x20000,				0x20000-0x1F068,		"");
+	produceSection(file,"03",	0x20000,			 0x2C000,				0x2C000-0x2BF85,		"");
+	produceSection(file,"04",	0x2C000,			 0x38000,				0x38000-0x37B38,		"");
+	produceSection(file,"05",	0x38000,			 0x58000,				0x58000-0x57F5F,		"");
+	produceSection(file,"06",	0x58000,			 0x80000,				0x80000-0x7F6FF,		"");
+	produceSection(file,"07",	0x80000,			 0xBC000,				0xBC000-0xBA3ED,		"");
+	produceSection(file,"08",	0xBC000,			 0xC0000,				0xC0000-0xBEDAC,		"");
+	produceSection(file,"09",	0xC0000,			0x100000,			 0x100000-0xFFD3D,		"");
+	produceSection(file,"10",0x100000,			0x124000,			0x124000-0x122758,		"");
+	produceSection(file,"11",0x124000,			0x144000,			0x144000-0x13E92C,		"");
+	produceSection(file,"12",0x144000,			0x164000,			0x164000-0x163FFA,		"");
+	produceSection(file,"13",0x164000,			0x168000,			0x168000-0x163FFA,		"");
+	produceSection(file,"14",0x168000,			0x180000,											0,		"");
 
 
 /*

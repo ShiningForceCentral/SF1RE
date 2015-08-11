@@ -24,22 +24,24 @@ static splitAll(){
 	Message("SPLITTING...\n");
 	file = fopen("sf1splits.txt","w");
 	initFile(file);
-
-	Message("Pointer Tables...");
+	
+	Message("  Pointer Tables...");
 	splitPTs(file);
-	Message(" DONE.\nSingle Chunks...");	
+	Message(" DONE.\n  Single Chunks...");	
 	splitSingleChunks(file);	
 	
-	Message(" DONE.\nTilesets...");	
+	Message(" DONE.\n  Tilesets...");	
 	splitTilesets(file);
 	
+	Message(" DONE.\n  Maps ...");
+	splitMaps(file);	
+
 	/*
-	Message(" DONE.\nMaps ...");
-	splitMaps(file);
 	Message(" DONE.\nBattleSceneGrounds...");	
 	splitBattleSceneGrounds(file);
 	*/
-	Message(" DONE.\nScriptBanks...");	
+	
+	Message(" DONE.\n  ScriptBanks...");	
 	splitScriptbanks(file);
 	Message(" DONE.\n");	
 	
@@ -72,10 +74,16 @@ static splitPTs(file){
 	splitPT(0x1BEEE0, 0x1BEF3C, 0x1C46C2, 0x1C46C2, "pt_SpellGraphics", "SpellGraphics", "spells/", "spellgraphics", 2, 0, file);
 	splitPT(0x1C8004, 0x1C80E4, 0x1D7E26, 0x1D8000, "pt_Portraits", "Portrait", "portraits/", "portrait", 2, 15, file);
 	*/
+	
+	splitPT(0x80010, 0x800E8, 0x80EE0, 0x80EE0, "pt_SpriteSets", "SpriteSet", "maps/spritesets/", "spriteset", 2, 0, file);	
+	splitPT(0x80EFE, 0x811AE, 0x820CC, 0x820CC, "pt_SpriteScripts", "SpriteScript", "maps/spritescripts/", "spritescript", 2, 0, file);	
+	
 	splitPT(0x2D13E, 0x2D20E, 0x37B38, 0x38000, "pt_Portraits", "Portrait", "portraits/", "portrait", 2, 15, file);	
-	splitPT(0x39928, 0x3A0A8, 0x57F5F, 0x58000, "pt_EntitySprites", "EntitySprite", "sprites/entities/", "entitysprite", 3, 15, file);		
-	//splitPT(0x58014, 0x580B8, 0x7F6FF, 0x80000, "pt_TileSets", "TileSet", "graphics/tilesets/", "tileset", 2, 15, file);	
-	splitPT(0x144014, 0x1440A0, 0x1602E2, 0x1602E2, "pt_AllyBattleSprites", "AllyBattleSprite", "sprites/battlesprites/allies/", "allybattlesprite", 2, 0, file);
+	splitPT(0x39928, 0x3A0A8, 0x57F5F, 0x58000, "pt_MapSprites", "MapSprite", "graphics/compressed/mapsprites/", "mapsprite", 3, 15, file);			
+	splitPT(0xD398E, 0xD3AC6, 0xFFD3D, 0x100000, "pt_Backgrounds", "Background", "graphics/compressed/backgrounds/", "background", 2, 15, file);	
+	splitPT(0x100008, 0x1000D0, 0x122252, 0x122252, "pt_EnemyBattleSprites", "EnemyBattleSprite", "graphics/compressed/battlesprites/enemies/", "enemybattlesprite", 2, 0, file);	
+	splitPT(0x122252, 0x12236E, 0x122758, 0x124000, "pt_EnemiesAnimations", "EnemyAnimation", "battles/animations/enemies/", "enemyanimation", 3, 14, file);
+	splitPT(0x144014, 0x1440A0, 0x1602E2, 0x1602E2, "pt_AllyBattleSprites", "AllyBattleSprite", "graphics/compressed/battlesprites/allies/", "allybattlesprite", 2, 0, file);
 	splitPT(0x1602E2, 0x16035E, 0x16186E, 0x16186E, "pt_WeaponSprites", "WeaponSprite", "sprites/weapons/", "weaponsprite", 2, 0, file);		
 	splitPT(0x161A66, 0x161B52, 0x16226A, 0x16226A, "pt_AlliesAnimations", "AllyAnimation", "battles/animations/allies/", "allyanimation", 3, 0, file);
 }
@@ -267,6 +275,7 @@ static splitSingleChunks(file) {
 	MakeAlign(0x1F068, 0x20000-0x1F068,15);	
 	
 
+
 	splitSingleChunk(0x25154,0x25604,"CharacterData","chardata/chardata.bin",file);	
 	splitSingleChunk(0x25640,0x25916,"ItemNames","misc/itemnames.bin",file);
 	splitSingleChunk(0x25916,0x25D06,"ItemData","misc/itemdata.bin",file);
@@ -286,6 +295,9 @@ static splitSingleChunks(file) {
 	
 	
 	MakeAlign(0xBEDAC, 0xC0000-0xBEDAC,15);	
+	splitSingleChunk(0xCCB1A,0xCCFEE,"MenuGraphics","graphics/uncompressed/menus/menugraphics.bin",file);	
+	splitSingleChunk(0xCF0EA,0xCFCEA,"Icons","graphics/uncompressed/icons/icons.bin",file);	
+	
 	
 	splitSingleChunk(0x16186E,0x161A66,"plt_WeaponPalettes","sprites/weapons/weaponpalettes.bin",file);
 
@@ -331,6 +343,8 @@ static splitPT(start, end, lastEntryDataEnd, chunkEnd, ptName, entryName, binDir
 	i = 0;
 	addr = start;
 	action=1;
+	Message("\n    Pointer table %s ...",ptName);	
+	//Jump(start);
 	// Cleaning whole chunk
 	//Message("Cleaning from %a to %a ...\n",start,chunkEnd);
 	for(j=start;j<chunkEnd;j++){undefineByte(j);}
@@ -347,9 +361,19 @@ static splitPT(start, end, lastEntryDataEnd, chunkEnd, ptName, entryName, binDir
 		while(strlen(index)<indexLength){
 			index=form("0%s",index);
 		}
-		MakeNameExC(dref,form("%s%s",entryName,index),0);
+		if(strstr(GetTrueName(dref),entryName)==-1){
+			if(isUnknown(dref)){ 
+			}
+			else{
+				//Jump(dref);
+				//action = AskYN(1,"Ok ?");
+				MakeByte(dref);
+			}
+			MakeNameExC(dref,form("%s%s",entryName,index),0); 
+			//Message("\nNamed %a : %s%s",dref,entryName,index);
+			i++;
+		}
 		addr=addr+4;
-		i++;
 	}
 	/*
 	 *	Each entry is delimited by its address and the next DATA XRef coming from current chunk
@@ -383,9 +407,9 @@ static splitPT(start, end, lastEntryDataEnd, chunkEnd, ptName, entryName, binDir
 		if(strstr(GetDisasm(dref),"incbin")==-1){		
 			SetManualInsn   (dref, form("incbin \"%s%s%s.bin\"",binDir,binName,index));
 			writestr(file,form("#split\t0x%s,0x%s,%s%s%s.bin\n",ltoa(dref,16),ltoa(dataEnd,16),binDir,binName,index));
+			i++;
 		}
 		addr=addr+4;
-		i++;
 		//action = AskYN(1,"Ok ?");
 	}
 	// Put align instruction for padding until chunkEnd
@@ -397,48 +421,53 @@ static splitMaps(file) {
 	auto i,j,x,s,index,path;
 	auto start,end,lastEntryDataEnd,chunkEnd,addr,dataEnd,from,dref,section,action;
 	i = 0;
-	start = 0x94B8A;
-	end = 0x94CC6;
+	start = 0x820CC;
+	end = 0x8264C;
 	addr = start;
-	lastEntryDataEnd = 0xC7ECC;
-	chunkEnd = 0xC8000;
+	lastEntryDataEnd = 0xB97F4;
+	chunkEnd = 0xB97F4;
 	action=1;
-	//Message("Cleaning from %a to %a ...\n",start,chunkEnd);	
+	Message("Cleaning from %a to %a ...\n",start,chunkEnd);	
 	for(j=start;j<chunkEnd;j++){undefineByte(j);}
-	MakeNameEx(addr,"pt_MapData",0);
+	MakeNameEx(addr,"pt_Maps",0);
 	while(addr<end&&action==1){
 		MakeDword(addr);
-		dref = Dword(addr);
-		add_dref(addr,dref,dr_O);
-		dref = Dfirst(addr);		
-		//Jump(dref);
+		MakeDword(addr+4);
+		MakeDword(addr+8);
+		MakeDword(addr+12);
+		MakeDword(addr+16);
+		MakeDword(addr+20);
+		MakeData(addr+24, FF_BYTE, 0x1, 0);
+		MakeData(addr+25, FF_BYTE, 0x1, 0);
+		MakeData(addr+26, FF_BYTE, 0x1, 0);
+		MakeData(addr+27, FF_BYTE, 0x1, 0);
+		MakeData(addr+28, FF_BYTE, 0x1, 0);	
+		MakeData(addr+29, FF_BYTE, 0x1, 0);	
+		MakeData(addr+30, FF_BYTE, 0x1, 0);	
+		MakeData(addr+31, FF_BYTE, 0x1, 0);	
+		MakeData(addr+32, FF_BYTE, 0x1, 0);		
+		
 		index = ltoa(i,10);
 		if(strlen(index)==1)index=form("0%s",index);
-		MakeNameEx(dref,form("Map%s",index),0);
-		writestr(file,form("#dir\tmaps/map%s\n",index));
-		MakeData(dref, FF_BYTE, 0x1, 0);
-		MakeData(dref+1, FF_BYTE, 0x1, 0);
-		MakeData(dref+2, FF_BYTE, 0x1, 0);
-		MakeData(dref+3, FF_BYTE, 0x1, 0);
-		MakeData(dref+4, FF_BYTE, 0x1, 0);
-		MakeData(dref+5, FF_BYTE, 0x1, 0);
-		for(s=0;s!=10;s++){
-			from = dref+6+4*s;
+		
+		writestr(file,form("#dir\tmaps/mapdata/map%s\n",index));
+		
+		for(s=0;s!=6;s++){
+			from = addr+4*s;
 			MakeDword(from);
 			section = Dword(from);
 			add_dref(from,section,dr_O);
 			MakeNameExC(section,form("Map%sSection%d",index,s),0);
-		} 
-		addr=addr+4;
+		}		
+		addr=addr+32;
 		i++;
 	}
+	
 	i = 0;
 	addr = start;
-	while(addr!=end&&action==1){
-		dref = Dfirst(addr);		
-		//Jump(dref); 
-		for(s=0;s!=10;s++){
-			section = Dfirst(dref+6+4*s);
+	while(addr!=end&&action==1){	
+		for(s=0;s!=6;s++){
+			section = Dfirst(addr+4*s);
 			if(section!=BADADDR){
 				dataEnd = 0;
 				j = section+1;
@@ -457,22 +486,21 @@ static splitMaps(file) {
 				if(strlen(index)==1)index=form("0%s",index);
 				//Message(form("Processing Map%s section%d at %s, dataEnd %s\n",index,s,ltoa(section,16),ltoa(dataEnd,16)));
 				MakeData(section,FF_BYTE,dataEnd-section,1);
-				if(strstr(GetDisasm(dref),"incbin")==-1){						
-					SetManualInsn   (section, form("incbin \"maps/map%s/section%d.bin\"",index,s));
-					writestr(file,form("#split\t0x%s,0x%s,maps/map%s/section%d.bin\n",ltoa(section,16),ltoa(dataEnd,16),index,s));
+				if(strstr(GetDisasm(section),"incbin")==-1){						
+					SetManualInsn   (section, form("incbin \"maps/mapdata/map%s/section%d.bin\"",index,s));
+					writestr(file,form("#split\t0x%s,0x%s,maps/mapdata/map%s/section%d.bin\n",ltoa(section,16),ltoa(dataEnd,16),index,s));
 				}
 			}
 		}
-		addr=addr+4;
+		addr=addr+32;
 		i++;
 		//action = AskYN(1,"Ok ?");
 	}
-	MakeAlign(lastEntryDataEnd, chunkEnd-lastEntryDataEnd,15);
+	
 }
 
 
 static splitBattleSceneGrounds(file) {
-
 	auto i,j,x,s,index,path;
 	auto start,end,lastEntryDataEnd,chunkEnd,addr,base,dataEnd,from,dref,section,action;
 	i = 0;
@@ -723,6 +751,7 @@ writestr(file,"#dir	graphics/compressed/weapons\n");
 writestr(file,"#dir	graphics/compressed/backgrounds\n");
 writestr(file,"#dir	graphics/compressed/grounds\n");
 writestr(file,"#dir	graphics/compressed/specialscreens\n");
+writestr(file,"#dir	graphics/compressed/tilesets\n");
 writestr(file,"#dir	graphics/uncompressed\n");
 writestr(file,"#dir	graphics/uncompressed/icons\n");
 writestr(file,"#dir	graphics/uncompressed/menus\n");
@@ -747,6 +776,9 @@ writestr(file,"#dir	battles/animations/allies/\n");
 writestr(file,"#dir	battles/animations/invocations/\n");
 writestr(file,"#dir	battles/grounds/\n");
 writestr(file,"#dir	maps/\n");
+writestr(file,"#dir	maps/mapdata/\n");
+writestr(file,"#dir	maps/spritesets/\n");
+writestr(file,"#dir	maps/spritescripts/\n");
 writestr(file,"#dir	maps/tilesets/\n");
 writestr(file,"#dir	maps/palettes/\n");
 writestr(file,"#dir	sprites/\n");
