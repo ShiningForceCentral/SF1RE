@@ -137,8 +137,8 @@ static splitSingleChunks(file) {
 	
 	MakeAlign(0x7E22, 0x8000-0x7E22,15);	
 	
-	splitSingleChunk(0x1E892,0x1EA3A,"TextBankTreesPointers","scripting/textbanks/textbanktreepointers.bin",file);
-	splitSingleChunk(0x1EA3A,0x1EFE0,"TextBankTreeData","scripting/textbanks/textbanktreedata.bin",file);
+	splitSingleChunk(0x1E892,0x1EA3A,"TextBankTreesPointers","scripting/textbanks/huffmantreeoffsets.bin",file);
+	splitSingleChunk(0x1EA3A,0x1EFE0,"TextBankTreeData","scripting/textbanks/huffmantrees.bin",file);
 	
 	MakeAlign(0x1F068, 0x20000-0x1F068,15);	
 	
