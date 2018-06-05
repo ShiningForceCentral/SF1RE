@@ -22,7 +22,7 @@ static main(void) {
 static produceMacros(){
 	auto file;
 	Message("\nWriting Macros to sf1macros.asm ...");	
-	file = fopen("sf1macros.asm","w");
+	file = fopen("disasm\\sf1macros.asm","w");
 	writestr(file,"; ---------------------------------------------------------------------------\n");
 	writestr(file,"; Align and pad\n");
 	writestr(file,"; input: length to align to, value to use as padding (default is $FF)\n");
@@ -42,7 +42,7 @@ static produceMacros(){
 
 static produceEnums(){
 	auto i,j,enumQty,id,enumName,enumSize,constant,constId,output,file;
-	file = fopen("sf1enums.asm","w");
+	file = fopen("disasm\\sf1enums.asm","w");
 	Message("\nWriting Enums to sf1enums.asm ...");
 	enumQty = GetEnumQty();
 	for(i=0;i<enumQty;i++){
@@ -75,7 +75,7 @@ static produceEnums(){
 static produceConst(void) {
 	auto seg,end,ea,segName,name,file;
 	Message("\nWriting offset constants to sf1const.asm ...");
-	file = fopen("sf1const.asm","w");
+	file = fopen("disasm\\sf1const.asm","w");
 	writestr(file,"; SF1CONST.ASM INCLUDED AT START OF SF1.ASM\n\n");
 	seg = FirstSeg();
 	seg = NextSeg(seg);
@@ -105,7 +105,7 @@ static produceMain(){
 	auto output, name, indent, comment, commentEx, commentIndent;
 	Message("Writing main assembly file to sf1.asm ...");	
 	action = 1;
-	file = fopen("sf1.asm","w");
+	file = fopen("disasm\\sf1.asm","w");
 	writeHeader(file);
 	 
 	produceSection(file,"01",			0x0,				0x8000,					0x8000-0x7E22,		"Technical layer, low level game engine, ...");
@@ -128,30 +128,35 @@ static produceMain(){
 }
 
 static produceSection(mainFile,sectionName,start,end,fs,sectionComment){
+	produceSectionWithPrettyPrintParam(mainFile,sectionName,start,end,fs,sectionComment,1);
+}
+
+
+static produceSectionWithPrettyPrintParam(mainFile,sectionName,start,end,fs,sectionComment,prettyPrint){
 	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
 	auto output, name, indent, comment, commentEx, commentIndent;
 	fileName = form("sf1-%s.asm",sectionName);
 	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
 	action = 1;
-	writestr(mainFile,form("   include \"%s\"\t\t; %s\n",fileName,sectionComment));
-	file = fopen(fileName,"w");
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
 	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
-	writestr(file,form("\n; FREE SPACE : %d bytes.\n\n\n",fs));	
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
 	ea = start;
 	while(ea<end){
 		itemSize = ItemSize(ea);
 		if(GetFunctionAttr(ea,FUNCATTR_START)==ea){	
-			writeFunctionHeader(file,ea);
+			writeFunctionHeader(file,ea,prettyPrint);
 		}
 		else if(GetFchunkAttr(ea,FUNCATTR_START)==ea){	
-			writeFChunkHeader(file,ea);
+			writeFChunkHeader(file,ea,prettyPrint);
 		}		
 		writeItem(file,ea);
 		if(GetFunctionAttr(ea,FUNCATTR_END)==(ea+itemSize)){
-			writeFunctionFooter(file,ea);
+			writeFunctionFooter(file,ea,prettyPrint);
 		}		
 		else if(GetFchunkAttr(ea,FUNCATTR_END)==(ea+itemSize)){
-			writeFChunkFooter(file,ea);
+			writeFChunkFooter(file,ea,prettyPrint);
 		}				
 		ea = ea + itemSize;
 	}
@@ -163,12 +168,12 @@ static produceSection(mainFile,sectionName,start,end,fs,sectionComment){
 static produceAsmScript(mainFile,sectionName,start,end,sectionComment){
 	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
 	auto output, name, indent, comment, commentEx, commentIndent;
-	fileName = form("asmscripts\\%s.asm",sectionName);
+	fileName = form("%s.asm",sectionName);
 	Message(form("Writing assembly script section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
 	action = 1;
-	writestr(mainFile,form("   include \"%s\"\t\t; %s\n",fileName,sectionComment));
-	file = fopen(fileName,"w");
-	writestr(file,form("\n; SCRIPT SECTION %s :\n; %s\n",sectionName,sectionComment));	
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; ASM FILE %s :\n; %s\n",sectionName,sectionComment));	
 	produceAsmSection(file,start,end);
 	fclose(file);
 	Message("DONE.\n");	
@@ -176,22 +181,30 @@ static produceAsmScript(mainFile,sectionName,start,end,sectionComment){
 }
 
 static produceAsmSection(file,start,end){
+	produceAsmSectionWithPrettyParam(file,start,end,1);
+}
+
+static produceAsmSectionNoPretty(file,start,end){
+	produceAsmSectionWithPrettyParam(file,start,end,0);
+}
+
+static produceAsmSectionWithPrettyParam(file,start,end,prettyWriteFunctions){
 	auto ea,itemSize;
 	ea = start;
 	while(ea<end){
 		itemSize = ItemSize(ea);
 		if(GetFunctionAttr(ea,FUNCATTR_START)==ea){	
-			writeFunctionHeader(file,ea);
+			writeFunctionHeader(file,ea,prettyWriteFunctions);
 		}
 		else if(GetFchunkAttr(ea,FUNCATTR_START)==ea){	
-			writeFChunkHeader(file,ea);
+			writeFChunkHeader(file,ea,prettyWriteFunctions);
 		}		
-		writeItem(file,ea);
+		writeItemWithPrettyPrintParam(file,ea,prettyWriteFunctions);
 		if(GetFunctionAttr(ea,FUNCATTR_END)==(ea+itemSize)){
-			writeFunctionFooter(file,ea);
+			writeFunctionFooter(file,ea,prettyWriteFunctions);
 		}		
 		else if(GetFchunkAttr(ea,FUNCATTR_END)==(ea+itemSize)){
-			writeFChunkFooter(file,ea);
+			writeFChunkFooter(file,ea,prettyWriteFunctions);
 		}				
 		ea = ea + itemSize;
 	}
@@ -209,18 +222,26 @@ static writeFooter(file){
 	writestr(file,"		END");
 }
 
-static writeFunctionHeader(file, ea){
+static writeFunctionHeader(file, ea, prettyWriteFunctions){
 	auto funcCmt;
-	writestr(file,"\n; =============== S U B R O U T I N E =======================================\n\n");
+	if(prettyWriteFunctions!=0){
+		writestr(file,"\n; =============== S U B R O U T I N E =======================================\n\n");
+	}
 	funcCmt = GetFunctionCmt(ea,0);
 	if(funcCmt!=""){
-		writestr(file,form("; %s\n\n",funcCmt));
+		writestr(file,form("; %s\n",funcCmt));
+		if(prettyWriteFunctions!=0){
+			writestr(file,"\n");
+		}
 	}
 	else{
 		funcCmt = GetFunctionCmt(ea,1);
 		if(funcCmt!=""){
 			funcCmt = formatFuncRptCmt(funcCmt);
-			writestr(file,form("; %s\n\n",funcCmt));
+			writestr(file,form("; %s\n",funcCmt));
+			if(prettyWriteFunctions!=0){
+				writestr(file,"\n");
+			}			
 		}
 	}
 	undefineLocalVars(file,ea);
@@ -255,17 +276,23 @@ static undefineMultipleLineArray(ea){
 			}	
 }
 
-static writeFunctionFooter(file, ea){
+static writeFunctionFooter(file, ea,prettyWriteFunctions){
 	auto funcName;
 	funcName = GetFunctionName(ea);
-	writestr(file,form("\n	; End of function %s\n\n",funcName));
+	if(prettyWriteFunctions!=0){
+		writestr(file,form("\n	; End of function %s\n\n",funcName));
+	}
 }
 
 static writeItem(file,ea){
-	auto name,tabLength,indent,disasm,cmtIdx,commentIndent,comment,commentEx,i,line,lineA,lineB,type,output;
-	tabLength = 2;
-	indent = "\t\t\t\t\t\t\t\t\t\t";
-	commentIndent = "\t\t\t\t\t\t\t\t\t\t\t\t";
+	writeItemWithPrettyPrintParam(file,ea,1);
+}
+
+static writeItemWithPrettyPrintParam(file,ea,prettyPrint){
+	auto name,tabLength,ln,indent,disasm,cmtIdx,commentIndent,comment,commentEx,i,line,lineA,lineB,type,output;
+	tabLength = 8;
+	indent = "\t\t";
+	commentIndent = "\t\t\t\t";
 	name = GetTrueName(ea);
 	if(name==""){
 		name = Name(ea);
@@ -273,7 +300,12 @@ static writeItem(file,ea){
 	if(name!=""){
 		name=form("%s:",name);
 		if(GetFunctionAttr(ea,FUNCATTR_START)!=-1){
-			name = form("%s\n%s",name,indent);
+			if(prettyPrint!=0){
+				ln = "\n";
+			}else{
+				ln = "";
+			}
+			name = form("%s%s%s",name,ln,indent);
 		}
 		else{
 			while(strlen(name)<(strlen(indent)*tabLength)){
@@ -295,8 +327,16 @@ static writeItem(file,ea){
 			comment = formatRptCmt(commentEx);
 		}
 	}
+	lineA = LineA(ea,0);
 	disasm = GetDisasm(ea);
 	cmtIdx = strstr(disasm,";");
+	lineB = LineB(ea,0);
+	if(lineA!=""){
+		lineA = form("%s\n",lineA);
+	}
+	if(lineB!=""){
+		lineB = form("%s\n",lineB);
+	}	
 	if(cmtIdx!=-1){
 		disasm = substr(disasm,0,cmtIdx);
 	}
@@ -306,21 +346,25 @@ static writeItem(file,ea){
 	if(strlen(name)>(strlen(indent)*tabLength)){
 		name = form("%s\n%s",name,indent);
 	}
+	if(strstr(lineA,"\n")!=-1){
+		lineA = form("%s%s",lineA,indent);
+	}
 	if(strlen(disasm)>(strlen(commentIndent)*tabLength)&&comment!=""){
 		disasm = form("%s\n%s%s",disasm,indent,commentIndent);
 	}
-	output = form("%s%s%s%s\n%s",lineA,name,disasm,comment,lineB);
+	//Message(form("\nname=%s,lineA=%s,disasm=%s,comment=%s,lineB=%s",name,lineA,disasm,comment,lineB));		
+	output = form("%s%s%s%s\n%s",name,lineA,disasm,comment,lineB);
 	writestr(file,output);
 }
 
-static writeFChunkHeader(file,ea){
+static writeFChunkHeader(file,ea,prettyWriteFunctions){
 	auto text,functionName;
 	text = "; START OF FUNCTION CHUNK FOR ";
 	functionName = GetFunctionName(ea);
 	writestr(file,form("\n%s%s\n\n",text,functionName));
 }
 
-static writeFChunkFooter(file,ea){
+static writeFChunkFooter(file,ea,prettyWriteFunctions){
 	auto text,functionName;
 	text = "; END OF FUNCTION CHUNK FOR ";
 	functionName = GetFunctionName(ea);
@@ -347,7 +391,7 @@ static formatRptCmt(cmt){
 	if(index!=-1){
 		before = substr(cmt,0,index+1);
 		after = substr(cmt,index+1,strlen(cmt));
-		result = form("%s\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t; %s",before,formatRptCmt(after));
+		result = form("%s\t\t\t\t\t\t\t\t\t\t\t\t\t\t; %s",before,formatRptCmt(after));
 		return result;
 	}
 	else{
