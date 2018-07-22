@@ -109,23 +109,436 @@ static produceMain(){
 	writeHeader(file);
 	 
 	produceSection(file,"01",			0x0,				0x8000,					0x8000-0x7E22,		"Technical layer, low level game engine, ...");
-	produceSection(file,"02",	 0x8000,			 0x20000,				0x20000-0x1F068,		"");
-	produceSection(file,"03",	0x20000,			 0x2C000,				0x2C000-0x2BF85,		"");
-	produceSection(file,"04",	0x2C000,			 0x38000,				0x38000-0x37B38,		"");
-	produceSection(file,"05",	0x38000,			 0x58000,				0x58000-0x57F5F,		"");
-	produceSection(file,"06",	0x58000,			 0x80000,				0x80000-0x7F6FF,		"");
-	produceSection(file,"07",	0x80000,			 0xBC000,				0xBC000-0xBA3ED,		"");
-	produceSection(file,"08",	0xBC000,			 0xC0000,				0xC0000-0xBEDAC,		"");
-	produceSection(file,"09",	0xC0000,			0x100000,			 0x100000-0xFFD3D,		"");
-	produceSection(file,"10",0x100000,			0x124000,			0x124000-0x122758,		"");
-	produceSection(file,"11",0x124000,			0x144000,			0x144000-0x13E92C,		"");
-	produceSection(file,"12",0x144000,			0x164000,			0x164000-0x163FFA,		"");
-	produceSection(file,"13",0x164000,			0x168000,			0x168000-0x163FFA,		"");
-	produceSection(file,"14",0x168000,			0x180000,											0,		"");
+	produceSection(file,"02",	 0x8000,			 0x10000,				0x10000-0xFD58,		"");
+	produceSection(file,"03",	 0x10000,			 0x20000,				0x20000-0x1F068,		"");
+	produceSection(file,"04",	0x20000,			 0x2C000,				0x2C000-0x2BF85,		"");
+	produceSection(file,"05",	0x2C000,			 0x38000,				0x38000-0x37B38,		"Region check, variable width font, portraits");
+	produceSection(file,"06",	0x38000,			 0x58000,				0x58000-0x57F5F,		"Map sprites, misc. uncompressed graphics");
+	produceSection(file,"07",	0x58000,			 0x80000,				0x80000-0x7F6FF,		"Map tilesets");
+	produceSection(file,"08",	0x80000,			 0xBC000,				0xBC000-0xBA3ED,		"Sprite sets, map sprite scripts, ...");
+	produceSection(file,"09",	0xBC000,			 0xC0000,				0xC0000-0xBEDAC,		"");
+	produceSection(file,"10",	0xC0000,			0xCC000,			 0xCC000-0xCB8C5,		"Ending, intro, title and chapter screens graphics and palettes");
+	produceSection(file,"11",	0xCC000,			0x100000,			 0x100000-0xFFD3D,		"");
+	produceSection(file,"12",0x100000,			0x124000,			0x124000-0x122758,		"Enemy battle sprites and animations");
+	produceSection(file,"13",0x124000,			0x130000,			0x130000-0x12FE14,		"");
+	produceSection(file,"14",0x130000,			0x144000,			0x144000-0x13E92C,		"Text banks, ...");
+	produceSection(file,"15",0x144000,			0x164000,			0x164000-0x163FFA,		"Ally battle sprites and animations, weapon sprites and palettes, battle platforms");
+	produceSection(file,"16",0x164000,			0x168000,			0x168000-0x167FEA,		"");
+	produceSection(file,"17",0x168000,			0x180000,											0,		"Sound driver");
 
 	fclose(file);
 	Message("\nDONE.");	
 }
+
+static produceLayoutFile(){
+
+	auto file;
+	file = fopen("disasm\\layout\\sf1-00-romlayout.asm","w");
+	
+	writestr(file,"\n; ROM LAYOUT FILE\n;\n");
+
+	produceSpecificSectionOne(file,		"01",	0x0,		0x8000,		478,	"0x000000..0x008000 : Technical layer, low level game engine, ...");
+	produceSpecificSectionTwo(file,		"02",	0x8000,		0x10000,	680,	"0x008000..0x010000 : ");
+	produceSpecificSectionThree(file,	"03",	0x10000,	0x20000,	3992,	"0x010000..0x020000 : ");
+	produceSpecificSectionFour(file,	"04",	0x20000,	0x2C000,	123,	"0x020000..0x02C000 : ");
+	produceSpecificSectionFive(file,	"05",	0x2C000,	0x38000,	1224,	"0x02C000..0x038000 : Region check, variable width font, portraits");
+	produceSpecificSectionSix(file,		"06",	0x38000,	0x58000,	161,	"0x038000..0x058000 : Map sprites, misc. uncompressed graphics");
+	produceSpecificSectionSeven(file,	"07",	0x58000,	0x80000,	2305,	"0x058000..0x080000 : Map tilesets");
+	produceSpecificSectionEight(file,	"08",	0x80000,	0xBC000,	7187,	"0x080000..0x0BC000 : Sprite sets, map sprite scripts, ...");
+	produceSpecificSectionNine(file,	"09",	0xBC000,	0xC0000,	1254,	"0x0BC000..0x0C0000 : ");
+	produceSpecificSectionTen(file,		"10",	0xC0000,	0xCC000,	1851,	"0x0C0000..0x0CC000 : Ending, intro, title and chapter screens graphics and palettes");
+	produceSpecificSectionEleven(file,	"11",	0xCC000,	0x100000,	707,	"0x0CC000..0x100000 : ");
+	produceSpecificSectionTwelve(file,	"12",	0x100000,	0x124000,	6312,	"0x100000..0x124000 : Enemy battle sprites and animations");
+	produceSpecificSectionThirteen(file,	"13",	0x124000,	0x130000,	492,	"0x124000..0x130000 : ");
+	produceSpecificSectionFourteen(file,	"14",	0x130000,	0x144000,	22228,	"0x130000..0x144000 : Text banks, ...");
+	produceSpecificSectionFifteen(file,	"15",	0x144000,	0x164000,	6,	"0x144000..0x164000 : Ally battle sprites and animations, weapon sprites and palettes, battle platforms");
+	produceSpecificSectionSixteen(file,	"16",	0x164000,	0x168000,	22,	"0x164000..0x168000 : ");
+	produceSpecificSectionSeventeen(file,	"17",	0x168000,	0x180000,	0,	"0x168000..0x180000 : Sound driver");
+
+	fclose(file);
+
+}
+
+
+static produceSpecificSectionOne(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf1-%s-0x00000%s-0x00%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));
+	
+	//produceAsmSection(file,0x0,0x8000);
+    
+	produceAsmScript(file,"code\\romheader",0x0,0x200,"ROM Header");
+	produceAsmScript(file,"code\\gameflow\\start\\systeminit",0x200,0x47A,"System init functions");
+	produceAsmScript(file,"code\\gameflow\\start\\gamestart",0x47A,0x5FA,"Start function");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap0_soundcommand",0x5FA,0x62E,"Trap 0 - Sound Command");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\errors",0x62E,0x698,"Error interrupts");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap5_",0x698,0x6A8,"Trap 5 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap6_",0x6A8,0x6B8,"Trap 6 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap7_",0x6B8,0x6C8,"Trap 7 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap8_",0x6C8,0x6D8,"Trap 8 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\vintengine",0x6D8,0x137E,"Vertical Interrupt Engine - Main Technical Engine - Triggered at each frame display");
+	produceAsmScript(file,"code\\common\\scripting\\text\\asciinumber",0x137E,0x1410,"ASCII number function");
+	produceAsmScript(file,"code\\common\\tech\\input",0x1410,0x14EE,"Input functions");
+	produceAsmScript(file,"code\\common\\tech\\randomnumbergenerator",0x14EE,0x150E,"RNG function");
+	produceAsmScript(file,"code\\common\\tech\\sound\\music",0x150E,0x1526,"Sound function");
+	produceAsmScript(file,"code\\common\\tech\\bytecopy",0x1526,0x1550,"Byte-copy function");
+	produceAsmScript(file,"code\\common\\tech\\graphics\\graphics",0x1550,0x2046,"Graphics functions");
+	produceAsmScript(file,"code\\common\\scripting\\text\\textfunctions",0x2046,0x21C8,"Text functions");
+
+	produceAsmScript(file,"code\\common\\tech\\graphics\\graphicsdecompressor",0x25D0,0x29F8,"Graphics decompression function");
+
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap1_",0x2F72,0x2F94,"Trap 1 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap2_",0x2F94,0x2FB6,"Trap 2 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap3_",0x2FB6,0x2FD8,"Trap 3 - ");
+	produceAsmScript(file,"code\\common\\tech\\interrupts\\trap4_",0x2FD8,0x2FFA,"Trap 4 - ");
+	//produceAsmScript(file,"code\\common\\scripting\\eventflags",0x2FFA,0x,"Event flags functions");
+
+	produceAsmScript(file,"code\\common\\tech\\sram\\sramfunctions",0x3660,0x3852,"SRAM functions");
+
+	produceAsmScript(file,"code\\common\\scripting\\battleexits",0x3F0E,0x49EE,"Battle exit scripts functions");
+
+	fclose(file);
+	Message("DONE.\n");	
+}	
+
+
+static produceSpecificSectionTwo(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x00%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));
+    
+	produceAsmSection(file,0x8000,0x10000);
+    
+	fclose(file);
+	Message("DONE.\n");	
+}	
+
+
+static produceSpecificSectionThree(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x0%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+    
+	//produceAsmSection(file,0x10000,0x20000);
+    
+	produceAsmSection(file,0x1E892,0x1EFE0);
+	produceAsmScript(file,"code\\common\\scripting\\text\\huffmandecoder",0x1EFE0,0x1F068,"Text decoding functions");	
+	produceAsmSection(file,0x1F068,0x20000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}	
+
+
+static produceSpecificSectionFour(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x0%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+    
+	//produceAsmSection(file,0x20000,0x2C000);
+    
+	produceAsmScript(file,"code\\common\\stats\\statsengine",0x20000,0x25154,"Character stats engine");
+    
+    //produceAsmScript(file,"code\\common\\stats\\levelup",0x246EC,0x24BAC,"Level up functions");
+    
+    produceAsmSection(file,0x25154,0x26E16);    //Stats engine data
+    
+    //produceAsmScript(file,"code\\gameflow\\battle\\battlefieldengine",0x26E16,0x2704E,"Battlefield engine");
+    
+	produceAsmSection(file,0x2704E,0x2C000);
+
+	fclose(file);
+	Message("DONE.\n");
+}
+
+
+static produceSpecificSectionFive(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x0%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));
+    
+	produceAsmSection(file,0x2C000,0x2C008);
+	produceAsmScript(file,"code\\gameflow\\start\\regioncheck",0x2C008,0x2C13E,"Region check function");
+	produceAsmSection(file,0x2C13E,0x2D13E);
+	produceAsmScript(file,"data\\graphics\\portraits\\entries",0x2D13E,0x37B38,"Portraits");
+    produceAsmSection(file,0x37B38,0x38000);
+    
+	fclose(file);
+	Message("DONE.\n");
+}
+
+
+static produceSpecificSectionSix(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x0%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+			
+	//produceAsmSection(file,0x38000,0x58000);
+    
+	produceAsmSection(file,0x38000,0x39928);
+	produceAsmScript(file,"data\\graphics\\mapsprites\\entries",0x39928,0x57F5F,"Map sprites");
+    produceAsmSection(file,0x57F5F,0x58000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionSeven(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	auto battleCutscenesFile, mapSetupsFile;
+	fileName = form("layout\\sf2-%s-0x0%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+    
+	produceAsmSection(file,0x58000,0x58014);
+	produceAsmScript(file,"data\\graphics\\maps\\maptilesets\\entries",0x58014,0x7F6FF,"Map tilesets");
+	produceAsmSection(file,0x7F6FF,0x80000);
+    
+	fclose(file);
+	Message("DONE.\n");
+}
+
+
+static produceSpecificSectionEight(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x0%s-0x0%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+    
+	//produceAsmSection(file,0x80000,0xBC000);
+    
+	produceAsmSection(file,0x80000,0x80010);
+	produceAsmScript(file,"data\\maps\\spritesets\\entries",0x80010,0x80EE0,"Sprite sets");
+	produceAsmSection(file,0x80EE0,0x80EFE);
+	produceAsmScript(file,"data\\scripting\\mapspritescripts\\entries",0x80EFE,0x820CC,"Map sprite scripts");
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionNine(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x0%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	produceAsmSection(file,0xBC000,0xC0000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionTen(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	produceAsmSection(file,0xC0000,0xCC000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionEleven(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	//produceAsmSection(file,0xCC000,0x100000);
+    
+	produceAsmScript(file,"data\\graphics\\battles\\backgrounds\\entries",0xD398E,0xFFD3D,"Backgrounds");
+	produceAsmSection(file,0xFFD3D,0x100000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionTwelve(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+    
+	produceAsmSection(file,0x100000,0x100008);
+	produceAsmScript(file,"data\\graphics\\battles\\battlesprites\\enemies\\entries",0x100008,0x122252,"Enemy battle sprites");
+	produceAsmScript(file,"data\\graphics\\battles\\battlesprites\\enemies\\animations\\entries",0x122252,0x122758,"Enemy battle animations");
+	produceAsmSection(file,0x122758,0x124000);
+    
+	fclose(file);
+	Message("DONE.\n");
+}
+
+
+static produceSpecificSectionThirteen(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	produceAsmSection(file,0x124000,0x130000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionFourteen(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	//produceAsmSection(file,0x130000,0x144000);
+    
+	produceAsmScript(file,"data\\scripting\\text\\textbanks\\entries",0x131A1C,0x13E92A,"Text banks");
+
+	fclose(file);
+	Message("DONE.\n");
+}
+
+
+static produceSpecificSectionFifteen(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+    
+    produceAsmSection(file,0x144000,0x144014);
+    produceAsmScript(file,"data\\graphics\\battles\\battlesprites\\allies\\entries",0x144014,0x1602E2,"Ally battle sprites");
+    produceAsmScript(file,"data\\graphics\\battles\\weapons\\entries",0x1602E2,0x16186E,"Weapon sprites");
+    produceAsmSection(file,0x16186E,0x161A66);
+    produceAsmScript(file,"data\\graphics\\battles\\battlesprites\\allies\\animations\\entries",0x161A66,0x16226A,"Ally battle sprite animations");
+    produceAsmScript(file,"data\\graphics\\battles\\grounds\\entries",0x16226A,0x163FFA,"Battle platforms");
+    produceAsmSection(file,0x163FFA,0x164000);
+    
+	fclose(file);
+	Message("DONE.\n");
+}
+
+
+static produceSpecificSectionSixteen(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	produceAsmSection(file,0x164000,0x168000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
+
+static produceSpecificSectionSeventeen(mainFile,sectionName,start,end,fs,sectionComment){
+	auto ea,itemSize,action,currentLine,previousLine,fileName,file;
+	auto output, name, indent, comment, commentEx, commentIndent;
+	fileName = form("layout\\sf2-%s-0x%s-0x%s.asm",sectionName,ltoa(start,16),ltoa(end,16));
+	Message(form("Writing assembly section %s to %s (%s) ... ",sectionName,fileName,sectionComment));	
+	action = 1;
+	writestr(mainFile,form("\t\tinclude \"%s\"\t\t; %s\n",fileName,sectionComment));
+	file = fopen(form("disasm\\%s",fileName),"w");
+	writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
+	writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));	
+
+	produceAsmSection(file,0x168000,0x180000);
+
+	fclose(file);
+	Message("DONE.\n");	
+}
+
 
 static produceSection(mainFile,sectionName,start,end,fs,sectionComment){
 	produceSectionWithPrettyPrintParam(mainFile,sectionName,start,end,fs,sectionComment,1);
