@@ -492,7 +492,7 @@ static splitSingleChunks(file) {
 
 	splitSingleChunk(0x168000, 0x170000, "","data/sound/pcmbank0.bin",file);
 	splitSingleChunk(0x170000, 0x176000, "","data/sound/musicbank0.bin",file);
-	splitSingleChunk(0x176000, 0x178000, "","data/sound/driver.bin",file);
+	splitSingleChunk(0x176000, 0x178000, "","data/sound/sounddriver.bin",file);
 	splitSingleChunk(0x178000, 0x178AE0, "","data/sound/instruments.bin",file);
 	splitSingleChunk(0x178AE0, 0x180000, "","data/sound/musicbank1.bin",file);
 	
