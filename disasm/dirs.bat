@@ -2,6 +2,8 @@ mkdir disasm
 
 mkdir disasm\code
 mkdir disasm\code\common
+mkdir disasm\code\common\menus\church
+mkdir disasm\code\common\menus\shop
 mkdir disasm\code\common\scripting
 mkdir disasm\code\common\scripting\text
 mkdir disasm\code\common\tech
@@ -10,7 +12,13 @@ mkdir disasm\code\common\tech\interrupts
 mkdir disasm\code\common\tech\sound
 mkdir disasm\code\common\tech\sram
 mkdir disasm\code\gameflow
+mkdir disasm\code\gameflow\end
+mkdir disasm\code\gameflow\special
 mkdir disasm\code\gameflow\start
+mkdir disasm\code\specialscreens
+mkdir disasm\code\specialscreens\segalogo
+mkdir disasm\code\specialscreens\simone
+mkdir disasm\code\specialscreens\soundtest
 
 mkdir disasm\data
 mkdir disasm\data\graphics

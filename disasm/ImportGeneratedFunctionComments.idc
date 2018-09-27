@@ -40,6 +40,22 @@ static main()
     SetFunctionCmt(0xe96, 
         "used to execute sub_768", 1);
 
+    // sub_10D2
+    SetFunctionCmt(0x10d2, 
+        "DMA stuff. d0 = DMA destination ?", 1);
+
+    // sub_1284
+    SetFunctionCmt(0x1284, 
+        "DMA preparation stuff", 1);
+
+    // sub_1294
+    SetFunctionCmt(0x1294, 
+        "DMA stuff", 1);
+
+    // sub_12BA
+    SetFunctionCmt(0x12ba, 
+        "DMA stuff", 1);
+
     // DMAVramFill
     SetFunctionCmt(0x12e6, 
         "d0:DMA destination - d1:DMA length - d2:sent to VDP Data", 1);
@@ -117,6 +133,10 @@ set default values in sprite table", 1);
     SetFunctionCmt(0xae36, 
         "Display window? D0 = XXXXWWHH D1=? D2=?", 1);
 
+    // sub_12C62
+    SetFunctionCmt(0x12c62, 
+        "Teleport map sprite (on same map?)", 1);
+
     // sub_17E34
     SetFunctionCmt(0x17e34, 
         "Dialog Scripts", 1);
@@ -191,19 +211,19 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x2091a, 
         "Mark all occupied squares as unreachable", 1);
 
-    // sub_2097A
+    // CalculateDistance
     SetFunctionCmt(0x2097a, 
         "Computes distance (DX+DY) of two points stored in D1,D2 and D5,D6 and returns as D7", 1);
 
-    // sub_20994
+    // GetDistanceToTarget
     SetFunctionCmt(0x20994, 
         "Computes distance between D1,D2 and member D0 and returns as D7", 1);
 
-    // sub_209B0
+    // GetDistanceBetweenTargets
     SetFunctionCmt(0x209b0, 
-        "Wrapper for 20994, swaps D3 (target) to D0", 1);
+        "Get distance between members D0 and D1 -> D7", 1);
 
-    // sub_209CA
+    // FindTargetAtPosition
     SetFunctionCmt(0x209ca, 
         "Find member at D1,D2 and store in D0", 1);
 
@@ -295,19 +315,19 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x211a8, 
         "Apply land effect to damage D3", 1);
 
-    // ApplyResistance
+    // ApplyElemResist
     SetFunctionCmt(0x211c6, 
-        "Apply resistance D2 to damage D3", 1);
+        "Apply elemental resistance D2 to damage D3", 1);
 
-    // sub_211E6
+    // GetTargetResistance
     SetFunctionCmt(0x211e6, 
-        "Wrapper for 23956, backs up registers", 1);
+        "Get battle member D1 resistance flags D2 -> D2", 1);
 
     // IsSpellNullified
     SetFunctionCmt(0x211fc, 
         "Check if spell nullified by barrier", 1);
 
-    // sub_21224
+    // CheckEvasion
     SetFunctionCmt(0x21224, 
         "Evasion check", 1);
 
@@ -319,7 +339,7 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x212a6, 
         "Get random number 0 to 100, returned in D7", 1);
 
-    // sub_212B6
+    // CheckStatusFailure
     SetFunctionCmt(0x212b6, 
         "Check for status effect failure", 1);
 
@@ -517,7 +537,7 @@ set default values in sprite table", 1);
 
     // GetTargetPosition
     SetFunctionCmt(0x22380, 
-        "Get position of D0 X to D2 Y to D1", 1);
+        "Get position of member D0 -> X to D2, Y to D1", 1);
 
     // GetStatusCounter
     SetFunctionCmt(0x22390, 
@@ -577,7 +597,7 @@ set default values in sprite table", 1);
 
     // GetClassFromForceID
     SetFunctionCmt(0x2249e, 
-        "Get class by force index", 1);
+        "Get class by force index D0 -> D1", 1);
 
     // GetLevelFromForceID
     SetFunctionCmt(0x224ac, 
@@ -1049,7 +1069,7 @@ set default values in sprite table", 1);
 
     // GetEquippedItemFromForceID
     SetFunctionCmt(0x22e24, 
-        "Get equipped item with flags matching D1 by force index", 1);
+        "Get equipped item matching flags D1 by force index D0 -> D2", 1);
 
     // EquipItemFromForceID
     SetFunctionCmt(0x22e36, 
@@ -1069,15 +1089,15 @@ set default values in sprite table", 1);
 
     // GetItemEntryAddress
     SetFunctionCmt(0x22e7e, 
-        "Get address of item's (D1) stats", 1);
+        "Get address of item D1 entry -> A1", 1);
 
     // GetItemType
     SetFunctionCmt(0x22e92, 
-        "Get flag byte of item (D1) data to D2", 1);
+        "Get word-sized type flags of item D1 -> D2", 1);
 
     // GetItemPrice
     SetFunctionCmt(0x22ea8, 
-        "Get price of item (D1) data", 1);
+        "Get price of item D1 -> D2", 1);
 
     // sub_22EB6
     SetFunctionCmt(0x22eb6, 
@@ -1085,7 +1105,7 @@ set default values in sprite table", 1);
 
     // GetEquippedItem
     SetFunctionCmt(0x22ec0, 
-        "Get equipped item of force member D0 with flags matching D1", 1);
+        "Get equipped item matching flags D1 of force member D0 -> D2", 1);
 
     // EquipItem
     SetFunctionCmt(0x22efe, 
@@ -1113,15 +1133,15 @@ set default values in sprite table", 1);
 
     // GetSpellEntryAddress
     SetFunctionCmt(0x23040, 
-        "Get address of spell D1 data", 1);
+        "Get address of spell D1 entry -> A1", 1);
 
     // GetMPCost
     SetFunctionCmt(0x23056, 
-        "Get Spell MP Cost to D2", 1);
+        "Get MP cost of spell D1 -> D2", 1);
 
     // GetRangeEntryAddress
     SetFunctionCmt(0x23068, 
-        "Get address of range D4 data", 1);
+        "Get address of range D4 entry -> A1", 1);
 
     // sub_2307A
     SetFunctionCmt(0x2307a, 
@@ -1130,6 +1150,10 @@ set default values in sprite table", 1);
     // sub_230F2
     SetFunctionCmt(0x230f2, 
         "Like 2307A?", 1);
+
+    // GetAdjustedGroupFlags
+    SetFunctionCmt(0x23136, 
+        "Check if caster D0 is enemy and adjust group flags D4 accordingly", 1);
 
     // sub_23160
     SetFunctionCmt(0x23160, 
@@ -1265,7 +1289,7 @@ set default values in sprite table", 1);
 
     // GetClassEntryAddress
     SetFunctionCmt(0x23914, 
-        "Calculate offset into class data table for class D1", 1);
+        "Get address of class D1 entry -> A0", 1);
 
     // GetMoveCostEntryAddress
     SetFunctionCmt(0x23928, 
@@ -1318,6 +1342,34 @@ set default values in sprite table", 1);
     // IsChangedIntoJogurt
     SetFunctionCmt(0x23c6c, 
         "Check if character D0 is under Jogurt status effect", 1);
+
+    // sub_23F6E
+    SetFunctionCmt(0x23f6e, 
+        "Check action type", 1);
+
+    // sub_2401C
+    SetFunctionCmt(0x2401c, 
+        "Cast spell AI", 1);
+
+    // sub_24062
+    SetFunctionCmt(0x24062, 
+        "Caster AI : prepare to cast spell D1", 1);
+
+    // sub_240BC
+    SetFunctionCmt(0x240bc, 
+        "Dark Dragon AI", 1);
+
+    // sub_240E8
+    SetFunctionCmt(0x240e8, 
+        "Use item AI", 1);
+
+    // sub_24170
+    SetFunctionCmt(0x24170, 
+        "Load range data", 1);
+
+    // sub_2425C
+    SetFunctionCmt(0x2425c, 
+        "Trigger AI regions (or set AI regions to trigger?)", 1);
 
     // GetLandEffectAtTargetPosition
     SetFunctionCmt(0x24608, 
@@ -1559,8 +1611,8 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x27036, 
         "Flag AI Regions as triggered", 1);
 
-    // sub_8000C
-    SetFunctionCmt(0x8000c, 
+    // sub_80EE0
+    SetFunctionCmt(0x80ee0, 
         "Load address into table at 80EFE based on byte D of sprite data", 1);
 
 }
