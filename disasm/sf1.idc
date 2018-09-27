@@ -2496,6 +2496,12 @@ static Bytes_0(void) {
 	MakeCode	(x=0X32B0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X32B6,	"\"Done for now? That's OK. Get[Line]lots of rest, and I'll see[Line]you soon![Wait2]\"");
+	MakeCode	(x=0X32BA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X32BC,	"\"Don't stay away too long,[Line]though. We need you here to[Line]lead the Shining Force![Wait2]\"");
+	MakeCode	(x=0X32C0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X32EC);
 	MakeCode	(x=0X32F8);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
@@ -2508,6 +2514,30 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3312);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3318,	"\"Swallowed by the murky brine,[Line]the Castle of the Ancients[Line]was lost forevermore.[Delay2][Delay2]\"");
+	MakeCode	(x=0X331C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X3320,	"\"The battle over and Rune[Line]saved, the warriors of the[Line]Shining Force returned home.[Delay2][Delay2]\"");
+	MakeCode	(x=0X3324);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X3328,	"\"Led by Mae, Guardiana was[Line]rebuilt and Anri inherited[Line]the throne.[Delay2][Delay2]\"");
+	MakeCode	(x=0X332C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X3330,	"\"As for [Hero], he is[Line]believed to have perished at[Line]sea along with Dark Dragon.[Delay2][Delay2]\"");
+	MakeCode	(x=0X3334);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X333E,	"\"And that is the official[Line]ending. But you and I know[Line]differently, don't we?[Delay2][Delay2]\"");
+	MakeCode	(x=0X3342);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X3346,	"\"Somewhere, evil stirs in a[Line]land that has need of a[Line]hero.[Delay2][Delay2]\"");
+	MakeCode	(x=0X334A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X334E,	"\"And I know you'll be up to[Line]the challenge, [Hero]![Delay2][Delay2]\"");
+	MakeCode	(x=0X3352);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X3356,	"\"Well, goodbye for now. I have[Line]a feeling I'll be seeing you[Line]again.[Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X335A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3364);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X3366);
@@ -2549,13 +2579,31 @@ static Bytes_0(void) {
 	MakeCode	(x=0X33D0);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X33DC,	"\"Wow! Dark Dragon, Ancients...[Line]Let's see now, what else does[Line]this old book say?[Wait2][Line]Hmmm. One thousand years[Line]have passed since they[Line]vanquished Dark Dragon.[Wait2][Line]And this book says[Line]Dark Dragon threatened to[Line]return right about now.[Wait2][Line]I bet anything that Dark[Line]Dragon is behind the evil[Line]hordes of Runefaust![Wait2]\"");
+	MakeCode	(x=0X33E0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X33E2);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X33E8,	"\"I need to tell someone about[Line]this! But who would listen to[Line]a kid like me?[Wait2]\"");
+	MakeCode	(x=0X33EC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X33EE);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3402,	"\"Oh, hi! I didn't notice you[Line]there at first. Maybe you'll[Line]listen. Nobody else will.[Wait2]\"");
+	MakeCode	(x=0X3406);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X3408,	"\"This book tells of an ancient[Line]evil that threatened our land[Line]long ago--Dark Dragon![Wait2]\"");
+	MakeCode	(x=0X340C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X340E,	"\"I think Dark Dragon's coming[Line]back! Will you help us?[Line]C'mon, it'll be an adventure![Wait2]\"");
+	MakeCode	(x=0X3412);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X3416);
+	MakeRptCmt	(0X341C,	"\"Come on! Let's get on with[Line]your adventure!\"");
+	MakeCode	(x=0X3420);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X343A);
 	OpOff		(x,	0,	0X343A);
 	OpOff		(x,	128,	0X343A);
@@ -2577,12 +2625,24 @@ static Bytes_0(void) {
 	OpOff		(x,	1,	0X343A);
 	OpOff		(x,	129,	0X343A);
 	MakeCode	(0X3442);
+	MakeRptCmt	(0X3448,	"\"Pick an adventure.\"");
+	MakeCode	(x=0X344C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X345A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(x=0X3460);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X346A,	"\"Say, what shall I call you?[Wait2]\"");
+	MakeCode	(x=0X346E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X34AC,	"\"Nice to meet you,[Line][Hero]! I'm Simone.[Wait2][Line]Come back often[Line]and tell me everything![Wait2]\"");
+	MakeCode	(x=0X34B0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X34B2,	"\"You need to get going! Evil[Line]spreads farther across Rune[Line]with every passing day.[Wait2]\"");
+	MakeCode	(x=0X34B6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X34B8);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -2598,12 +2658,21 @@ static Bytes_0(void) {
 	OpEnumEx		(x,	0,	GetEnum("SoundCommands"),0);
 	MakeCode	(0X34E4);
 	MakeCode	(0X34EC);
+	MakeRptCmt	(0X34F2,	"\"Let's get going![Line]You're doing great so far![Wait2]\"");
+	MakeCode	(x=0X34F6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X34FE,	"\"Which adventure would you[Line]like to continue?[Wait2]\"");
+	MakeCode	(x=0X3502);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3510);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(x=0X351A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3526,	"\"Good luck! And be sure to[Line]stop by to let me know how[Line]you're doing, OK?[Wait2]\"");
+	MakeCode	(x=0X352A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3532);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -2613,19 +2682,34 @@ static Bytes_0(void) {
 	OpEnumEx		(x,	0,	GetEnum("SoundCommands"),0);
 	MakeCode	(0X353A);
 	MakeCode	(0X3542);
+	MakeRptCmt	(0X3548,	"\"Really? Which adventure[Line]should I delete?[Wait2]\"");
+	MakeCode	(x=0X354C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X355E);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X356A,	"\"Are you sure?\"");
+	MakeCode	(x=0X356E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3580);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X358E,	"\"OK, it's done![Wait2]\"");
+	MakeCode	(x=0X3592);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3594);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X35AA);
+	MakeRptCmt	(0X35B0,	"\"Which adventure do you wish[Line]to copy?\"");
+	MakeCode	(x=0X35B4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X35C6);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X35D2,	"\"Where do you wish to copy it[Line]to?\"");
+	MakeCode	(x=0X35D6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X35EA);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -2638,10 +2722,22 @@ static Bytes_0(void) {
 	MakeCode	(x=0X360E);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X361E,	"\"Done![Wait2]\"");
+	MakeCode	(x=0X3622);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3628);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3634,	"\"Change your mind? No problem![Wait2]\"");
+	MakeCode	(x=0X3638);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X363E);
+	MakeRptCmt	(0X3644,	"\"Oh no! I can't find adventure[Line][Num]! I hope you're not too[Line]mad![Wait2]\"");
+	MakeCode	(x=0X3648);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X364A,	"\"Done for now? That's OK. Get[Line]lots of rest, and I'll see[Line]you soon![Wait2]\"");
+	MakeCode	(x=0X364E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X3652);
 	MakeCode	(x=0X3660);
 	OpOff		(x,	0,	0X0);
@@ -2688,7 +2784,10 @@ static Bytes_0(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X3760);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
+	MakeRptCmt	(0X3762,	"\"Oh no! I can't find adventure[Line][Num]! I hope you're not too[Line]mad![Wait2]\"");
 	MakeCode	(0X3762);
+	MakeCode	(x=0X3766);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeStr		(0X3774,	0X378A);
 	MakeName	(0X3774,	"aYasuhirohiroko");
 	MakeCode	(0X378A);
@@ -2866,6 +2965,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3B28);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3B2E,	"\"[Hero]? [Hero]?[Line]C'mon, kid, wake up![Line]I didn't hit you that hard.[Wait2]\"");
+	MakeCode	(x=0X3B32);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3B36);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X3B38);
@@ -2885,7 +2987,10 @@ static Bytes_0(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X3B5C);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
+	MakeRptCmt	(0X3B5E,	"\"Keep your guard up, kid.[Line]Those beasts of Runefaust[Line]will tear you to pieces![Wait2]\"");
 	MakeCode	(0X3B5E);
+	MakeCode	(x=0X3B62);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3B6A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -2905,6 +3010,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3BA0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3BA4,	"\"[Hero] and the Shining[Line]Force followed Kane's trail[Line]to the town of Rindo....[Wait2]\"");
+	MakeCode	(x=0X3BA8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3BB0);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -2924,6 +3032,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3BE4);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3BE8,	"\"The Shining Force arrived in[Line]Bustoke, a town built into a[Line]mountainside.[Wait2]\"");
+	MakeCode	(x=0X3BEC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3BF4);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -2943,6 +3054,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3C2A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3C2E,	"\"The Shining Force reached the[Line]Pao Prairie to discover that[Line]Pao was a town of wagons![Wait2]\"");
+	MakeCode	(x=0X3C32);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3C3A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -2962,6 +3076,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3C70);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3C74,	"\"After a week at sea, sentries[Line]spotted a horde of monsters[Line]approaching the ship....[Wait2]\"");
+	MakeCode	(x=0X3C78);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3C80);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -2984,6 +3101,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3CBC);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3CC0,	"\"The Shining Force finally[Line]reached the port of Rudo, far[Line]from Prompt.[Wait2]\"");
+	MakeCode	(x=0X3CC4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3CCC);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -3003,6 +3123,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3D04);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3D08,	"\"The Shining Force quickly[Line]reached Prompt, hoping[Line]that they had come in time.[Wait2]\"");
+	MakeCode	(x=0X3D0C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3D14);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -3022,6 +3145,9 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3D4C);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X3D50,	"\"Runefaust at last! The long[Line]and perilous journey is near[Line]its end.[Wait2][Line]It is up to the Shining Force[Line]whether it ends as a[Line]triumph for Light or Darkness.[Wait2]\"");
+	MakeCode	(x=0X3D54);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3D5C);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -3040,7 +3166,13 @@ static Bytes_0(void) {
 	MakeCode	(x=0X3D84);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X3DAC,	"\"[Hero] and the Shining[Line]Force head toward Bustoke.[Line]What awaits them there?[Wait2][Line]The legacy of the Ancients[Line]is still a mystery. Will[Line]they ever solve it?[Wait2]\"");
+	MakeCode	(x=0X3DB0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X3DBC);
+	MakeRptCmt	(0X3DE0,	"\"The Shining Force is now in a[Line]desperate race against time.[Line]Dark Dragon is awakening![Wait2]\"");
+	MakeCode	(x=0X3DE4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3DEC);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X3DEE);
@@ -3088,6 +3220,9 @@ static Bytes_0(void) {
 	MakeWord	(x=0X3EE6);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
 	MakeCode	(0X3EE8);
+	MakeRptCmt	(0X3EEE,	"\"Do you want to record your[Line]exploits so far?\"");
+	MakeCode	(x=0X3EF2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X3F02);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X3F04);
@@ -4555,6 +4690,15 @@ static Bytes_0(void) {
 	MakeWord	(0X4AE0);
 	MakeWord	(0X4AE2);
 	MakeWord	(0X4AE4);
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_1(void) {
+        auto x;
+#define id x
+
 	MakeWord	(0X4AE6);
 	MakeWord	(0X4AE8);
 	MakeWord	(0X4AEA);
@@ -4915,6 +5059,8 @@ static Bytes_0(void) {
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X52FE);
+	MakeCode	(x=0X5304);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeByte	(0X530E);
 	MakeArray	(0X530E,	0XAA);
 	MakeName	(0X530E,	"wl_BattleTest");
@@ -5049,15 +5195,6 @@ static Bytes_0(void) {
 	MakeCode	(x=0X5A9E);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_1(void) {
-        auto x;
-#define id x
-
 	MakeCode	(x=0X5AA2);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5083,11 +5220,23 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5B1C);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X5B22,	"\"[Name] casts [Spell][Line]level [Num]!\"");
+	MakeCode	(x=0X5B26);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5B28);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X5B2A);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
+	MakeRptCmt	(0X5B2C,	"\"[Dict][Line]\"");
 	MakeCode	(0X5B2C);
+	MakeCode	(x=0X5B30);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X5B34,	"\"But nothing happens.\"");
+	MakeCode	(x=0X5B38);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X5B3A,	"\"[Dict][Line]\"");
+	MakeCode	(x=0X5B3E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5B4A);
 	MakeCode	(x=0X5B54);
 	OpOff		(x,	0,	0X0);
@@ -5120,6 +5269,9 @@ static Bytes_1(void) {
 	OpOff		(x,	1,	0X5B84);
 	OpOff		(x,	129,	0X5B84);
 	MakeCode	(0X5B8C);
+	MakeRptCmt	(0X5B98,	"\"Use whose item?\"");
+	MakeCode	(x=0X5B9C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5BA8);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5144,6 +5296,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5BF0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X5C16,	"\"[Hero] uses the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X5C1A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5C1E);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5151,6 +5306,12 @@ static Bytes_1(void) {
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X5C2E);
+	MakeRptCmt	(0X5C3A,	"\"Who will use the[Line][Item]?\"");
+	MakeCode	(x=0X5C3E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X5C50,	"\"[Hero] uses the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X5C54);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5C64);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5164,7 +5325,15 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5C70);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeCode	(x=0X5C74);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5C7E);
+	MakeRptCmt	(0X5C90,	"\"Who will use the[Line][Item]?\"");
+	MakeCode	(x=0X5C94);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X5CA8,	"\"[Hero] uses the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X5CAC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5CB6);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5181,8 +5350,13 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5CCE);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeCode	(x=0X5CD2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5CE0);
+	MakeRptCmt	(0X5CE6,	"\"[Dict][Line]\"");
 	MakeCode	(0X5CE6);
+	MakeCode	(x=0X5CEA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5CEC);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5192,6 +5366,9 @@ static Bytes_1(void) {
 	MakeCode	(0X5CFC);
 	MakeName	(0X5CFC,	"nullsub_5CFC");
 	MakeCode	(0X5CFE);
+	MakeRptCmt	(0X5D04,	"\"Transfer whose item?\"");
+	MakeCode	(x=0X5D08);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5D10);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5204,7 +5381,13 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5D32);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X5D52,	"\"The [Item] is cursed[Line]and can't be given away.[Wait2]\"");
+	MakeCode	(x=0X5D56);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5D5C);
+	MakeRptCmt	(0X5D5E,	"\"Who gets the [Item]?\"");
+	MakeCode	(x=0X5D62);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5D7E);
 	MakeCode	(x=0X5D84);
 	OpOff		(x,	1,	0X0);
@@ -5236,6 +5419,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5DE8);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X5E0A,	"\"The [Item] is cursed[Line]and can't be unequipped.[Wait2]\"");
+	MakeCode	(x=0X5E0E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5E14);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5267,12 +5453,18 @@ static Bytes_1(void) {
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X5EA0);
+	MakeRptCmt	(0X5EA6,	"\"Who do you wish to equip?\"");
+	MakeCode	(x=0X5EAA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5EB2);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(x=0X5EC2);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X5ED6,	"\"[Name] can't be[Line]equipped with anything![Wait2]\"");
+	MakeCode	(x=0X5EDA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5EE0);
 	MakeCode	(x=0X5EE4);
 	OpOff		(x,	0,	0X0);
@@ -5292,6 +5484,9 @@ static Bytes_1(void) {
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X5F42);
 	MakeCode	(0X5F4C);
+	MakeRptCmt	(0X5F52,	"\"Discard whose item?\"");
+	MakeCode	(x=0X5F56);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X5F6C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5301,20 +5496,35 @@ static Bytes_1(void) {
 	MakeCode	(x=0X5F7E);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X5FA0,	"\"The [Item] is cursed[Line]and can't be given away.[Wait2]\"");
+	MakeCode	(x=0X5FA4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5FAA);
 	MakeCode	(x=0X5FBC);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X5FC8);
+	MakeRptCmt	(0X5FCA,	"\"[Hero] keeps the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X5FCE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5FD6);
+	MakeRptCmt	(0X5FD8,	"\"A change of heart, eh?[Wait2]\"");
+	MakeCode	(x=0X5FDC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X5FE2);
 	MakeCode	(0X5FF8);
+	MakeRptCmt	(0X6002,	"\"Well, [Hero],[Line]are you ready to[Line]face the enemy?[Wait2]\"");
+	MakeCode	(x=0X6006);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X600A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(x=0X600E);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X6020,	"\"If that is all, then go now,[Line]for the hordes of Runefaust[Line]are still on the attack![Wait2]\"");
+	MakeCode	(x=0X6024);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6028);
 	MakeCode	(x=0X602A);
 	OpOff		(x,	0,	0X0);
@@ -5340,11 +5550,20 @@ static Bytes_1(void) {
 	OpOff		(x,	1,	0X6038);
 	OpOff		(x,	129,	0X6038);
 	MakeCode	(0X6040);
+	MakeRptCmt	(0X6042,	"\"Anything else, [Hero]?\"");
+	MakeCode	(x=0X6046);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X604E);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X605A);
+	MakeRptCmt	(0X605E,	"\"A change of heart, eh?[Wait2]\"");
+	MakeCode	(x=0X6062);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6068);
+	MakeRptCmt	(0X606E,	"\"A word of advice.[Line]Seek the hermit who lives by[Line]the Gate of the Ancients![Wait2]\"");
+	MakeCode	(x=0X6072);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6078);
 	MakeCode	(x=0X607A);
 	OpOff		(x,	0,	0X0);
@@ -5357,7 +5576,13 @@ static Bytes_1(void) {
 	MakeCode	(x=0X60B6);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X60BE,	"\"[Hero], no one[Line]is waiting![Delay1]\"");
+	MakeCode	(x=0X60C2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X60CA,	"\"Who do you wish to take?\"");
 	MakeCode	(0X60CA);
+	MakeCode	(x=0X60CE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X60D6);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5367,21 +5592,33 @@ static Bytes_1(void) {
 	MakeCode	(x=0X60F8);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X60FE,	"\"Are you sure? After all,[Line][Name] needs to[Line]be revived.\"");
+	MakeCode	(x=0X6102);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X610C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X6114,	"\"Who will you leave behind?\"");
+	MakeCode	(x=0X6118);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X6126);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(x=0X6136);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X6142,	"\"Without you, [Hero], who[Line]will lead the Shining Force?[Wait2]\"");
+	MakeCode	(x=0X6146);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X614A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(x=0X6154);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X6162,	"\"Anyone else to replace?\"");
+	MakeCode	(x=0X6166);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X6170);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5404,6 +5641,9 @@ static Bytes_1(void) {
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X61D0);
+	MakeRptCmt	(0X61D4,	"\"View whose status?\"");
+	MakeCode	(x=0X61D8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X61E6);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5419,6 +5659,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X622A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X624E,	"\"Check someone else's status?\"");
+	MakeCode	(x=0X6252);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X625C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5449,6 +5692,9 @@ static Bytes_1(void) {
 	OpOff		(x,	1,	0X628A);
 	OpOff		(x,	129,	0X628A);
 	MakeCode	(0X6292);
+	MakeRptCmt	(0X629E,	"\"Use whose item?\"");
+	MakeCode	(x=0X62A2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X62BA);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5458,6 +5704,12 @@ static Bytes_1(void) {
 	MakeCode	(x=0X62D4);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X62E2,	"\"Who will use the[Line][Item]?\"");
+	MakeCode	(x=0X62E6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X62FC,	"\"[Hero] uses the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X6300);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X6310);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5471,7 +5723,15 @@ static Bytes_1(void) {
 	MakeCode	(x=0X631C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeCode	(x=0X6320);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X632A);
+	MakeRptCmt	(0X633C,	"\"Who will use the[Line][Item]?\"");
+	MakeCode	(x=0X6340);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X635A,	"\"[Hero] uses the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X635E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X6368);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5488,11 +5748,22 @@ static Bytes_1(void) {
 	MakeCode	(x=0X6380);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeCode	(x=0X6384);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X6392,	"\"[Hero]! What are you[Line]trying to do with that?[Wait2]\"");
 	MakeCode	(0X6392);
+	MakeCode	(x=0X6396);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X639A,	"\"Any other item to use?\"");
+	MakeCode	(x=0X639E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X63A8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X63B4);
+	MakeRptCmt	(0X63BA,	"\"Transfer whose item?\"");
+	MakeCode	(x=0X63BE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X63D0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -5505,7 +5776,13 @@ static Bytes_1(void) {
 	MakeCode	(x=0X63F2);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X6414,	"\"The [Item] is cursed[Line]and can't be unequipped.[Wait2]\"");
+	MakeCode	(x=0X6418);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X641E);
+	MakeRptCmt	(0X6420,	"\"Now, who gets it?\"");
+	MakeCode	(x=0X6424);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X644A);
 	MakeCode	(x=0X6450);
 	OpOff		(x,	1,	0X0);
@@ -5537,6 +5814,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X64BA);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X64DC,	"\"The [Item] is cursed[Line]and can't be unequipped.[Wait2]\"");
+	MakeCode	(x=0X64E0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X64E6);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5567,16 +5847,25 @@ static Bytes_1(void) {
 	MakeCode	(x=0X6562);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X656E,	"\"Anything else to transfer?\"");
+	MakeCode	(x=0X6572);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X657C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X6588);
+	MakeRptCmt	(0X658E,	"\"Who do you wish to equip?\"");
+	MakeCode	(x=0X6592);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X65A0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(x=0X65AE);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X65C4,	"\"[Name] can't be[Line]equipped with anything![Wait2]\"");
+	MakeCode	(x=0X65C8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X65CE);
 	MakeCode	(x=0X65D2);
 	OpOff		(x,	0,	0X0);
@@ -5595,10 +5884,16 @@ static Bytes_1(void) {
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X662C);
+	MakeRptCmt	(0X6636,	"\"Anyone else to equip?\"");
+	MakeCode	(x=0X663A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X6644);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X6650);
+	MakeRptCmt	(0X6656,	"\"Discard whose item?\"");
+	MakeCode	(x=0X665A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X667A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5608,11 +5903,20 @@ static Bytes_1(void) {
 	MakeCode	(x=0X668C);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X66AE,	"\"The [Item] is cursed[Line]and can't be unequipped.[Wait2]\"");
+	MakeCode	(x=0X66B2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X66B8);
 	MakeCode	(x=0X66CA);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X66D6);
+	MakeRptCmt	(0X66D8,	"\"[Hero]! It would be[Line]foolish to discard the[Line][Item].[Wait2]\"");
+	MakeCode	(x=0X66DC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X66E0,	"\"Anything else to discard?\"");
+	MakeCode	(x=0X66E4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X66EE);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5694,6 +5998,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X6B52);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X6B84,	"\"No one is in that direction.[Wait2]\"");
+	MakeCode	(x=0X6B88);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6B9A);
 	MakeCode	(x=0X6BC2);
 	OpOff		(x,	1,	0X0);
@@ -5705,7 +6012,10 @@ static Bytes_1(void) {
 	MakeCode	(x=0X6C08);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X6C56,	"\"....[Wait2]\"");
 	MakeCode	(0X6C56);
+	MakeCode	(x=0X6C5A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6C6E);
 	MakeCode	(x=0X6C72);
 	OpOff		(x,	0,	0X0);
@@ -5765,7 +6075,13 @@ static Bytes_1(void) {
 	MakeCode	(0X6E70);
 	MakeCode	(0X6EA4);
 	MakeCode	(0X6EB8);
+	MakeRptCmt	(0X6F28,	"\"The [Item] is cursed[Line]and can't be unequipped.[Wait2]\"");
+	MakeCode	(x=0X6F2C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6F3C);
+	MakeRptCmt	(0X6F6A,	"\"[Name] has been cursed....[Wait2]\"");
+	MakeCode	(x=0X6F6E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X6FA0);
 	MakeCode	(x=0X6FB2);
 	OpOff		(x,	0,	0X0);
@@ -5934,15 +6250,30 @@ static Bytes_1(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X7808);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
+	MakeRptCmt	(0X780A,	"\"[Name] discovers a[Line][Item]![Wait2]\"");
 	MakeCode	(0X780A);
+	MakeCode	(x=0X780E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X781A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(x=0X7828);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X7850,	"\"Will Darksol release Dark[Line]Dragon from the bonds of the[Line]Ancients?[Wait2][Line]Or will [Hero] stop[Line]Darksol and save all of[Line]Rune from the ultimate evil?[Wait2][Line]The Shining Force hurries[Line]on to Prompt....[Wait2]\"");
+	MakeCode	(x=0X7854);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X7872);
+	MakeRptCmt	(0X7876,	"\"[Name] discovers a[Line][Item]![Wait2]\"");
+	MakeCode	(x=0X787A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X787C,	"\"But can't carry it![Wait2]\"");
+	MakeCode	(x=0X7880);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X7898);
+	MakeRptCmt	(0X789E,	"\"The treasure chest is empty.[Wait2]\"");
+	MakeCode	(x=0X78A2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X78A4);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -5954,7 +6285,10 @@ static Bytes_1(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X78CE);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
+	MakeRptCmt	(0X78D0,	"\"[Name] gains [Num] coins.[Wait2]\"");
 	MakeCode	(0X78D0);
+	MakeCode	(x=0X78D4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X78DC);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X78DE);
@@ -5972,6 +6306,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X78F4);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X7900,	"\"Nothing is found.[Wait2]\"");
+	MakeCode	(x=0X7904);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X790A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -6247,6 +6584,9 @@ static Bytes_1(void) {
 	MakeWord	(x=0X82AC);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
 	MakeCode	(0X82AE);
+	MakeRptCmt	(0X82B8,	"\"[Hero] has been[Line]defeated...[Wait2]\"");
+	MakeCode	(x=0X82BC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X82C8);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X82CA);
@@ -6279,6 +6619,9 @@ static Bytes_1(void) {
 	MakeCode	(x=0X83BC);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X83D4,	"\"[Name] appears![Wait2]\"");
+	MakeCode	(x=0X83D8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X83E4);
 	MakeCode	(x=0X83E6);
 	OpOff		(x,	0,	0X0);
@@ -7725,7 +8068,13 @@ static Bytes_1(void) {
 	MakeCode	(x=0X9EEA);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X9EF0,	"\"[Hero]! You've reached[Line]your destination, but some[Line]enemies remain.[Wait2][Line]Will you leave them?\"");
+	MakeCode	(x=0X9EF4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X9EF8,	"\"[Hero]! Do you really[Line]want to retreat from this[Line]battle?\"");
 	MakeCode	(0X9EF8);
+	MakeCode	(x=0X9EFC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X9F12);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -7969,14 +8318,26 @@ static Bytes_1(void) {
 	MakeCode	(x=0XA292);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0XA296,	"\"[Name] casts [Spell][Line]level [Num]!\"");
+	MakeCode	(x=0XA29A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0XA29C);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0XA29E);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
+	MakeRptCmt	(0XA2A0,	"\"[Dict][Line]\"");
 	MakeCode	(0XA2A0);
+	MakeCode	(x=0XA2A4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0XA2A6);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0XA2AE,	"\"But nothing happens.\"");
+	MakeCode	(x=0XA2B2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0XA2B4,	"\"[Dict][Line]\"");
+	MakeCode	(x=0XA2B8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0XA2CC);
 	MakeCode	(0XA2D0);
 	MakeCode	(x=0XA2D6);
@@ -9368,6 +9729,15 @@ static Bytes_1(void) {
 	MakeDword	(x=0XC37A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_2(void) {
+        auto x;
+#define id x
+
 	MakeDword	(x=0XC37E);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -10431,15 +10801,6 @@ static Bytes_1(void) {
 	MakeCode	(x=0XE240);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_2(void) {
-        auto x;
-#define id x
-
 	MakeCode	(x=0XE246);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -11623,6 +11984,9 @@ static Bytes_2(void) {
 	MakeCode	(x=0X111C4);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X111C8,	"\"No one is in that direction.[Wait2]\"");
+	MakeCode	(x=0X111CC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeByte	(0X111DC);
 	MakeByte	(0X111DD);
 	MakeByte	(0X111DE);
@@ -11967,6 +12331,9 @@ static Bytes_2(void) {
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X13828);
+	MakeRptCmt	(0X13840,	"\"[Hero] opens[Line]the treasure chest![Wait2]\"");
+	MakeCode	(x=0X13844);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X13864);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -11977,8 +12344,17 @@ static Bytes_2(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X138EC);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
+	MakeRptCmt	(0X138EE,	"\"[Name] discovers a[Line][Item]![Wait2]\"");
 	MakeCode	(0X138EE);
+	MakeCode	(x=0X138F2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X13908,	"\"[Name] discovers a[Line][Item]![Wait2]\"");
 	MakeCode	(0X13908);
+	MakeCode	(x=0X1390C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1390E,	"\"But can't carry it![Wait2]\"");
+	MakeCode	(x=0X13912);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X13918);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -11986,7 +12362,10 @@ static Bytes_2(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X13938);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
+	MakeRptCmt	(0X1393A,	"\"[Name] gains [Num] coins.[Wait2]\"");
 	MakeCode	(0X1393A);
+	MakeCode	(x=0X1393E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X13966);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -11996,6 +12375,9 @@ static Bytes_2(void) {
 	MakeCode	(x=0X139A2);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X139B0,	"\"Nothing is found.[Wait2]\"");
+	MakeCode	(x=0X139B4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeDword	(x=0X139C6);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -14327,6 +14709,15 @@ static Bytes_2(void) {
 	MakeCode	(0X1B8DA);
 	MakeCode	(0X1B904);
 	MakeCode	(0X1B912);
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_3(void) {
+        auto x;
+#define id x
+
 	MakeCode	(0X1B91E);
 	MakeCode	(0X1B942);
 	MakeCode	(x=0X1B948);
@@ -14861,9 +15252,39 @@ static Bytes_2(void) {
 	MakeCode	(x=0X1DD42);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X1DD6C,	"\"Well, hello there.[Delay2][Delay2][Line]You look like you're[Line]a long way from home.[Delay2][Delay2]\"");
+	MakeCode	(x=0X1DD70);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DD74,	"\"We don't see many folk in[Line]full armor like that.[Delay2][Delay2][Delay2][Line]Quite a fancy getup![Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DD78);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DD7C,	"\"I have come a long way.[Delay2][Delay2][Delay2][Line]Longer than you can[Line]imagine.[Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DD80);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DD84,	"\"I must say you do look pretty[Line]tired and, well,[Delay2][Delay2][Line]your things have seen[Line]better days.[Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DD88);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DD8C,	"\"I'm tired of wandering.[Delay2][Delay2][Line]I'm looking for a place to[Line]settle down and rest.[Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DD90);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DD94,	"\"Well, how about right here?[Delay2][Delay2][Line]Lend your hands to the fields[Line]of our village?[Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DD98);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1DDB2);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X1DDD0,	"\"That sounds like just what I[Line]need right now. [Delay2][Delay2][Delay2]I work hard[Line]and I'm a fast learner.[Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DDD4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DDD8,	"\"Good! We've got a deal then.[Delay2][Delay2][Delay2][Line]Folks in the village will be[Line]excited to see a new face![Delay2][Delay2]\"");
+	MakeCode	(x=0X1DDDC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DDE0,	"\"I didn't catch your name.[Line]What do they call you?[Delay2][Delay2][Delay2][Delay2]\"");
+	MakeCode	(x=0X1DDE4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1DDE8,	"\"Me? You can call me...[Delay2][Delay2]\"");
+	MakeCode	(x=0X1DDEC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1DDF6);
 	OpHex		(x,	0);
 	MakeCode	(x=0X1DE1E);
@@ -15205,15 +15626,6 @@ static Bytes_2(void) {
 	MakeName	(0X2016C,	"j_SetAGIFromForceID");
 	MakeCode	(0X20170);
 	MakeName	(0X20170,	"j_SetMOVEFromForceID");
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_3(void) {
-        auto x;
-#define id x
-
 	MakeCode	(0X20174);
 	MakeName	(0X20174,	"j_SetCRITFromForceID");
 	MakeCode	(0X20178);
@@ -18337,6 +18749,15 @@ static Bytes_3(void) {
 	OpEnumEx		(x,	0,	GetEnum("ForceDef"),0);
 	MakeRptCmt	(0X24808,	"set target stat to current value");
 	MakeRptCmt	(0X2480A,	"get random number from 0-4");
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_4(void) {
+        auto x;
+#define id x
+
 	MakeRptCmt	(0X24814,	"if zero add one to target (20% chance of increasing target by 1)");
 	MakeCode	(0X2481A);
 	MakeRptCmt	(0X2481C,	"increase target stat randomly, anywhere from 0 to 25% of target or 5, whichever is lower");
@@ -18356,14 +18777,37 @@ static Bytes_3(void) {
 	MakeCode	(x=0X24874);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X2488E,	"\"...[Wait2]It appears that [Name]'s[Line]level increases to [Num].[Line]\"");
+	MakeCode	(x=0X24892);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X24898);
+	MakeRptCmt	(0X2489A,	"\"[Name]'s level increases[Line]to [Num]![Wait2]\"");
 	MakeCode	(0X2489A);
+	MakeCode	(x=0X2489E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X248A0);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X248AA,	"\"Attack level increases[Line]by [Num].[Wait2]\"");
+	MakeCode	(x=0X248AE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X248B6,	"\"Defense level increases[Line]by [Num].[Wait2]\"");
+	MakeCode	(x=0X248BA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X248C2,	"\"Speed increases by [Num].[Wait2]\"");
+	MakeCode	(x=0X248C6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X248CE,	"\"Maximum hit points increases[Line]by [Num].[Wait2]\"");
+	MakeCode	(x=0X248D2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X248DA,	"\"Maximum magic points[Line]increases by [Num].[Wait2]\"");
+	MakeCode	(x=0X248DE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X248F0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeCode	(x=0X24906);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X2490A);
 	MakeCode	(0X24912);
 	MakeName	(0X24912,	"Promote");
@@ -18567,6 +19011,8 @@ static Bytes_3(void) {
 	OpOff		(x,	128,	0X0);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeCode	(x=0X24DB6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X24DBC);
 	MakeName	(0X24DBC,	"GetGold");
 	MakeCode	(0X24DC4);
@@ -19358,15 +19804,6 @@ static Bytes_3(void) {
 	MakeDword	(x=0X39994);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_4(void) {
-        auto x;
-#define id x
-
 	MakeDword	(x=0X39998);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -22709,6 +23146,15 @@ static Bytes_4(void) {
 	MakeDword	(x=0X80F6E);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_5(void) {
+        auto x;
+#define id x
+
 	MakeDword	(x=0X80F72);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -23776,15 +24222,6 @@ static Bytes_4(void) {
 	MakeDword	(x=0X82160);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_5(void) {
-        auto x;
-#define id x
-
 	MakeByte	(0X82164);
 	MakeByte	(0X82165);
 	MakeByte	(0X82166);
@@ -27198,6 +27635,15 @@ static Bytes_5(void) {
 	MakeCode	(x=0X12421C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_6(void) {
+        auto x;
+#define id x
+
 	MakeCode	(x=0X12422A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -27706,6 +28152,9 @@ static Bytes_5(void) {
 	MakeCode	(x=0X124EA2);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X124EA8,	"\"[Dict][Line]\"");
+	MakeCode	(x=0X124EAC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X124EB0);
 	MakeCode	(x=0X124ECC);
 	OpOff		(x,	0,	0X0);
@@ -28656,15 +29105,6 @@ static Bytes_5(void) {
 	OpOff		(x,	128,	0X126498);
 	OpOff		(x,	1,	0X126498);
 	OpOff		(x,	129,	0X126498);
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_6(void) {
-        auto x;
-#define id x
-
 	MakeWord	(x=0X1264EE);
 	OpOff		(x,	0,	0X126498);
 	OpOff		(x,	128,	0X126498);
@@ -30375,6 +30815,24 @@ static Bytes_6(void) {
 	OpOff		(x,	1,	0X128FD6);
 	OpOff		(x,	129,	0X128FD6);
 	MakeCode	(0X129012);
+	MakeRptCmt	(0X129072,	"\"[Hero]![Line]Goblins! Runefaust[Line]must be up to something![Wait2]\"");
+	MakeCode	(x=0X129076);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1290CC,	"\"We can take them,[Line][Hero]![Wait2]\"");
+	MakeCode	(x=0X1290D0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12911E,	"\"Move it, vermin! Find the key[Line]to this blasted door![Wait2]\"");
+	MakeCode	(x=0X129122);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12913E,	"\"C'mon, we're almost in![Wait2]\"");
+	MakeCode	(x=0X129142);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12915E,	"\"Where is that blasted key?[Wait2]\"");
+	MakeCode	(x=0X129162);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12917E,	"\"What? Blast it! Those fools[Line]from Guardiana are here![Wait2]\"");
+	MakeCode	(x=0X129182);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1291C8);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X1291CA);
@@ -30389,6 +30847,9 @@ static Bytes_6(void) {
 	MakeCode	(x=0X129200);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X129222,	"\"Earthquake![Wait2]\"");
+	MakeCode	(x=0X129226);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12922A);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12922C);
@@ -30402,21 +30863,126 @@ static Bytes_6(void) {
 	MakeWord	(x=0X129242);
 	OpEnumEx		(x,	0,	GetEnum("SoundCommands"),0);
 	MakeCode	(0X129244);
+	MakeRptCmt	(0X129288,	"\"Attack, goblins and dwarves![Line]Strike a blow for the honor[Line]of Runefaust![Wait2]\"");
+	MakeCode	(x=0X12928C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129292);
+	MakeRptCmt	(0X1292A2,	"\"The earthquake blocked the[Line]road. Head north, but be[Line]ready for battle.[Wait2]\"");
+	MakeCode	(x=0X1292A6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1292F4,	"\"No one enters Guardiana while[Line]we live! For Darksol![Wait2]\"");
+	MakeCode	(x=0X1292F8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129340,	"\"Death to Guardiana![Wait2]\"");
+	MakeCode	(x=0X129344);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12938C,	"\"Death to Guardiana![Wait2]\"");
+	MakeCode	(x=0X129390);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129396);
+	MakeRptCmt	(0X1293A6,	"\"[Hero]! Enemies await[Line]you on the road to Alterone.[Line]Take all precautions![Wait2]\"");
+	MakeCode	(x=0X1293AA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X1293B6);
+	MakeRptCmt	(0X12941A,	"\"Lowly worms, I shall crush[Line]you beneath my heel. Attack,[Line]soldiers of Runefaust![Wait2]\"");
+	MakeCode	(x=0X12941E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12945A,	"\"Lord Kane, Lord Darksol[Line]commands you to return to[Line]Runefaust immediately.[Wait2]\"");
+	MakeCode	(x=0X12945E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129484,	"\"Tell him I'm on my way.[Wait2]\"");
+	MakeCode	(x=0X129488);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129494,	"\"Yes, sir.[Wait2]\"");
+	MakeCode	(x=0X129498);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1294EA,	"\"A shame I can't stay to watch[Line]you meet your doom! My troops[Line]can handle the likes of you.[Wait2]\"");
+	MakeCode	(x=0X1294EE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129526);
+	MakeRptCmt	(0X129536,	"\"Our enemies seek to stop you[Line]from reaching Anri in[Line]Manarina. You must succeed![Wait2]\"");
+	MakeCode	(x=0X12953A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129546);
+	MakeRptCmt	(0X129556,	"\"Behold the dreaded Cavern of[Line]Darkness! You must defeat the[Line]monsters to gain the orb![Wait2]\"");
+	MakeCode	(x=0X12955A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129566);
+	MakeRptCmt	(0X1295CA,	"\"Well, [Hero], remember[Line]me? You'll soon wish you'd[Line]taken my advice in Alterone![Wait2]\"");
+	MakeCode	(x=0X1295CE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1295EA,	"\"Come, my pets! Look who's[Line]come to play with you. Why,[Line]it's the Shining Force![Wait2]\"");
+	MakeCode	(x=0X1295EE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12960A,	"\"I leave you in good hands,[Line][Hero].[Wait2][Line]I have more vital matters[Line]to attend to right now![Wait2]\"");
+	MakeCode	(x=0X12960E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12963E);
+	MakeRptCmt	(0X1296A4,	"\"Been praying, and well you[Line]might![Wait2]\"");
+	MakeCode	(x=0X1296A8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1296D0);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X1296D2);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X1296D4);
+	MakeRptCmt	(0X1296E2,	"\"You and your pitiful Shining[Line]Force cannot be saved by[Line]prayers! You won't escape![Wait2]\"");
+	MakeCode	(x=0X1296E6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129702,	"\"How fitting that you perish[Line]in a former chapel of Light![Line][Wait2]\"");
+	MakeCode	(x=0X129706);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129722,	"\"I leave you now in the care[Line]of my minions, who know well[Line]what to do with you....[Wait2]\"");
+	MakeCode	(x=0X129726);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129742,	"\"Undead! Dispose of these[Line]pests once and for all![Wait2]\"");
+	MakeCode	(x=0X129746);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12978E);
+	MakeRptCmt	(0X1297FE,	"\"Master, we have found it![Wait2]\"");
+	MakeCode	(x=0X129802);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129862,	"\"The Laser Eye! At last![Wait2]\"");
+	MakeCode	(x=0X129866);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129882,	"\"This is the end of that[Line]cursed Shining Force![Wait2]\"");
+	MakeCode	(x=0X129886);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1298A2,	"\"Get rid of those men from[Line]Bustoke. They are of no[Line]further use to us.[Wait2]\"");
+	MakeCode	(x=0X1298A6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129906,	"\"Alert! Intruders![Wait2]\"");
+	MakeCode	(x=0X12990A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12996A,	"\"What? The Shining Force![Wait2]\"");
+	MakeCode	(x=0X12996E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X1299A2,	"\"Stop them! We must have time[Line]to remove the Laser Eye![Wait2]\"");
+	MakeCode	(x=0X1299A6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X1299C4);
+	MakeRptCmt	(0X1299D4,	"\"Look, they are trying to[Line]block our way to the bridge.[Line]Attack them, Shining Force![Wait2]\"");
+	MakeCode	(x=0X1299D8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X1299E4);
+	MakeRptCmt	(0X129A84,	"\"Traitor! You've betrayed Lord[Line]Kane![Wait2]\"");
+	MakeCode	(x=0X129A88);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129AD8,	"\"I owe no allegiance to you or[Line]him, foul fiend that he is![Wait2]\"");
+	MakeCode	(x=0X129ADC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129B2A,	"\"You are only a mercenary. You[Line]do what we pay you to do![Wait2]\"");
+	MakeCode	(x=0X129B2E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129B7E,	"\"Here, I return your gold. I[Line]shall no longer follow your[Line]orders, toad![Wait2]\"");
+	MakeCode	(x=0X129B82);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129BD0,	"\"If you are not with us, then[Line]you are against us![Wait2]\"");
+	MakeCode	(x=0X129BD4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129C0A,	"\"I will have the pleasure of[Line]killing you myself![Wait2]\"");
+	MakeCode	(x=0X129C0E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X129C12);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -30425,32 +30991,116 @@ static Bytes_6(void) {
 	MakeWord	(x=0X129C32);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X129C34);
+	MakeRptCmt	(0X129C76,	"\"Vile fiend! Aiiiieeeee....[Wait2]\"");
+	MakeCode	(x=0X129C7A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X129C84);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X129C86);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X129C88);
+	MakeRptCmt	(0X129CD6,	"\"Ha, ha! Thus fall all who[Line]dare to oppose the will of[Line]Darksol![Wait2]\"");
+	MakeCode	(x=0X129CDA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129CE6);
+	MakeRptCmt	(0X129D46,	"\"The time for battle has come.[Line]For King Ramladu![Wait2]\"");
+	MakeCode	(x=0X129D4A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129D64,	"\"General Elliott is said to be[Line]the finest swordsman in all[Line]of Rune.[Wait2][Line]Take care, [Hero]![Wait2]\"");
+	MakeCode	(x=0X129D68);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129D74);
+	MakeRptCmt	(0X129D84,	"\"[Hero], you must break[Line]through to reach the harbor.[Line]Be careful, but be quick![Wait2]\"");
+	MakeCode	(x=0X129D88);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129D94);
+	MakeRptCmt	(0X129DFA,	"\"At last we meet, [Hero].[Line]Soon you and your misfits[Line]will trouble us no longer![Wait2]\"");
+	MakeCode	(x=0X129DFE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129E18,	"\"Yes, that is Balbazak, a[Line]commander of the Runefaust[Line]army. You must destroy him![Wait2]\"");
+	MakeCode	(x=0X129E1C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129E28);
+	MakeRptCmt	(0X129E38,	"\"The ship is surrounded by[Line]monsters, [Hero]![Line]Prepare to defend it![Wait2]\"");
+	MakeCode	(x=0X129E3C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129E50);
+	MakeRptCmt	(0X129EAC,	"\"I invoke a path before[Line]me....What?[Wait2]\"");
+	MakeCode	(x=0X129EB0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129ECC,	"\"Shining Force! I was so[Line]close...so close! I shall[Line]destroy you all![Wait2]\"");
+	MakeCode	(x=0X129ED0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129ED6);
+	MakeRptCmt	(0X129EE6,	"\"Here we go again. We were[Line]just about to land, too! Go[Line]get them![Wait2]\"");
+	MakeCode	(x=0X129EEA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129EFE);
+	MakeRptCmt	(0X129F42,	"\"These Guardiana fools must be[Line]stopped. Kane's mission is[Line]vital. Attack![Wait2]\"");
+	MakeCode	(x=0X129F46);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129F5A,	"\"[Hero], you must quickly[Line]break through to Dragonia![Wait2]\"");
+	MakeCode	(x=0X129F5E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129F6A);
+	MakeRptCmt	(0X129FB6,	"\"Ha! I knew you couldn't hide[Line]in there forever! Come on[Line]out, little hero![Wait2]\"");
+	MakeCode	(x=0X129FBA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X129FD4,	"\"[Hero], be careful.[Line]Remember that Kane killed[Line]Varios![Wait2]\"");
+	MakeCode	(x=0X129FD8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X129FE4);
+	MakeRptCmt	(0X129FF4,	"\"Well, [Hero], we meet[Line]once more.  For the last time,[Line]I fear, as you will die here.[Wait2][Line]My minions shall take care of[Line]you, but if they fail, I await[Line]you in Demon Castle![Wait2]\"");
+	MakeCode	(x=0X129FF8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A004);
+	MakeRptCmt	(0X12A064,	"\"Well, here's the little hero[Line]coming for my Sword of Light![Line]Take it, if you dare![Wait2]\"");
+	MakeCode	(x=0X12A068);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A084,	"\"You'll never leave my castle,[Line]you pitiful fools![Wait2]\"");
+	MakeCode	(x=0X12A088);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A0A4,	"\"This is as close as you'll[Line]ever come to the Sword of[Line]Light![Wait2]\"");
+	MakeCode	(x=0X12A0A8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A0C2,	"\"[Hero], take great care.[Line]Mishaela is a powerful[Line]wizardess, a dangerous foe![Wait2]\"");
+	MakeCode	(x=0X12A0C6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A0D2);
+	MakeRptCmt	(0X12A0E2,	"\"The Tower of the Ancients is[Line]to the east. Hurry, while[Line]there's still time![Wait2]\"");
+	MakeCode	(x=0X12A0E6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A0F2);
+	MakeRptCmt	(0X12A136,	"\"Stop them! Lord Darksol must[Line]not be disturbed![Wait2]\"");
+	MakeCode	(x=0X12A13A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A14E,	"\"We must get inside the tower![Line]Smash through these monsters[Line]quickly, [Hero]![Wait2]\"");
+	MakeCode	(x=0X12A152);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A15E);
+	MakeRptCmt	(0X12A16E,	"\"Screech! Kill...kill....[Wait2]\"");
+	MakeCode	(x=0X12A172);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A17E);
+	MakeRptCmt	(0X12A18E,	"\"To the south is Runefaust.[Line]Their army approaches. You[Line]must fight your way in.[Wait2]\"");
+	MakeCode	(x=0X12A192);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A19E);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12A1F4,	"\"Long have I waited for[Line]this moment, [Hero]![Line]Prepare to meet your death.[Wait2]\"");
+	MakeCode	(x=0X12A1F8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A230);
+	MakeRptCmt	(0X12A254,	"\"At last, [Hero]!  The[Line]Castle of the Ancients. The[Line]end is near, for good or ill![Wait2]\"");
+	MakeCode	(x=0X12A258);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A262);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12A2EA,	"\"None shall pass Colossus,[Line]the eternal sentinel![Line]Leave now![Wait2]\"");
+	MakeCode	(x=0X12A2EE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A2F8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -30459,11 +31109,26 @@ static Bytes_6(void) {
 	MakeWord	(x=0X12A35E);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X12A360);
+	MakeRptCmt	(0X12A378,	"\"Colossus! I've heard of it[Line]in legends! [Hero]![Line]They are attacking![Wait2]\"");
+	MakeCode	(x=0X12A37C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A3B4);
+	MakeRptCmt	(0X12A432,	"\"Dark Dragon! Awake from your[Line]long sleep! The time has come[Line]for you to reclaim this land![Wait2]\"");
+	MakeCode	(x=0X12A436);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A440);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(0X12A462);
+	MakeRptCmt	(0X12A46C,	"\"Awaken, Dark Dragon![Line]Something is wrong....[Wait2]\"");
+	MakeCode	(x=0X12A470);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A48C,	"\"[Hero]! Blast![Line]You have meddled for the last[Line]time! Kill them, my servants![Wait2]\"");
+	MakeCode	(x=0X12A490);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A4AA,	"\"[Hero]! You must stop[Line]Darksol before he completes[Line]his foul ceremony! Attack![Wait2]\"");
+	MakeCode	(x=0X12A4AE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A4BA);
 	MakeCode	(x=0X12A4C4);
 	OpOff		(x,	0,	0X0);
@@ -30629,49 +31294,136 @@ static Bytes_6(void) {
 	OpOff		(x,	1,	0X12A4EE);
 	OpOff		(x,	129,	0X12A4EE);
 	MakeCode	(0X12A52A);
+	MakeRptCmt	(0X12A550,	"\"Fools...you have won here,[Line]but Lord Kane of Runefaust is[Line]even now attacking Guardiana![Wait2]\"");
+	MakeCode	(x=0X12A554);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A560);
 	MakeCode	(0X12A562);
+	MakeRptCmt	(0X12A588,	"\"No! It cannot be! After all[Line]these centuries....[Wait2]\"");
+	MakeCode	(x=0X12A58C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A598);
+	MakeRptCmt	(0X12A5A6,	"\"Fools! Light will never defeat[Line]the Darkness....[Wait2]\"");
+	MakeCode	(x=0X12A5AA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A5B6);
+	MakeRptCmt	(0X12A5DC,	"\"You think you've won, but[Line]you've failed. The Laser Eye[Line]is ours now![Wait2]\"");
+	MakeCode	(x=0X12A5E0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A5EC);
+	MakeRptCmt	(0X12A612,	"\"You may have beaten us here,[Line]but General Elliott will stop[Line]you in Pao![Wait2]\"");
+	MakeCode	(x=0X12A616);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A622);
+	MakeRptCmt	(0X12A650,	"\"Perhaps you have the strength[Line]to rescue King Ramladu and[Line]Runefaust! Stop Darksol![Wait2][Line]Promise that you will free[Line]Runefaust, known as Protectora[Line]before Darksol came....[Wait2]\"");
+	MakeCode	(x=0X12A654);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A666);
 	MakeCode	(0X12A68C);
 	MakeCode	(0X12A6AE);
+	MakeRptCmt	(0X12A6CA,	"\"[Hero]! Take the ship,[Line]but please spare my life![Line]Please![Wait2]\"");
+	MakeCode	(x=0X12A6CE);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A6D8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12A6DE,	"\"You don't want to[Line]kill me, do you?[Line]Please let me go.[Wait2]\"");
+	MakeCode	(x=0X12A6E2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A6E6,	"\"Thank you! Take the ship, go[Line]after Darksol![Wait2]\"");
 	MakeCode	(0X12A6E6);
+	MakeCode	(x=0X12A6EA);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A72C,	"\"Balbazak, you betrayed me![Wait2]\"");
+	MakeCode	(x=0X12A730);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A744,	"\"No, no, please Darksol![Line]Leave me in peace![Wait2]\"");
+	MakeCode	(x=0X12A748);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A752);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12A754);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X12A756);
+	MakeRptCmt	(0X12A766,	"\"You disgust me, Balbazak![Line]Leave you in peace? I will[Line]leave you in pieces![Wait2]\"");
+	MakeCode	(x=0X12A76A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A784,	"\"Forgive me![Wait2]\"");
+	MakeCode	(x=0X12A788);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12A7A2,	"\"Too late, worm! Receive your[Line]punishment for failure![Wait2]\"");
+	MakeCode	(x=0X12A7A6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A7A8);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12A7AA);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X12A7AC);
+	MakeRptCmt	(0X12A7E0,	"\"I am dying, [Hero]....[Line]You must kill Darksol...[Line]free Runefaust....[Wait2]\"");
+	MakeCode	(x=0X12A7E4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A7F6);
 	MakeCode	(0X12A7F8);
+	MakeRptCmt	(0X12A81E,	"\"Arrghh...I was so close...the[Line]way to Metapha...almost[Line]ours....[Wait2]\"");
+	MakeCode	(x=0X12A822);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A82E);
 	MakeCode	(0X12A830);
+	MakeRptCmt	(0X12A856,	"\"You'll never beat Kane,[Line]Shining Fools![Wait2]\"");
+	MakeCode	(x=0X12A85A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A866);
+	MakeRptCmt	(0X12A894,	"\"Arrgh! My mask[Line]is...breaking![Wait2]\"");
+	MakeCode	(x=0X12A898);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12A8A4);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12A8A6);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X12A8A8);
+	MakeRptCmt	(0X12A8B2,	"\"Wh...where am I? I[Line]remember now. Darksol masked[Line]my face to control me....[Wait2][Line]What have I done?[Line]He even made me fight you![Line]Forgive me, [Hero]![Wait2]\"");
+	MakeCode	(x=0X12A8B6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A8EC);
 	MakeCode	(0X12A8EE);
+	MakeRptCmt	(0X12A91C,	"\"Though you can take...my[Line]sword...you will never...stop[Line]Darksol.[Wait2][Line]Dark Dragon will be set[Line]free....[Wait2]\"");
+	MakeCode	(x=0X12A920);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A932);
 	MakeCode	(0X12A934);
+	MakeRptCmt	(0X12A984,	"\"Lord Darksol...I have failed[Line]...they're coming...into the[Line]tower....[Wait2]\"");
+	MakeCode	(x=0X12A988);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A994);
+	MakeRptCmt	(0X12A9B0,	"\"This unit...now ceases to[Line]function...mission incomplete[Line]...system failure....[Wait2]\"");
+	MakeCode	(x=0X12A9B4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12A9C6);
 	MakeCode	(0X12A9DA);
 	MakeCode	(0X12A9DC);
+	MakeRptCmt	(0X12A9F8,	"\"I am dying...but my mind is[Line]once more my own. Darksol[Line]was controlling me.[Wait2][Line]You must stop Darksol![Line]If he frees Dark Dragon,[Line]all of Rune is doomed.[Wait2][Line]He has gone to the gate,[Line]to summon the castle from the[Line]depths of the sea. Go![Wait2]\"");
+	MakeCode	(x=0X12A9FC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AA0E);
+	MakeRptCmt	(0X12AA2A,	"\"Fools...Dark Dragon...will[Line]come...to destroy you....[Wait2]\"");
+	MakeCode	(x=0X12AA2E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AA40);
+	MakeRptCmt	(0X12AA5C,	"\"Dark Dragon! With my dying[Line]breath...I summon you....[Line]Arise, Dark Dragon![Wait2]\"");
+	MakeCode	(x=0X12AA60);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12AA7A,	"\"[Dict][Line]\"");
+	MakeCode	(x=0X12AA7E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12AA9A,	"\"Yes! At last, you are[Line]awakening![Wait2]\"");
+	MakeCode	(x=0X12AA9E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12AAA0,	"\"I offer myself to you, Dark[Line]Dragon! Use my power to help[Line]you cast off your bonds.[Wait2]\"");
+	MakeCode	(x=0X12AAA4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12AB44,	"\"You are free once more! Let[Line]all of Rune tremble! I die[Line]fulfilled! Cringe fools![Wait2]\"");
+	MakeCode	(x=0X12AB48);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AB7E);
 	MakeCode	(0X12ABCA);
 	MakeCode	(x=0X12ABCC);
@@ -30855,18 +31607,39 @@ static Bytes_6(void) {
 	MakeWord	(x=0X12AC64);
 	OpEnumEx		(x,	0,	GetEnum("SoundCommands"),0);
 	MakeCode	(0X12AC66);
+	MakeRptCmt	(0X12AC76,	"\"If that creature spoke truly,[Line]we must return to help defend[Line]Guardiana![Wait2]\"");
+	MakeCode	(x=0X12AC7A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12AC84);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(0X12AC8C);
+	MakeRptCmt	(0X12AC9C,	"\"Well done, Shining Force![Line]Now, enter Guardiana and find[Line]out what's happened there![Wait2]\"");
+	MakeCode	(x=0X12ACA0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12ACAC);
+	MakeRptCmt	(0X12ACBC,	"\"Excellent! Kane will have to[Line]do better than that to stop[Line]you. On to Alterone![Wait2]\"");
+	MakeCode	(x=0X12ACC0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12ACCC);
+	MakeRptCmt	(0X12ACDC,	"\"[Hero], there's no time[Line]to lose. Kane must be found[Line]and stopped at all costs.[Wait2][Line]Find out all you can and[Line]be sure to talk to the king[Line]of Alterone![Wait2]\"");
+	MakeCode	(x=0X12ACE0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12ACFA);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(0X12AD04);
+	MakeRptCmt	(0X12AD14,	"\"[Hero], now enter[Line]Manarina! We must inform[Line]Anri about Guardiana![Wait2]\"");
+	MakeCode	(x=0X12AD18);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AD24);
+	MakeRptCmt	(0X12AD34,	"\"[Hero], the Orb of Light[Line]must be within that chest.[Line]Take it quickly![Wait2]\"");
+	MakeCode	(x=0X12AD38);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AD44);
+	MakeRptCmt	(0X12ADF4,	"\"She...that evil woman...was[Line]going to take me to Runefaust,[Line]to feed me to a dragon![Wait2][Line]Thank you! I'm going home and[Line]I'm never leaving![Wait2]\"");
+	MakeCode	(x=0X12ADF8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12AE18);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -30875,14 +31648,35 @@ static Bytes_6(void) {
 	MakeCode	(x=0X12AE72);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12AE88,	"\"[Hero], the Moon Stone[Line]lies inside the cavern.[Wait2]\"");
+	MakeCode	(x=0X12AE8C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AEA8);
+	MakeRptCmt	(0X12AEB8,	"\"Head for the bridge. We need[Line]to get across quickly![Wait2]\"");
+	MakeCode	(x=0X12AEBC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12AEC8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12AF4C,	"\"Whew! I thought I was a[Line]goner, but I caught a branch[Line]and just hung on.[Wait2]\"");
+	MakeCode	(x=0X12AF50);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12AF8C,	"\"A great battle! I don't know[Line]who you are, but I want to[Line]tag along![Wait2]\"");
+	MakeCode	(x=0X12AF90);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12AFB0,	"\"A good job getting to that[Line]Laser Eye. Hurry on to Pao.[Line]Evil is afoot![Wait2]\"");
+	MakeCode	(x=0X12AFB4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12AFC0);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12AFC4,	"\"With the Laser Eye gone,[Line]the Shining Force heads toward[Line]the moving town of Pao.[Wait2][Line]Knowing that Runefaust is[Line]gathering its forces, our[Line]heroes hurried onward.[Wait2]\"");
+	MakeCode	(x=0X12AFC8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12AFD8);
+	MakeRptCmt	(0X12AFE8,	"\"Elliott was a great warrior...[Line]too bad he was our enemy.[Wait2][Line]But look, the traveling town[Line]of Pao is coming up again![Wait2]\"");
+	MakeCode	(x=0X12AFEC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12AFFC);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12AFFE);
@@ -30910,30 +31704,78 @@ static Bytes_6(void) {
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X12B08A);
 	MakeCode	(0X12B092);
+	MakeRptCmt	(0X12B0A2,	"\"Take the ship, as that fool[Line]said. You will not survive[Line]the voyage! Ha, ha, ha![Wait2]\"");
+	MakeCode	(x=0X12B0A6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B0DA);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12B0DE,	"\"Thus did the Shining Force[Line]free Uranbatol and set sail[Line]for a land of legend....[Wait2]\"");
+	MakeCode	(x=0X12B0E2);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B0F2);
+	MakeRptCmt	(0X12B102,	"\"The ship was damaged in the[Line]battle. We must repair it.[Line]That island over there....[Wait2]\"");
+	MakeCode	(x=0X12B106);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B1C2,	"\"Thank you for destroying[Line]those monsters! My name is[Line]Shell of Waral.[Wait2][Line]You can repair your ship in[Line]Waral. Please follow me![Wait2]\"");
+	MakeCode	(x=0X12B1C6);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B1FC,	"\"I've heard of Waral. We[Line]should be able to get the[Line]ship fixed there.[Wait2]\"");
+	MakeCode	(x=0X12B200);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B216);
+	MakeRptCmt	(0X12B226,	"\"The ship's helm was destroyed[Line]in the battle. We're now[Line]adrift at sea![Wait2]\"");
+	MakeCode	(x=0X12B22A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B236);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12B23A,	"\"The ship drifted off course,[Line]lost at sea. What will become[Line]of the Shining Force?[Wait2]\"");
+	MakeCode	(x=0X12B23E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B256);
+	MakeRptCmt	(0X12B266,	"\"[Hero], you must[Line]stop Kane before he finds the[Line]Manual of the Seal. Onward![Wait2]\"");
+	MakeCode	(x=0X12B26A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B276);
+	MakeRptCmt	(0X12B286,	"\"It seems that Darksol is[Line]behind all the evil afoot.[Line]Stop him and it all ends.[Wait2][Line]In any case, let's take[Line]another look at this village.[Wait2][Line]Check the shrine again....[Wait2]\"");
+	MakeCode	(x=0X12B28A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B2B0);
+	MakeRptCmt	(0X12B2C0,	"\"Mishaela is said to possess[Line]the Sword of Light. You must[Line]enter her castle and get it![Wait2][Line]With that legendary weapon,[Line]you stand a much better[Line]chance against Darksol.[Wait2]\"");
+	MakeCode	(x=0X12B2C4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B2D0);
 	MakeCode	(x=0X12B2E8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12B2EC,	"\"Will Darksol release Dark[Line]Dragon from the bonds of the[Line]Ancients?[Wait2][Line]Or will [Hero] stop[Line]Darksol and save all of[Line]Rune from the ultimate evil?[Wait2][Line]The Shining Force hurries[Line]on to Prompt....[Wait2]\"");
+	MakeCode	(x=0X12B2F0);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B2FC);
+	MakeRptCmt	(0X12B30C,	"\"With the Sword of Light you[Line]might be able to defeat[Line]Darksol. We shall see![Wait2]\"");
+	MakeCode	(x=0X12B310);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B31C);
+	MakeRptCmt	(0X12B32C,	"\"Now, on to the Tower of the[Line]Ancients![Wait2]\"");
+	MakeCode	(x=0X12B330);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B33C);
+	MakeRptCmt	(0X12B34C,	"\"Get in there, quickly![Wait2]\"");
+	MakeCode	(x=0X12B350);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B35A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(0X12B36C);
 	MakeCode	(0X12B378);
+	MakeRptCmt	(0X12B388,	"\"Now, [Hero], into[Line]Runefaust![Wait2]\"");
+	MakeCode	(x=0X12B38C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B398);
+	MakeRptCmt	(0X12B3A8,	"\"Is that the best you can do?[Line]Well, meet my robots,[Line]weaklings![Wait2]\"");
+	MakeCode	(x=0X12B3AC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B3B6);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -30959,7 +31801,13 @@ static Bytes_6(void) {
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(0X12B470);
+	MakeRptCmt	(0X12B480,	"\"[Hero]! Darksol has[Line]already entered the Castle of[Line]the Ancients.  You must hurry![Wait2][Line]I found a secret passage[Line]to the gate. It is in the[Line]entry hall of this castle.[Wait2][Line]Return to town and make[Line]your final preparations. Then[Line]take the passage.[Wait2]\"");
+	MakeCode	(x=0X12B484);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B490);
+	MakeRptCmt	(0X12B4A0,	"\"You've destroyed Colossus![Line]But where is Darksol?[Wait2]\"");
+	MakeCode	(x=0X12B4A4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B4AE);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12B4B0);
@@ -30987,6 +31835,9 @@ static Bytes_6(void) {
 	MakeCode	(x=0X12B566);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12B588,	"\"Use the staircase,[Line][Hero].[Line]Darksol must be up there![Wait2]\"");
+	MakeCode	(x=0X12B58C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12B598);
 	MakeCode	(x=0X12B5E8);
 	OpOff		(x,	0,	0X0);
@@ -30996,9 +31847,30 @@ static Bytes_6(void) {
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
 	MakeCode	(0X12B638);
+	MakeRptCmt	(0X12B648,	"\"Nooooo! These puny creatures[Line]cannot defeat the Lord of[Line]Darkness![Delay2][Delay2]\"");
+	MakeCode	(x=0X12B64C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B650,	"\"Never! I will not be banished[Line]again! The Powers of Darkness[Line]will sustain me![Delay2][Delay2]\"");
+	MakeCode	(x=0X12B654);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B6A0);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12B72E,	"\"Dark Dragon still lives![Line]Perhaps we cannot kill him![Line]There must be a way....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12B732);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B736,	"\"[Hero]! Dark Dragon[Line]must be sealed away once[Line]again. And only you can do it![Delay2][Delay2]\"");
+	MakeCode	(x=0X12B73A);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B73E,	"\"Use the Chaos Breaker! Drive[Line]it through Dark Dragon![Delay2][Delay2]\"");
+	MakeCode	(x=0X12B742);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B75C,	"\"Fools! Nothing you do can[Line]stop me! I am Dark Dragon,[Line]Darkness incarnate![Delay2][Delay2]\"");
+	MakeCode	(x=0X12B760);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12B77A,	"\"[Hero]! Stab him with[Line]the Chaos Breaker![Delay2][Delay2]\"");
+	MakeCode	(x=0X12B77E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12B808);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12B80A);
@@ -31014,6 +31886,15 @@ static Bytes_6(void) {
 	MakeWord	(x=0X12B85A);
 	OpEnumEx		(x,	0,	GetEnum("Sfx"),0);
 	MakeCode	(0X12B85C);
+}
+
+//------------------------------------------------------------------------
+// Information about bytes
+
+static Bytes_7(void) {
+        auto x;
+#define id x
+
 	MakeCode	(x=0X12B864);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12B866);
@@ -31059,15 +31940,30 @@ static Bytes_6(void) {
 	MakeWord	(x=0X12B9EA);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
 	MakeCode	(0X12B9EC);
+	MakeRptCmt	(0X12B9FC,	"\"[Hero]! The Castle of the[Line]Ancients is sinking! Let's[Line]get out of here![Delay2][Delay2]\"");
+	MakeCode	(x=0X12BA00);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BA20);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12BA24,	"\"But [Hero] cannot move![Delay2][Delay2]\"");
+	MakeCode	(x=0X12BA28);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BA3C,	"\"[Hero] is somehow bound[Line]to the Chaos Breaker![Delay2][Delay2]\"");
+	MakeCode	(x=0X12BA40);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BA4A);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12BA68,	"\"[Hero]! Break free! We[Line]won't leave without you![Delay2][Delay2]\"");
+	MakeCode	(x=0X12BA6C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BA76);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12BA94,	"\"I can't get free, but you[Line]won't die with me![Delay2]\"");
+	MakeCode	(x=0X12BA98);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BA9A);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12BA9C);
@@ -31091,6 +31987,24 @@ static Bytes_6(void) {
 	MakeCode	(x=0X12BAEE);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X12BB14,	"\"[Hero] used his Egress[Line]magic to save us. But[Line]where is [Hero]?[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BB18);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BB32,	"\"That spell's supposed to[Line]get us all out. Why isn't[Line][Hero] here? Why, Nova?[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BB36);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BB50,	"\"I have no answers for you.[Line]Perhaps a great hero is[Line]needed to guard the seal.[Delay2][Line]Perhaps he must[Line]stand as an eternal vigil to[Line]prevent Dark Dragon's return.[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BB54);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BB6E,	"\"But why did it have[Line]to be [Hero]? Any of us[Line]would have taken his place....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BB72);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BBA4,	"\"I won't believe it![Line][Hero] will come back,[Line]I know it![Delay2]\"");
+	MakeCode	(x=0X12BBA8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BBC4,	"\"Perhaps [Hero] will still[Line]come out. Wait, look at[Line]the castle![Delay2][Delay2]\"");
+	MakeCode	(x=0X12BBC8);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BBE4);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12BBE6);
@@ -31113,17 +32027,35 @@ static Bytes_6(void) {
 	MakeCode	(x=0X12BD9C);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12BDB8,	"\"No! It's gone...the castle...[Line]and [Hero] with it....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BDBC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BE08);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12BE0A);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
 	MakeCode	(0X12BE0C);
+	MakeRptCmt	(0X12BE18,	"\"That's it. He didn't escape.[Line]He's gone....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BE1C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BE48,	"\"I won't believe it....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BE4C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BE78,	"\"[Hero] has saved all of[Line]Rune. His sacrifice will be[Line]remembered forever.[Delay2][Line]And now, friends, it is[Line]time for us to begin the long[Line]journey home....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BE7C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X12BEB0,	"\"I won't believe it....[Delay2][Delay2]\"");
+	MakeCode	(x=0X12BEB4);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12BEF6);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
 	MakeCode	(x=0X12BEFA);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X12BF0E,	"\"[Hero]!\"");
+	MakeCode	(x=0X12BF12);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(0X12BF42);
 	MakeCode	(0X12BF66);
 	MakeCode	(0X12BF7C);
@@ -31290,7 +32222,10 @@ static Bytes_6(void) {
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X12C468);
 	OpEnumEx		(x,	0,	GetEnum("Music"),0);
+	MakeRptCmt	(0X12C46A,	"\"([Name] joins the[Line]Shining Force!)\"");
 	MakeCode	(0X12C46A);
+	MakeCode	(x=0X12C46E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X12C480);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -31465,6 +32400,15 @@ static Bytes_6(void) {
 	MakeCode	(x=0X13005C);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X13006C,	"\"In ages long forgotten...\"");
+	MakeCode	(x=0X130070);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X13007C,	"\"...Light fought Darkness for[Line]control of the world.\"");
+	MakeCode	(x=0X130080);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X13008C,	"\"Dark Dragon led the evil[Line]hordes of Darkness.\"");
+	MakeCode	(x=0X130090);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X13009C);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
@@ -31484,6 +32428,12 @@ static Bytes_6(void) {
 	MakeCode	(x=0X130130);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X130142,	"\"The Ancients fought back with[Line]the Powers of Light.\"");
+	MakeCode	(x=0X130146);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X130152,	"\"Dark Dragon was defeated and[Line]cast into another dimension.\"");
+	MakeCode	(x=0X130156);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X130178);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -31501,6 +32451,9 @@ static Bytes_6(void) {
 	MakeCode	(x=0X1301B8);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X1301C8,	"\"The Lord of Darkness vowed to[Line]return in 1,000 years.\"");
+	MakeCode	(x=0X1301CC);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1301EC);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -31518,6 +32471,12 @@ static Bytes_6(void) {
 	MakeCode	(x=0X130276);
 	OpOff		(x,	1,	0X0);
 	OpOff		(x,	129,	0X0);
+	MakeRptCmt	(0X130288,	"\"Time passed, and Dark Dragon[Line]was forgotten by all.\"");
+	MakeCode	(x=0X13028C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X130298,	"\"Ten centuries of peace ruled[Line]the land of Rune.\"");
+	MakeCode	(x=0X13029C);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1302C2);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
@@ -31542,6 +32501,18 @@ static Bytes_6(void) {
 	MakeCode	(x=0X13034A);
 	OpOff		(x,	0,	0X0);
 	OpOff		(x,	128,	0X0);
+	MakeRptCmt	(0X13035A,	"\"Until the kingdom of Runefaust[Line]brought war and fear to Rune.\"");
+	MakeCode	(x=0X13035E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X13036A,	"\"Hordes of evil creatures[Line]ravaged every land.\"");
+	MakeCode	(x=0X13036E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X13037A,	"\"Here and there, strongholds[Line]of Good still held out...\"");
+	MakeCode	(x=0X13037E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
+	MakeRptCmt	(0X13038A,	"\"...awaiting a Hero who could[Line]wield the Powers of Light!\"");
+	MakeCode	(x=0X13038E);
+	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeCode	(x=0X1303A0);
 	OpEnumEx		(x,	0,	GetEnum("Traps"),0);
 	MakeWord	(x=0X1303A2);
@@ -33609,15 +34580,6 @@ static Bytes_6(void) {
 	MakeByte	(0XFF0EB3);
 	MakeArray	(0XFF0EB3,	0X3);
 	MakeName	(0XFF0EB3,	"INPUT_REPEAT_DELAYER");
-}
-
-//------------------------------------------------------------------------
-// Information about bytes
-
-static Bytes_7(void) {
-        auto x;
-#define id x
-
 	MakeByte	(0XFF0EB6);
 	MakeRptCmt	(0XFF0EB7,	"screen effect / transition");
 	MakeByte	(0XFF0EB7);
