@@ -35,12 +35,12 @@ static produceMain(){
 static produceMusicBank0(mainFile){
 
 	produceAsmSection(mainFile,0x8000,0x8040);
-	produceAsmScriptWithConditionalInclude(mainFile,"music05",0x8040,0x827D,"Music 05",0);
-	produceAsmScriptWithConditionalInclude(mainFile,"music01",0x827D,0x9528,"Music 01",0);
-	produceAsmScriptWithConditionalInclude(mainFile,"music02",0x9528,0x9788,"Music 02",0);
-	produceAsmScriptWithConditionalInclude(mainFile,"music03",0x9788,0x9A5A,"Music 03",0);
-	produceAsmScriptWithConditionalInclude(mainFile,"music04",0x9A5A,0xAB56,"Music 04",0);
-	produceAsmScriptWithConditionalInclude(mainFile,"music06",0xAB56,0xCA2D,"Music 06, 07, and 32 combined for optimization",0);
+	produceAsmScriptWithConditionalInclude(mainFile,"music37",0x8040,0x827D,"Music 37",0);
+	produceAsmScriptWithConditionalInclude(mainFile,"music33",0x827D,0x9528,"Music 33",0);
+	produceAsmScriptWithConditionalInclude(mainFile,"music34",0x9528,0x9788,"Music 34",0);
+	produceAsmScriptWithConditionalInclude(mainFile,"music35",0x9788,0x9A5A,"Music 35",0);
+	produceAsmScriptWithConditionalInclude(mainFile,"music36",0x9A5A,0xAB56,"Music 36",0);
+	produceAsmScriptWithConditionalInclude(mainFile,"music38",0xAB56,0xCA2D,"Music 38, 39, and 64 combined for optimization",0);
 
 
 

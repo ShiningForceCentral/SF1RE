@@ -48,14 +48,13 @@ static parseMusicBank(){
 	auto addr,target;
 	undefineByte(0);
 	for(i=1;i<=32;i++){
-		//addr = 0x8000+(i-1)*2;
 		addr = 0x8AE0+(i-1)*2;
 		MakeWord(addr);
 		target = Word(addr);
-		MakeNameEx(target,form("Music_%s",ltoa(i+32,10)),0);
+		MakeNameEx(target,form("Music_%s",ltoa(i,10)),0);
 		OpOff(addr,0,0);
-		Message(form("\n  Music %d at 0x%s...",i+32,ltoa(target,16)));	
-		parseMusic(target,target+0x1000,i+32);
+		Message(form("\n  Music %d at 0x%s...",i,ltoa(target,16)));	
+		parseMusic(target,target+0x1000,i);
 		Message(" DONE.\n");
 		/*if(AskYN(1,"Next Music ?")!=1){
 			break;
@@ -328,7 +327,7 @@ static parseMusic(start,end,index){
 				cmdLength = 2;
 				MakeUnknown(ea,cmdLength,DOUNK_SIMPLE);
 				MakeData(ea,FF_BYTE,cmdLength,1);
-				SetManualInsn(ea,form("        waitL %s",ltoa(Byte(ea+1),10)));
+				SetManualInsn(ea,form("        waitL    %s",ltoa(Byte(ea+1),10)));
 			}else if(cmd==0x70){
 				cmdLength = 1;
 				MakeUnknown(ea,cmdLength,DOUNK_SIMPLE);
