@@ -4,69 +4,61 @@ static main()
     SetFunctionCmt(0x5fa, 
         "if xxxx = $FFFF, then get d0.w", 1);
 
-    // sub_768
-    SetFunctionCmt(0x768, 
-        "executes if VINT_PARAMS bit 0 set", 1);
+    // VInt
+    SetFunctionCmt(0x6d8, 
+        "Vertical Interrupt", 1);
 
-    // sub_7EC
-    SetFunctionCmt(0x7ec, 
-        "related to VINT_PARAMS bit 4", 1);
+    // HInt
+    SetFunctionCmt(0xb9c, 
+        "Horizontal Interrupt", 1);
 
-    // sub_82C
-    SetFunctionCmt(0x82c, 
-        "executes if VINT_PARAMS bit 3 set or bit 1 clear", 1);
-
-    // WaitForDMAFree
+    // WaitDmaEnd
     SetFunctionCmt(0xb9e, 
         "waits for 0xc00004 (VDP DMA register) to be cleared", 1);
 
-    // GetVDPRegStatus
+    // GetVdpRegStatus
     SetFunctionCmt(0xbb2, 
-        "d0 : vdp reg number", 1);
+        "VDP Reg Status -> D0", 1);
 
-    // DuplicatePalettes
-    SetFunctionCmt(0xc6c, 
-        "Palette transfer ?", 1);
+    // ApplyVIntCramDma
+    SetFunctionCmt(0xc8a, 
+        "VDP CRAM", 1);
 
     // WaitForVInt
     SetFunctionCmt(0xe66, 
-        "Wait until VInt func is called, i.e. next frame", 1);
+        "Wait until VInt function is called, i.e., next frame", 1);
 
     // Sleep
     SetFunctionCmt(0xe80, 
-        "wait for D0 Vints/frames", 1);
+        "Wait for D0 frames", 1);
 
-    // SetVIntParam0
-    SetFunctionCmt(0xe96, 
-        "used to execute sub_768", 1);
-
-    // sub_10D2
+    // ApplyVIntVramDma
     SetFunctionCmt(0x10d2, 
-        "DMA stuff. d0 = DMA destination ?", 1);
+        "A0=Source, A1=Destination, D0=Length, D1=Auto-increment", 1);
 
-    // sub_1284
-    SetFunctionCmt(0x1284, 
-        "DMA preparation stuff", 1);
+    // UpdateVdpVScrollData
+    SetFunctionCmt(0x11f8, 
+        "VDP Vertical Scroll Data", 1);
+
+    // ApplyImmediateVramDmaOnCompressedTiles
+    SetFunctionCmt(0x125c, 
+        "A0=Source, A1=Destination, D0=Length, D1=Auto-increment", 1);
 
     // sub_1294
     SetFunctionCmt(0x1294, 
-        "DMA stuff", 1);
+        "DMA code", 1);
 
     // sub_12BA
     SetFunctionCmt(0x12ba, 
-        "DMA stuff", 1);
+        "DMA code", 1);
 
-    // DMAVramFill
+    // ApplyVramDmaFill
     SetFunctionCmt(0x12e6, 
-        "d0:DMA destination - d1:DMA length - d2:sent to VDP Data", 1);
+        "D0=Destination, D1=Length, D2=Filler value", 1);
 
-    // WriteAsciiNumber
-    SetFunctionCmt(0x137e, 
-        "write D0 into RAM:E80 to D7 places", 1);
-
-    // UpdateRandomSeed
+    // GenerateRandomNumber
     SetFunctionCmt(0x14ee, 
-        "Get random number from 0 to D6, returned in D7", 1);
+        "In: D6 = Value range, Out: D7 = Random value", 1);
 
     // PlayMusicAfterCurrentOne
     SetFunctionCmt(0x150e, 
@@ -74,16 +66,11 @@ static main()
 
     // CopyBytes
     SetFunctionCmt(0x1526, 
-        "    Copy D7 bytes from A0 to A1.\n\
-    In: A0 = src address\n\
-        A1 = dest address\n\
-        D7 = number of bytes to copy", 1);
+        "A0=Source, A1=Destination, D7=Length", 1);
 
     // InitSprites
     SetFunctionCmt(0x1550, 
-        "In: D0 = number of sprites\n\
-\n\
-set default values in sprite table", 1);
+        "D0 = Number of sprites to initialize", 1);
 
     // sub_1856
     SetFunctionCmt(0x1856, 
@@ -97,13 +84,41 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x3082, 
         "Get event flag D0", 1);
 
-    // FindBattleMember
-    SetFunctionCmt(0x73d4, 
-        "Find battle member with index D2", 1);
+    // sub_3284
+    SetFunctionCmt(0x3284, 
+        "Suspend game", 1);
 
-    // sub_8DE2
-    SetFunctionCmt(0x8de2, 
-        "Update screen after tile changes", 1);
+    // sub_32EC
+    SetFunctionCmt(0x32ec, 
+        "Simone's ending speech", 1);
+
+    // sub_3D80
+    SetFunctionCmt(0x3d80, 
+        "End chapter", 1);
+
+    // GetAdviceMessageOffset
+    SetFunctionCmt(0x6078, 
+        "Get offset to advice message index for current battle -> D0", 1);
+
+    // LoadHeadquartersMapsprite
+    SetFunctionCmt(0x689c, 
+        "Load headquarters map sprite", 1);
+
+    // LoadEndingCutsceneCombatantData
+    SetFunctionCmt(0x6a7e, 
+        "Load combatant data during ending cutscene", 1);
+
+    // FindCombatantSlot
+    SetFunctionCmt(0x73d4, 
+        "Find force member D2 combatant slot number -> D0 if exists, else D0 = $FFFFFFFF", 1);
+
+    // optionMenuAction_Quit
+    SetFunctionCmt(0x7aa6, 
+        "Battle menu action : Quit", 1);
+
+    // LoadCursorSpriteData
+    SetFunctionCmt(0x87d2, 
+        "In: d1.w, d2.w = cursor X, Y speed", 1);
 
     // sub_9602
     SetFunctionCmt(0x9602, 
@@ -117,7 +132,7 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x9718, 
         "Change chest tile to closed at D1,D2", 1);
 
-    // sub_ACE4
+    // CheckBattleEnd
     SetFunctionCmt(0xace4, 
         "Check if boss dead", 1);
 
@@ -129,17 +144,111 @@ set default values in sprite table", 1);
     SetFunctionCmt(0xadb8, 
         "Get coordinates of tile sprite is facing D1,D2", 1);
 
-    // sub_AE36
-    SetFunctionCmt(0xae36, 
-        "Display window? D0 = XXXXWWHH D1=? D2=?", 1);
+    // MoveWindow
+    SetFunctionCmt(0xae3a, 
+        "In: D0 = size WWHH\n\
+    D1 = origin/destination XXYYXXYY\n\
+    D2 = animation frames length", 1);
+
+    // CreateWindow
+    SetFunctionCmt(0xaea8, 
+        "In: A0 = layout, D0 = size WWHH, D1 = position XXYY", 1);
+
+    // sub_B030
+    SetFunctionCmt(0xb030, 
+        "Clear window properties?", 1);
+
+    // WriteTilesFromNumber
+    SetFunctionCmt(0xb042, 
+        "Write tiles from number D0 into A1 : D7 letters, window width D1", 1);
+
+    // WriteTilesFromAscii
+    SetFunctionCmt(0xb054, 
+        "Write tiles from ASCII at A0 to A1 : D7 letters, window width D1", 1);
+
+    // GetIconTilesAddress
+    SetFunctionCmt(0xc6c6, 
+        "In: A2 = icons tiles pointer\n\
+    A3 = entity items/spells address\n\
+    D1 = item/spell slot\n\
+\n\
+Out: A0 = icon tiles address", 1);
+
+    // CapMiniStatusBarLength
+    SetFunctionCmt(0xd21e, 
+        "In: D2 = current HP or MP value\n\
+    D3 = max HP or MP value", 1);
+
+    // sub_D32C
+    SetFunctionCmt(0xd32c, 
+        "Show battle menu action refusal text", 1);
+
+    // LoadPortrait
+    SetFunctionCmt(0xe156, 
+        "Load portrait tiles.", 1);
+
+    // sub_E49E
+    SetFunctionCmt(0xe49e, 
+        "Out: D0 = selected item index if it exists, else D0 = $FFFFFFFF", 1);
+
+    // sub_11126
+    SetFunctionCmt(0x11126, 
+        "Set sprite direction", 1);
+
+    // sub_11D84
+    SetFunctionCmt(0x11d84, 
+        "Load map sprite", 1);
 
     // sub_12C62
     SetFunctionCmt(0x12c62, 
         "Teleport map sprite (on same map?)", 1);
 
+    // DisplayPortraitInMenu
+    SetFunctionCmt(0x168d8, 
+        "Display portrait in menu", 1);
+
+    // ExecuteShopMenu
+    SetFunctionCmt(0x168fe, 
+        "In: D0 = current shop index\n\
+    D1 = \n\
+    D2 = ", 1);
+
+    // CheckGold
+    SetFunctionCmt(0x16dae, 
+        "Check if enough gold to pay price D0 -> D2 = 1 if true", 1);
+
+    // ExecuteChurchMenu
+    SetFunctionCmt(0x17028, 
+        "In: D1 =\n\
+    D2 = ", 1);
+
     // sub_17E34
     SetFunctionCmt(0x17e34, 
         "Dialog Scripts", 1);
+
+    // GiveItemToHero
+    SetFunctionCmt(0x17ed6, 
+        "Used in dialogue scripts", 1);
+
+    // sub_17F64
+    SetFunctionCmt(0x17f64, 
+        "Set speech SFX", 1);
+
+    // sub_17FE0
+    SetFunctionCmt(0x17fe0, 
+        "\"Join Force\" cutscene command", 1);
+
+    // sub_18046
+    SetFunctionCmt(0x18046, 
+        "Display yes/no prompt", 1);
+
+    // sub_18056
+    SetFunctionCmt(0x18056, 
+        "Check yes/no", 1);
+
+    // DialogueScript29
+    SetFunctionCmt(0x1cbf4, 
+        "Metapha (get Chaos Breaker)", 1);
 
     // InitDecoder
     SetFunctionCmt(0x1efe0, 
@@ -147,129 +256,134 @@ set default values in sprite table", 1);
 - clear Huffman (script) data\n\
 - set starting tree", 1);
 
-    // sub_20404
+    // MakeEffectiveMoveCosts
     SetFunctionCmt(0x20404, 
-        "Compute distance to reachable squares given D1=Y,D2=X, calls 20432", 1);
+        "In: A0 = move cost entry address", 1);
 
-    // sub_20432
+    // PopulateTotalMoveCosts
+    SetFunctionCmt(0x2040c, 
+        "Setup registers to calculate and load total move costs to table at $FFA8C0\n\
+\n\
+In: D1 = moving combatant's Y\n\
+    D2 = moving combatant's X\n\
+    D3 = moving combatant's modified move * 2 (i.e., move points)", 1);
+
+    // CalculateTotalMoveCosts
     SetFunctionCmt(0x20432, 
-        "Compute distance to reachable squares given A0 offset", 1);
+        "Calculate total move costs to reachable spaces, load to table at $FFA8C0\n\
+\n\
+In: A0 = passability flags entry address\n\
+    D3 = moving combatant's modified move * 2 (i.e., move points)", 1);
 
-    // sub_20506
+    // LoadMoveCosts
     SetFunctionCmt(0x20506, 
-        "Load Terrain Data to RAM (xACC0)", 1);
+        "Load move costs table given entry at A0, mapped to current terrain data", 1);
 
-    // sub_2053E
+    // BlockSpacesOccupiedByOpponents
     SetFunctionCmt(0x2053e, 
-        "Clear occupied squares from valid targets (bits 0 and 1 of D4 determine if enemy and force should be cleared respectively)", 1);
+        "Block spaces occupied by opponents (bits 0 and 1 of D4 determine if enemies or force members should be blocked, respectively)", 1);
 
-    // sub_20584
+    // SetupEffectiveMoveCosts
     SetFunctionCmt(0x20584, 
-        "Prepare to compute move cost of character D0, loads class and terrain data", 1);
+        "Setup registers to make effective move costs table for combatant D0", 1);
 
-    // sub_2059E
+    // SetupTargetingMoveCosts
     SetFunctionCmt(0x2059e, 
-        "Similar to 20584 but from land effect data instead of class", 1);
+        "Setup registers to make targeting move costs table", 1);
 
-    // sub_205AC
-    SetFunctionCmt(0x205ac, 
-        "Wrapper for 205B2 and 205DE", 1);
-
-    // sub_205B2
+    // InitPassabilityFlags
     SetFunctionCmt(0x205b2, 
-        "Mark all squares that within move range as passable and stoppable", 1);
+        "Initialize all spaces within move range as \"allowed to pass through\" and \"allowed to stay at\"", 1);
 
-    // sub_205DE
+    // ClearAllowedToStayAtFlags
     SetFunctionCmt(0x205de, 
-        "Clear stoppable flag of all occupied squares", 1);
+        "Clear \"allowed to stay at\" in passability flags table for all occupied spaces", 1);
 
-    // sub_2061C
+    // MakeTargetingGrid
     SetFunctionCmt(0x2061c, 
-        "Set only squares with distance A to B as passable (A and B on stack)", 1);
+        "Mark spaces within distances D2 to D1 as passable", 1);
 
-    // sub_207BC
+    // sub_20692
+    SetFunctionCmt(0x20692, 
+        "In: A1 = current position into passability flags table", 1);
+
+    // LoadLaserEyeTargetGrid
     SetFunctionCmt(0x207bc, 
-        "Reset Tile Flags and load from 207CA", 1);
+        "Get Laser Eye's predefined target grid address, load to passability flags table", 1);
 
-    // sub_20802
+    // MakeTorchEyeTargetGrid
     SetFunctionCmt(0x20802, 
-        "Clear tile flags of tile under member D0", 1);
+        "Make Torch Eye's special target grid, clear space occupied by combatant D0", 1);
 
-    // sub_20822
+    // MakeSpecialTargetGrid
     SetFunctionCmt(0x20822, 
-        "Clear tile flags and then mark all tiles within 2 of member D0 as passable?", 1);
+        "Clear passability flags, mark all spaces within 2 of combatant D0 as targetable", 1);
 
     // sub_20868
     SetFunctionCmt(0x20868, 
-        "Compute distance up to 3 of tiles around D1,D2", 1);
+        "Calculate distance up to 3 of tiles around D2,D1", 1);
 
-    // sub_208DE
+    // CreateTotalMoveCosts
     SetFunctionCmt(0x208de, 
-        "Compute movement cost to all tiles for member D0", 1);
+        "Make total move costs table for enemy combatant D0\n\
+\n\
+In: D3 = ", 1);
 
-    // sub_2091A
+    // BlockAllOccupiedSpaces
     SetFunctionCmt(0x2091a, 
-        "Mark all occupied squares as unreachable", 1);
+        "In: D3 = ", 1);
 
     // CalculateDistance
     SetFunctionCmt(0x2097a, 
-        "Computes distance (DX+DY) of two points stored in D1,D2 and D5,D6 and returns as D7", 1);
+        "Calculate distance measured in spaces between positions D2,D1 and D6,D5 -> D7", 1);
 
-    // GetDistanceToTarget
+    // CalculateDistanceToTarget
     SetFunctionCmt(0x20994, 
-        "Computes distance between D1,D2 and member D0 and returns as D7", 1);
+        "Calculate distance between combatant D0 and position D2,D1 -> D7", 1);
 
-    // GetDistanceBetweenTargets
+    // CalculateDistanceBetweenCombatants
     SetFunctionCmt(0x209b0, 
-        "Get distance between members D0 and D1 -> D7", 1);
+        "Calculate distance between combatants D0 and D1 -> D7", 1);
 
-    // FindTargetAtPosition
+    // IsSpaceOccupied
     SetFunctionCmt(0x209ca, 
-        "Find member at D1,D2 and store in D0", 1);
+        "Check if space at position D2,D1 is occupied by a combatant\n\
+\n\
+CCR: carry-bit set if true", 1);
 
-    // sub_20BDC
+    // DetermineLaserEyeAction
     SetFunctionCmt(0x20bdc, 
-        "Effect Handler (calls 20C1C)", 1);
+        "Effect Handler (calls 20C1C) -- Laser Eye range routine", 1);
 
-    // sub_20C1C
+    // StartBattleaction
     SetFunctionCmt(0x20c1c, 
-        "Effect Code Routine", 1);
+        "In: d5.b = battleaction index", 1);
 
-    // sub_20C40
+    // InitializeBattlesceneAftermath
     SetFunctionCmt(0x20c40, 
-        "Reset Effect Values", 1);
+        "Clear experience, coins, and dropped items values.", 1);
 
-    // ActionEffect_Heal
+    // EffectRoutine_Heal
     SetFunctionCmt(0x20c50, 
-        "Heal Effect Routine", 1);
+        "In: A0 = effect data address\n\
+    D0 = caster index\n\
+    D1 = target index", 1);
 
-    // IsHealer
+    // IsHealerClass
     SetFunctionCmt(0x20ce2, 
-        "Check if healer class", 1);
+        "Check if caster D0 is a healer class -> CCR zero-bit set if true", 1);
 
-    // CapEXPToGain
-    SetFunctionCmt(0x20d08, 
-        "Cap EXP at 48", 1);
-
-    // ActionEffect_Antidote
-    SetFunctionCmt(0x20d18, 
-        "Antidote/Detox effect routine", 1);
-
-    // ActionEffect_PhysicalAttack
-    SetFunctionCmt(0x20d7c, 
-        "Physical attack routine", 1);
-
-    // sub_20DF4
+    // HandleTargetDefeat
     SetFunctionCmt(0x20df4, 
-        "Death Routine", 1);
+        "In: D3 = calculated damage", 1);
 
-    // sub_20E4A
+    // LoadDeathMessage
     SetFunctionCmt(0x20e4a, 
-        "Get death message depending on if force or enemy", 1);
+        "Load death message depending on if target is force or enemy", 1);
 
-    // sub_20E6A
+    // CalculateKillExperience
     SetFunctionCmt(0x20e6a, 
-        "Get experience for killing enemy based on level difference", 1);
+        "Get experience for killing enemy based on level difference -> D2", 1);
 
     // LoadCoinsToGain
     SetFunctionCmt(0x20e96, 
@@ -277,35 +391,20 @@ set default values in sprite table", 1);
 
     // LoadItemToDrop
     SetFunctionCmt(0x20eba, 
-        "Give Jogurt ring if Jogurt kills enemy and hasn't been given", 1);
+        "Give Jogurt Ring if Jogurt kills an enemy and it hasn't been given yet", 1);
 
-    // sub_20EF6
-    SetFunctionCmt(0x20ef6, 
-        "Doom Blade Effect Routine", 1);
-
-    // sub_20FBA
-    SetFunctionCmt(0x20fba, 
-        "Spell Failure Message", 1);
-
-    // sub_20FD4
+    // LoadEffectSuccessMessage
     SetFunctionCmt(0x20fd4, 
-        "Status Effect Message", 1);
-
-    // ActionEffect_Desoul
-    SetFunctionCmt(0x21034, 
-        "Desoul Routine", 1);
+        "In: D1 = target index\n\
+    D2 = status effect index", 1);
 
     // CalculateDamage
     SetFunctionCmt(0x210f0, 
-        "Calculate physical damage D3", 1);
+        "Calculate physical attack damage -> D3", 1);
 
-    // CheckCriticalHit
+    // ApplyCriticalDamage
     SetFunctionCmt(0x21128, 
-        "Check for critical", 1);
-
-    // sub_21152
-    SetFunctionCmt(0x21152, 
-        "Prepare critical message", 1);
+        "Determine critical hit, apply damage multiplier -> D3", 1);
 
     // ApplyDamageSpread
     SetFunctionCmt(0x21180, 
@@ -315,777 +414,807 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x211a8, 
         "Apply land effect to damage D3", 1);
 
-    // ApplyElemResist
+    // ApplyResistance
     SetFunctionCmt(0x211c6, 
-        "Apply elemental resistance D2 to damage D3", 1);
+        "Apply resistance to element D2 unto damage D3", 1);
 
-    // GetTargetResistance
+    // GetTargetCombatantResistance
     SetFunctionCmt(0x211e6, 
-        "Get battle member D1 resistance flags D2 -> D2", 1);
+        "Get combatant D1 resistance to element D2 -> D2", 1);
 
     // IsSpellNullified
     SetFunctionCmt(0x211fc, 
-        "Check if spell nullified by barrier", 1);
+        "Check if spell is nullified by magic curtain", 1);
 
-    // CheckEvasion
+    // DetermineEvade
     SetFunctionCmt(0x21224, 
-        "Evasion check", 1);
+        "Determine whether targeted combatant D1 evades the attack\n\
+\n\
+      In: D0 = attacker index\n\
+          D1 = target index\n\
+\n\
+      Out: CCR carry-bit set when successful", 1);
 
     // IsAbleToEvade
     SetFunctionCmt(0x2126a, 
-        "Check if asleep and laser eye or dark dragon", 1);
+        "Check if combatant D1 is able to evade attacks -> CCR carry-bit set if true", 1);
 
-    // UpdateRandomSeed0To100
+    // GenerateRandomNumber0To99
     SetFunctionCmt(0x212a6, 
-        "Get random number 0 to 100, returned in D7", 1);
+        "Generate random number 0 to 99, returned in d7.w", 1);
 
-    // CheckStatusFailure
+    // DetermineEffectFailure
     SetFunctionCmt(0x212b6, 
-        "Check for status effect failure", 1);
+        "In: D1 = target index\n\
+    D2 = resistance index\n\
+\n\
+Out: CCR: carry-bit clear if successful", 1);
 
     // CalculateLevelDifference
     SetFunctionCmt(0x212de, 
-        "Get difference between target level", 1);
+        "Get level difference between attacker D0 and target D1 -> D1", 1);
 
-    // sub_212FA
+    // IsVulnerableToInstantDeath
     SetFunctionCmt(0x212fa, 
-        "Get Sleep/Death resistance", 1);
+        "Check if combatant D1 is vulnerable to instant death attacks", 1);
 
-    // sub_2130E
-    SetFunctionCmt(0x2130e, 
-        "Special Attack Routine", 1);
-
-    // sub_21340
-    SetFunctionCmt(0x21340, 
-        "Doom Blade Special Attack Routine (6% death, or go back to normal attack)", 1);
-
-    // sub_2138C
-    SetFunctionCmt(0x2138c, 
-        "Enemy Physical Attack", 1);
-
-    // sub_21424
-    SetFunctionCmt(0x21424, 
-        "HP Steal Special Attack", 1);
-
-    // sub_21460
-    SetFunctionCmt(0x21460, 
-        "Poison Causing Special Attack", 1);
-
-    // sub_21484
-    SetFunctionCmt(0x21484, 
-        "Sleep Causing Special Attack", 1);
-
-    // sub_214A8
+    // DetermineDarkDragonFinisher
     SetFunctionCmt(0x214a8, 
-        "Special animation if Max kills last Dark Dragon head with Chaos Breaker", 1);
+        "Perform a special animation if Max kills the last Dark Dragon head with the Chaos Breaker.", 1);
 
-    // sub_21520
+    // LoadBattlesceneActors
     SetFunctionCmt(0x21520, 
-        "Setup attack animation members", 1);
+        "In: D0 = caster index\n\
+    D1 = target index", 1);
 
     // sub_2154C
     SetFunctionCmt(0x2154c, 
-        "Add battle animation member", 1);
+        "Add battlescene member", 1);
 
     // sub_2157A
     SetFunctionCmt(0x2157a, 
-        "Add battle animation target", 1);
+        "Add battlescene target", 1);
 
     // sub_215A0
     SetFunctionCmt(0x215a0, 
-        "Setup battle animation data", 1);
+        "Setup battlescene data", 1);
 
-    // sub_215C8
+    // WriteBattlesceneCommand
     SetFunctionCmt(0x215c8, 
-        "Setup battle animation data", 1);
+        "Setup battlescene data", 1);
 
     // sub_215F2
     SetFunctionCmt(0x215f2, 
         "Wrapper for 215C8", 1);
 
-    // sub_215FC
+    // CopyBattlesceneData
     SetFunctionCmt(0x215fc, 
-        "Copy battle animation data", 1);
+        "Copy battlescene data\n\
+\n\
+In: A0 = source\n\
+    A2 = destination", 1);
 
     // sub_2160E
     SetFunctionCmt(0x2160e, 
-        "Copy battle animation data 2", 1);
+        "Copy battlescene data 2", 1);
 
     // sub_21620
     SetFunctionCmt(0x21620, 
         "Setup Battle Messages", 1);
 
-    // sub_21640
+    // EndBattleaction
     SetFunctionCmt(0x21640, 
         "End of battle action (award money, break items, give exp, drop item)", 1);
 
-    // sub_21744
+    // NullBattleaction
     SetFunctionCmt(0x21744, 
         "Add empty battle action", 1);
 
-    // sub_21934
-    SetFunctionCmt(0x21934, 
-        "Check if battle member (D0) and battle member (A3) are on different team, if so load to D1", 1);
+    // ExecuteBattleaction
+    SetFunctionCmt(0x21754, 
+        "Battle action effect handler\n\
+\n\
+In: D0 = actor index\n\
+    A0 = effect entry address\n\
+    A1 = pointer to effect routine", 1);
 
-    // sub_2195E
-    SetFunctionCmt(0x2195e, 
-        "Check for double attack", 1);
+    // sub_218D4
+    SetFunctionCmt(0x218d4, 
+        "Initialize amount of damage to inflict and status effects change", 1);
+
+    // sub_218EE
+    SetFunctionCmt(0x218ee, 
+        "Initialize battle action data", 1);
+
+    // IsTargetOpponent
+    SetFunctionCmt(0x21934, 
+        "Check if target is an opponent, get its combatant index -> D1 if true, else D1 = $FFFF\n\
+\n\
+In: A3 = target table entry address\n\
+    D0 = caster index", 1);
 
     // sub_219C0
     SetFunctionCmt(0x219c0, 
         "Attack cleanup - clear item dropped, set to single attack if first will kill enemy", 1);
 
-    // sub_219E6
+    // CheckFatalDamage
     SetFunctionCmt(0x219e6, 
-        "Check if damage will kill target", 1);
+        "Check if damage will defeat target", 1);
 
-    // sub_219FC
+    // CheckDispel
     SetFunctionCmt(0x219fc, 
-        "Check for dispel status", 1);
+        "Check if caster is under dispel status\n\
+\n\
+Out: CCR = Carry-bit set if true", 1);
 
-    // sub_21A4E
+    // DetermineCurseParalysis
     SetFunctionCmt(0x21a4e, 
-        "Apply chance of curse", 1);
+        "Carry-bit set if paralysis occurs", 1);
 
-    // InitGameSettings
-    SetFunctionCmt(0x21aee, 
-        "Game init routine", 1);
+    // GetEnemyPositionsPointer
+    SetFunctionCmt(0x21bcc, 
+        "Get enemy positions pointer -> A1", 1);
 
-    // sub_21BDC
-    SetFunctionCmt(0x21bdc, 
-        "Clear battle member table", 1);
-
-    // sub_21C9C
+    // PopulateCombatantSlot
     SetFunctionCmt(0x21c9c, 
-        "Add character/enemy D1 to battle member table slot D0, copy stats", 1);
+        "Populate combatant slot D0 with force member D1, and place them at coordinates A1", 1);
 
-    // sub_21CCE
+    // FindEmptyCombatantSlot
     SetFunctionCmt(0x21cce, 
-        "Find empty slot in battle data table", 1);
+        "Find first empty combatant slot -> D0\n\
+\n\
+CCR: carry-bit set if not found", 1);
 
-    // LoadBattleStats
+    // LoadCombatantData
     SetFunctionCmt(0x21cf2, 
-        "Load member into battle data table", 1);
+        "Load combatant D0 data", 1);
 
     // GetEnemyEntryAddress
     SetFunctionCmt(0x21ff0, 
-        "Gets address of enemy's data (D1) into monster data table if enemy exists", 1);
+        "Get enemy D0 (from enemies list) entry address -> A1 if they exists, carry-bit set if not", 1);
 
     // IsInForce
     SetFunctionCmt(0x220b8, 
-        "Checks if member D0 is in force", 1);
+        "Check if force member D0 has joined -> CCR zero-bit cleared if true", 1);
+
+    // IsInForceAndBattleParty
+    SetFunctionCmt(0x220c8, 
+        "Check if force member D0 has joined and is in battle party\n\
+\n\
+    Out: D1 = 0 if not in battle party, 1 otherwise\n\
+         CCR zero-bit set if member has not joined, cleared otherwise", 1);
+
+    // IsInBattleParty
+    SetFunctionCmt(0x220d0, 
+        "Check if force member D0 is in battle party -> D1 = 0 if false, 1 if true", 1);
 
     // JoinBattleParty
     SetFunctionCmt(0x2210e, 
-        "Add D0 to current force", 1);
+        "Add force member D0 to battle party", 1);
 
     // LeaveBattleParty
     SetFunctionCmt(0x22132, 
-        "Remove D0 from current force", 1);
+        "Remove force member D0 from battle party", 1);
 
-    // GetEmptyActiveForceSlot
+    // GetEmptyBattlePartySlot
     SetFunctionCmt(0x22158, 
-        "Get empty slot in current force to D2", 1);
+        "Get first empty slot in battle party -> D2", 1);
 
     // JoinForce
     SetFunctionCmt(0x221ae, 
         "Add character D0 to force (if not already)     ", 1);
 
-    // IsInForce_0
+    // dup_IsInForce
     SetFunctionCmt(0x221d4, 
-        "Checks if member D0 is in force", 1);
+        "Check if force member D0 has joined (duplicate)", 1);
 
-    // sub_22232
-    SetFunctionCmt(0x22232, 
-        "Set Max's stats in battle test mode", 1);
-
-    // GetTargetID
+    // GetEntity
     SetFunctionCmt(0x22298, 
-        "Get battle member (D0) ID to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 entity index -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetX
+    // GetCombatantX
     SetFunctionCmt(0x222b0, 
-        "Get battle member (D0) X to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 X -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetY
+    // GetCombatantY
     SetFunctionCmt(0x222ca, 
-        "Get battle member (D0) Y to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 Y -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetATT
+    // GetModifiedAttack
     SetFunctionCmt(0x222e4, 
-        "Get battle member (D0) attack to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 modified attack -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetDEF
+    // GetModifiedDefense
     SetFunctionCmt(0x222fe, 
-        "Get battle member (D0) defense to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 modified defense -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetAGI
+    // GetModifiedAgility
     SetFunctionCmt(0x22318, 
-        "Get battle member (D0) agility to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 modified agility -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetMOVE
+    // GetModifiedMove
     SetFunctionCmt(0x22332, 
-        "Get battle member (D0) move to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 modified move -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetCRIT
+    // GetModifiedCritical
     SetFunctionCmt(0x2234c, 
-        "Get battle member (D0) crit to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 modified critical -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetDoubleAttack
+    // GetModifiedDoubleAttackMode
     SetFunctionCmt(0x22366, 
-        "Get battle member (D0) double attack setting to D1 if member exists, else D1=FFFF", 1);
+        "Get combatant D0 modified double attack mode -> D1 if they exist, else D1 = $FFFF", 1);
 
-    // GetTargetPosition
+    // GetCombatantPosition
     SetFunctionCmt(0x22380, 
-        "Get position of member D0 -> X to D2, Y to D1", 1);
+        "Get combatant D0 position X,Y -> D2,D1", 1);
 
-    // GetStatusCounter
+    // GetStatusEffectCounter
     SetFunctionCmt(0x22390, 
-        "Get section D1 of force member status (calls 2250E)", 1);
+        "Get force member's status effect counter D1 for combatant D0 -> D2", 1);
 
-    // GetForceMemberClass
+    // GetClass
     SetFunctionCmt(0x223a0, 
-        "Get force member (D0) Class to D1", 1);
+        "Get force member D0 class index -> D1", 1);
 
-    // GetForceMemberLevel
+    // GetLevel
     SetFunctionCmt(0x223b4, 
-        "Get force member (D0) level to D1", 1);
+        "Get force member D0 level -> D1", 1);
 
-    // GetForceMemberATT
+    // GetBaseAttack
     SetFunctionCmt(0x223c8, 
-        "Get force member (D0) attack to D1", 1);
+        "Get force member D0 base attack -> D1", 1);
 
-    // GetForceMemberDEF
+    // GetBaseDefense
     SetFunctionCmt(0x223dc, 
-        "Get force member (D0) defense to D1", 1);
+        "Get force member D0 base defense -> D1", 1);
 
-    // GetForceMemberAGI
+    // GetBaseAgility
     SetFunctionCmt(0x223f0, 
-        "Get force member (D0) agility to D1", 1);
+        "Get force member D0 base agility -> D1", 1);
 
-    // GetForceMemberMOVE
+    // GetBaseMove
     SetFunctionCmt(0x22404, 
-        "Get force member (D0) move to D1", 1);
+        "Get force member D0 base move -> D1", 1);
 
-    // GetForceMemberCRIT
+    // GetBaseCritical
     SetFunctionCmt(0x22418, 
-        "Get force member (D0) crit to D1", 1);
+        "Get force member D0 base critical -> D1", 1);
 
-    // GetForceMemberEXP
+    // GetExperience
     SetFunctionCmt(0x2242c, 
-        "Get force member (D0) EXP to D1", 1);
+        "Get force member D0 experience -> D1", 1);
 
-    // GetForceMemberMaxHP
+    // GetMaxHP
     SetFunctionCmt(0x22440, 
-        "Get force member (D0) Max HP to D1", 1);
+        "Get force member D0 max HP -> D1", 1);
 
-    // GetForceMemberHP
+    // GetCurrentHP
     SetFunctionCmt(0x22452, 
-        "Get force member (D0) HP to D1", 1);
+        "Get force member D0 current HP -> D1", 1);
 
-    // GetForceMemberMaxMP
+    // GetMaxMP
     SetFunctionCmt(0x22464, 
-        "Get force member (D0) Max MP to D1", 1);
+        "Get force member D0 max MP -> D1", 1);
 
-    // GetForceMemberMP
+    // GetCurrentMP
     SetFunctionCmt(0x22478, 
-        "Get force member (D0) MP to D1", 1);
+        "Get force member D0 current MP -> D1", 1);
 
-    // GetForceMemberStatus
+    // GetStatusEffects
     SetFunctionCmt(0x2248c, 
-        "Get force member (D0) status to D1", 1);
+        "Get force member D0 status effects -> D1", 1);
 
-    // GetClassFromForceID
+    // GetClassForCombatant
     SetFunctionCmt(0x2249e, 
-        "Get class by force index D0 -> D1", 1);
+        "Get force member's class index for combatant D0 -> D1", 1);
 
-    // GetLevelFromForceID
+    // GetLevelForCombatant
     SetFunctionCmt(0x224ac, 
-        "Get level by force index", 1);
+        "Get force member's level for combatant D0 -> D1", 1);
 
-    // GetATTFromForceID
+    // GetBaseAttackForCombatant
     SetFunctionCmt(0x224ba, 
-        "Get ATT by force index", 1);
+        "Get force member's base attack for combatant D0 -> D1", 1);
 
-    // GetDEFFromForceID
+    // GetBaseDefenseForCombatant
     SetFunctionCmt(0x224c8, 
-        "Get DEF by force index", 1);
+        "Get force member's base defense for combatant D0 -> D1", 1);
 
-    // GetAGIFromForceID
+    // GetBaseAgilityForCombatant
     SetFunctionCmt(0x224d6, 
-        "Get AGI by force index", 1);
+        "Get force member's base agility for combatant D0 -> D1", 1);
 
-    // GetMOVEFromForceID
+    // GetBaseMoveForCombatant
     SetFunctionCmt(0x224e4, 
-        "Get MOVE by force index", 1);
+        "Get force member's base move for combatant D0 -> D1", 1);
 
-    // GetCRITFromForceID
+    // GetBaseCriticalForCombatant
     SetFunctionCmt(0x224f2, 
-        "Get CRIT by force index", 1);
+        "Get force member's base critical for combatant D0 -> D1", 1);
 
-    // GetEXPFromForceID
+    // GetExperienceForCombatant
     SetFunctionCmt(0x22500, 
-        "Get EXP by force index", 1);
+        "Get force member's experience for combatant D0 -> D1", 1);
 
-    // GetStatusFromForceID
+    // GetStatusEffectsForCombatant
     SetFunctionCmt(0x2250e, 
-        "Get status by force index", 1);
+        "Get force member's status effects for combatant D0 -> D1", 1);
 
-    // GetMaxHPFromForceID
+    // GetMaxHpForCombatant
     SetFunctionCmt(0x2251c, 
-        "Get max HP by force index", 1);
+        "Get entity's max HP for combatant D0 -> D1", 1);
 
-    // GetHPFromForceID
+    // GetCurrentHpForCombatant
     SetFunctionCmt(0x2252a, 
-        "Get HP by force index", 1);
+        "Get entity's current HP for combatant D0 -> D1", 1);
 
-    // GetMaxMPFromForceID
+    // GetMaxMpForCombatant
     SetFunctionCmt(0x22538, 
-        "Get max MP by force index", 1);
+        "Get entity's max MP from combatant D0 -> D1", 1);
 
-    // GetMPFromForceID
+    // GetCurrentMpForCombatant
     SetFunctionCmt(0x22546, 
-        "Get MP by force index", 1);
+        "Get entity's current MP for combatant D0 -> D1", 1);
 
-    // GetForceStatsAddress
+    // GetEntityStatsAddress
     SetFunctionCmt(0x22554, 
-        "Get Address from 225F2 + 0 (Stats) of force member", 1);
+        "Get entity D0 stats address -> A0", 1);
 
-    // GetForceItemsAddress
+    // GetEntityItemsAddress
     SetFunctionCmt(0x22562, 
-        "Get Address from 225F2 + x1A (Items) of force member", 1);
+        "Get entity D0 items address -> A0", 1);
 
-    // GetForceSpellsAddress
+    // GetCharacterSpellsAddress
     SetFunctionCmt(0x22574, 
-        "Get Address from 225F2 + x1E (Spells) of force member", 1);
+        "Get entity D0 spells address -> A0", 1);
 
-    // GetForceStatsFromForceID
+    // GetEntityStatsAddressForCombatant
     SetFunctionCmt(0x22586, 
-        "Get Address from 225F2 + 0 (Stats) by force index", 1);
+        "Get entity stats address for combatant D0 -> A0", 1);
 
-    // GetForceItemsFromForceID
+    // GetEntityItemsAddressForCombatant
     SetFunctionCmt(0x22594, 
-        "Get Address from 225F2 + x1A (Items) by force index", 1);
+        "Get entity's items address for combatant D0 -> A0", 1);
 
-    // GetForceSpellsFromForceID
+    // GetEntitySpellsAddressForCombatant
     SetFunctionCmt(0x225a2, 
-        "Get Address from 225F2 + x1E (Spells) by force index", 1);
+        "Get entity spells address for combatant D0 -> A0", 1);
 
-    // GetForceMemberID
+    // alt_GetEntity
     SetFunctionCmt(0x225b0, 
-        "Get ID of force member", 1);
+        "Get combatant D0 entity index -> D0 (alternate implementation)", 1);
 
-    // FindTarget
+    // FindCombatantEntry
     SetFunctionCmt(0x225c4, 
-        "Get ram address ot stats matching ID D1", 1);
+        "Find force member D0 combatant entry address -> A0", 1);
 
-    // GetTargetEntryAddress
+    // GetCombatantEntryAddress
     SetFunctionCmt(0x225e0, 
-        "Get ram address of target's stats", 1);
+        "Get combatant D0 entry address -> A0 (CCR zero-bit set if slot is empty)", 1);
 
-    // GetForceEntryAddress
+    // GetEntityEntryAddress
     SetFunctionCmt(0x225f2, 
-        "Get ram address of force member's stats", 1);
+        "Get entity (force member or enemy) D0 data entry address -> A0", 1);
 
     // IsEnemy
     SetFunctionCmt(0x22610, 
-        "Test battle member ID to see if force or enemy", 1);
+        "Check if combatant D0 is an enemy -> CCR negative-bit set if true", 1);
 
-    // LoadClassName
+    // GetDisplayedNameAddress
     SetFunctionCmt(0x22620, 
-        "Load class name of battle member to A1", 1);
+        "Get combatant D0 displayed name address (load class name if enemy)\n\
+\n\
+Out: A0 = name address for combatant\n\
+     D1 = name length for combatant", 1);
 
-    // SetTargetID
+    // SetEntityIndex
     SetFunctionCmt(0x22654, 
-        "Set battle member (D0) ID to D1", 1);
+        "Set D1 -> combatant D0 entity index", 1);
 
-    // SetTargetX
+    // SetCombatantX
     SetFunctionCmt(0x22664, 
-        "Set battle member (D0) X to D1", 1);
+        "Set D1 -> combatant D0 X", 1);
 
-    // SetTargetY
+    // SetCombatantY
     SetFunctionCmt(0x22676, 
-        "Set battle member (D0) Y to D1", 1);
+        "Set D1 -> combatant D0 Y", 1);
 
-    // SetTargetATT
+    // SetModifiedAttack
     SetFunctionCmt(0x22688, 
-        "Set battle member (D0) attack to D1", 1);
+        "Set D1 -> combatant D0 modified attack", 1);
 
-    // SetTargetDEF
+    // SetModifiedDefense
     SetFunctionCmt(0x2269a, 
-        "Set battle member (D0) defense to D1", 1);
+        "Set D1 -> combatant D0 modified defense", 1);
 
-    // SetTargetAGI
+    // SetModifiedAgility
     SetFunctionCmt(0x226ac, 
-        "Set battle member (D0) agility to D1", 1);
+        "Set D1 -> combatant D0 modified agility", 1);
 
-    // SetTargetMOVE
+    // SetModifiedMove
     SetFunctionCmt(0x226be, 
-        "Set battle member (D0) move to D1", 1);
+        "Set D1 -> combatant D0 modified move", 1);
 
-    // SetTargetCRIT
+    // SetModifiedCritical
     SetFunctionCmt(0x226d0, 
-        "Set battle member (D0) crit to D1", 1);
+        "Set D1 -> combatant D0 modified critical", 1);
 
-    // SetTargetDoubleAttack
+    // SetModifiedDoubleAttackMode
     SetFunctionCmt(0x226e2, 
-        "Set battle member (D0) double attack setting to D1", 1);
+        "Set D1 -> combatant D0 modified double attack mode", 1);
 
-    // SetTargetPosition
+    // SetCombatantPosition
     SetFunctionCmt(0x226f4, 
-        "Set battle member (D0) X to D2, Y to D1", 1);
+        "Set Y = D1, X = D2 -> combatant D0 position", 1);
 
-    // SetTargetStatus
+    // SetStatusEffectCounter
     SetFunctionCmt(0x22708, 
-        "Set battle member (D0) Status section D1 to D2", 1);
+        "Set D2 -> force member's status effect counter D1 for combatant D0", 1);
 
-    // SetForceMemberClass
+    // SetClass
     SetFunctionCmt(0x2272c, 
-        "Set force member (D0) class to D1", 1);
+        "Set D1 -> force member D0 class index", 1);
 
-    // SetForceMemberLevel
+    // SetLevel
     SetFunctionCmt(0x2273e, 
-        "Set force member (D0) level to D1", 1);
+        "Set D1 -> force member D0 level", 1);
 
-    // SetForceMemberATT
+    // SetBaseAttack
     SetFunctionCmt(0x22750, 
-        "Set force member (D0) attack to D1", 1);
+        "Set D1 -> force member D0 base attack", 1);
 
-    // SetForceMemberDEF
+    // SetBaseDefense
     SetFunctionCmt(0x22762, 
-        "Set force member (D0) defense to D1", 1);
+        "Set D1 -> force member D0 base defense", 1);
 
-    // SetForceMemberAGI
+    // SetBaseAgility
     SetFunctionCmt(0x22774, 
-        "Set force member (D0) agility to D1", 1);
+        "Set D1 -> force member D0 base agility", 1);
 
-    // SetForceMemberMOVE
+    // SetBaseMove
     SetFunctionCmt(0x22786, 
-        "Set force member (D0) move to D1", 1);
+        "Set D1 -> force member D0 base move", 1);
 
-    // SetForceMemberCRIT
+    // SetBaseCritical
     SetFunctionCmt(0x22798, 
-        "Set force member (D0) crit to D1", 1);
+        "Set D1 -> force member D0 base critical", 1);
 
-    // SetForceMemberEXP
+    // SetExperience
     SetFunctionCmt(0x227aa, 
-        "Set force member (D0) EXP to D1", 1);
+        "Set D1 -> force member D0 experience", 1);
 
-    // SetForceMemberMaxHP
+    // SetMaxHP
     SetFunctionCmt(0x227bc, 
-        "Set force member (D0) Max HP to D1", 1);
+        "Set D1 -> force member D0 max HP", 1);
 
-    // SetForceMemberHP
+    // SetCurrentHP
     SetFunctionCmt(0x227ce, 
-        "Set force member (D0) HP to D1", 1);
+        "Set D1 -> force member D0 current HP", 1);
 
-    // SetForceMemberMaxMP
+    // SetMaxMP
     SetFunctionCmt(0x227e0, 
-        "Set force member (D0) Max MP to D1", 1);
+        "Set D1 -> force member D0 max MP", 1);
 
-    // SetForceMemberMP
+    // SetCurrentMP
     SetFunctionCmt(0x227f2, 
-        "Set force member (D0) MP to D1", 1);
+        "Set D1 -> force member D0 current MP", 1);
 
-    // SetForceMemberStatus
+    // SetStatusEffects
     SetFunctionCmt(0x22804, 
-        "Set force member (D0) Status to D1", 1);
+        "Set D1 -> force member D0 status effects", 1);
 
-    // SetClassFromForceID
+    // SetClassForCombatant
     SetFunctionCmt(0x22816, 
-        "Set class by force index", 1);
+        "Set D1 -> force member's class index for combatant D0", 1);
 
-    // SetLevelFromForceID
+    // SetLevelForCombatant
     SetFunctionCmt(0x22824, 
-        "Set level by force index", 1);
+        "Set D1 -> force member's level for combatant D0", 1);
 
-    // SetATTFromForceID
+    // SetBaseAttackForCombatant
     SetFunctionCmt(0x22832, 
-        "Set ATT by force index", 1);
+        "Set D1 -> force member's base attack for combatant D0", 1);
 
-    // SetDEFFromForceID
+    // SetBaseDefenseForCombatant
     SetFunctionCmt(0x22840, 
-        "Set DEF by force index", 1);
+        "Set D1 -> force member's base defense for combatant D0", 1);
 
-    // SetAGIFromForceID
+    // SetBaseAgilityForCombatant
     SetFunctionCmt(0x2284e, 
-        "Set AGI by force index", 1);
+        "Set D1 -> force member's base agility for combatant D0", 1);
 
-    // SetMOVEFromForceID
+    // SetBaseMoveForCombatant
     SetFunctionCmt(0x2285c, 
-        "Set MOVE by force index", 1);
+        "Set D1 -> force member's base move for combatant D0", 1);
 
-    // SetCRITFromForceID
+    // SetBaseCriticalForCombatant
     SetFunctionCmt(0x2286a, 
-        "Set CRIT by force index", 1);
+        "Set D1 -> force member's base critical for combatant D0", 1);
 
-    // SetEXPFromForceID
+    // SetExperienceForCombatant
     SetFunctionCmt(0x22878, 
-        "Set EXP by force index", 1);
+        "Set D1 -> force member's experience for combatant D0", 1);
 
-    // SetMaxHPFromForceID
+    // SetMaxHPforCombatant
     SetFunctionCmt(0x22886, 
-        "Set max HP by force index", 1);
+        "Set D1 -> force member's max HP for combatant D0", 1);
 
-    // SetHPFromForceID
+    // SetCurrentHPforCombatant
     SetFunctionCmt(0x22894, 
-        "Set HP by force index", 1);
+        "Set D1 -> force member's current HP for combatant D0", 1);
 
-    // SetMaxMPFromForceID
+    // SetMaxMPforCombatant
     SetFunctionCmt(0x228a2, 
-        "Set max MP by force index", 1);
+        "Set D1 -> force member's max MP for combatant D0", 1);
 
-    // SetMPFromForceID
+    // SetCurrentMPforCombatant
     SetFunctionCmt(0x228b0, 
-        "Set MP by force index", 1);
+        "Set D1 -> force member's current MP for combatant D0", 1);
 
-    // SetStatusFromForceID
+    // SetStatusEffectsForCombatant
     SetFunctionCmt(0x228be, 
-        "Set status by force index", 1);
+        "Set D1 -> force member's status effects for combatant D0", 1);
 
     // LoadForceMemberName
     SetFunctionCmt(0x228cc, 
-        "Load member name from A0 into stats table", 1);
+        "Load force member name from A0 into stats table", 1);
 
-    // IncreaseTargetATT
+    // IncreaseModifiedAttack
     SetFunctionCmt(0x228e6, 
-        "Add D1 to battle member (D0) attack, capping at 99", 1);
+        "Add D1 to combatant D0 modified attack, capping at 99", 1);
 
-    // IncreaseTargetDEF
+    // IncreaseModifiedDefense
     SetFunctionCmt(0x22910, 
-        "Add D1 to battle member (D0) defense, capping at 99", 1);
+        "Add D1 to combatant D0 modified defense, capping at 99", 1);
 
-    // IncreaseTargetAGI
+    // IncreaseModifiedAgility
     SetFunctionCmt(0x2293a, 
-        "Add D1 to battle member (D0) agility, capping at 99", 1);
+        "Add D1 to combatant D0 modified agility, capping at 99", 1);
 
-    // IncreaseTargetMOVE
+    // IncreaseModifiedMove
     SetFunctionCmt(0x22964, 
-        "Add D1 to battle member (D0) move, capping at 9", 1);
+        "Add D1 to combatant D0 modified move, capping at 9", 1);
 
-    // IncreaseTargetCRIT
+    // IncreaseModifiedCritical
     SetFunctionCmt(0x2298e, 
-        "Add D1 to battle member (D0) crit, capping at 99", 1);
+        "Add D1 to combatant D0 modified critical, capping at 99", 1);
 
-    // IncreaseForceMemberLevel
+    // IncreaseLevel
     SetFunctionCmt(0x229b8, 
-        "Add D1 to force member (D0) level, capping at 99", 1);
+        "Add D1 to force member D0 level, capping at 99", 1);
 
-    // IncreaseForceMemberATT
+    // IncreaseBaseAttack
     SetFunctionCmt(0x229e2, 
-        "Add D1 to force member (D0) attack, capping at 99", 1);
+        "Add D1 to force member D0 base attack, capping at 99", 1);
 
-    // IncreaseForceMemberDEF
+    // IncreaseBaseDefense
     SetFunctionCmt(0x22a0c, 
-        "Add D1 to force member (D0) defense, capping at 99", 1);
+        "Add D1 to force member D0 base defense, capping at 99", 1);
 
-    // IncreaseForceMemberAGI
+    // IncreaseBaseAgility
     SetFunctionCmt(0x22a36, 
-        "Add D1 to force member (D0) agility, capping at 99", 1);
+        "Add D1 to force member D0 base agility, capping at 99", 1);
 
-    // IncreaseForceMemberMOVE
+    // IncreaseBaseMove
     SetFunctionCmt(0x22a60, 
-        "Add D1 to force member (D0) move, capping at 9", 1);
+        "Add D1 to force member D0 base move, capping at 9", 1);
 
-    // IncreaseForceMemberCRIT
+    // IncreaseBaseCritical
     SetFunctionCmt(0x22a8a, 
-        "Add D1 to force member (D0) crit, capping at 99", 1);
+        "Add D1 to force member D0 base critical, capping at 99", 1);
 
-    // IncreaseForceMemberMaxHP
+    // IncreaseMaxHP
     SetFunctionCmt(0x22ab4, 
-        "Add D1 to force member (D0) Max HP, capping at 99", 1);
+        "Add D1 to force member D0 max HP, capping at 99", 1);
 
-    // IncreaseForceMemberHP
+    // IncreaseCurrentHP
     SetFunctionCmt(0x22adc, 
-        "Add D1 to force member (D0) HP, capping at Max HP", 1);
+        "Add D1 to force member D0 current HP, capping at max HP", 1);
 
-    // IncreaseForceMemberMaxMP
+    // IncreaseMaxMP
     SetFunctionCmt(0x22b06, 
-        "Add D1 to force member (D0) Max MP, capping at 99", 1);
+        "Add D1 to force member D0 max MP, capping at 99", 1);
 
-    // IncreaseLevelFromForceID
+    // IncreaseLevelForCombatant
     SetFunctionCmt(0x22b30, 
-        "Add D1 to level by force index", 1);
+        "Add D1 to force member's level for combatant D0", 1);
 
-    // IncreaseATTFromForceID
+    // IncreaseBaseAttackForCombatant
     SetFunctionCmt(0x22b3e, 
-        "Add D1 to attack by force index", 1);
+        "Add D1 to force member's base attack for combatant D0", 1);
 
-    // IncreaseDEFFromForceID
+    // IncreaseBaseDefenseForCombatant
     SetFunctionCmt(0x22b4c, 
-        "Add D1 to defense by force index", 1);
+        "Add D1 to force member's base defense for combatant D0", 1);
 
-    // IncreaseAGIFromForceID
+    // IncreaseBaseAgilityForCombatant
     SetFunctionCmt(0x22b5a, 
-        "Add D1 to agility by force index", 1);
+        "Add D1 to force member's base agility for combatant D0", 1);
 
-    // IncreaseMOVEFromForceID
+    // IncreaseBaseMoveForCombatant
     SetFunctionCmt(0x22b68, 
-        "Add D1 to move by force index", 1);
+        "Add D1 to force member's base move for combatant D0", 1);
 
-    // IncreaseCRITFromForceID
+    // IncreaseBaseCriticalForCombatant
     SetFunctionCmt(0x22b76, 
-        "Add D1 to crit by force index", 1);
+        "Add D1 to force member's base critical for combatant D0", 1);
 
-    // IncreaseEXPFromForceID
+    // IncreaseExperienceForCombatant
     SetFunctionCmt(0x22b84, 
-        "Add D1 to experience by force index", 1);
+        "Add D1 to force member's experience for combatant D0", 1);
 
-    // IncreaseMaxHPFromForceID
+    // IncreaseMaxHPforCombatant
     SetFunctionCmt(0x22b92, 
-        "Add D1 to max HP by force index", 1);
+        "Add D1 to force member's max HP for combatant D0", 1);
 
-    // IncreaseHPFromForceID
+    // IncreaseCurrentHPforCombatant
     SetFunctionCmt(0x22ba0, 
-        "Add D1 to current HP by force index", 1);
+        "Add D1 to force member's current HP for combatant D0", 1);
 
-    // IncreaseMaxMPFromForceID
+    // IncreaseMaxMPforCombatant
     SetFunctionCmt(0x22bae, 
-        "Add D1 to max MP by force index", 1);
+        "Add D1 to force member's max MP for combatant D0", 1);
 
-    // IncreaseMPFromForceID
+    // IncreaseCurrentMPforCombatant
     SetFunctionCmt(0x22bbc, 
-        "Add D1 to current MP by force index", 1);
+        "Add D1 to force member's current MP for combatant D0", 1);
 
-    // IncreaseForceMemberMP
+    // IncreaseCurrentMP
     SetFunctionCmt(0x22bca, 
-        "Add D1 to force member (D0) MP, capping at Max MP", 1);
+        "Add D1 to force member D0 current MP, capping at max MP", 1);
 
-    // IncreaseForceMemberEXP
+    // IncreaseExperience
     SetFunctionCmt(0x22c00, 
-        "Add D1 to force member (D0) EXP, capping at 99 if at max level", 1);
+        "Add D1 to force member D0 experience, capping at 99 if at level cap", 1);
 
-    // DecreaseTargetATT
+    // IsAtLevelCap
+    SetFunctionCmt(0x22c2e, 
+        "Check if force member D0 has reached the level cap -> CCR carry-bit set if true", 1);
+
+    // DecreaseModifiedAttack
     SetFunctionCmt(0x22c5e, 
-        "Sub D1 from battle member (D0) attack", 1);
+        "Subtract D1 from combatant D0 modified attack", 1);
 
-    // DecreaseTargetDEF
+    // DecreaseModifiedDefense
     SetFunctionCmt(0x22c66, 
-        "Sub D1 from battle member (D0) defense", 1);
+        "Subtract D1 from combatant D0 modified defense", 1);
 
-    // DecreaseTargetAGI
+    // DecreaseModifiedAgility
     SetFunctionCmt(0x22c6e, 
-        "Sub D1 from battle member (D0) agility", 1);
+        "Subtract D1 from combatant D0 modified agility", 1);
 
-    // DecreaseTargetMOVE
+    // DecreaseModifiedMove
     SetFunctionCmt(0x22c76, 
-        "Sub D1 from battle member (D0) move", 1);
+        "Subtract D1 from combatant D0 modified move", 1);
 
-    // DecreaseForceMemberMaxHP
+    // DecreaseMaxHP
     SetFunctionCmt(0x22c7e, 
-        "Sub D1 from force member (D0) Max HP", 1);
+        "Subtract D1 from force member D0 max HP", 1);
 
-    // DecreaseForceMemberMaxMP
+    // DecreaseMaxMP
     SetFunctionCmt(0x22c86, 
-        "Sub D1 from force member (D0) Max MP", 1);
+        "Subtract D1 from force member D0 max MP", 1);
 
-    // DecreaseForceMemberATT
+    // DecreaseBaseAttack
     SetFunctionCmt(0x22c8e, 
-        "Sub D1 from force member (D0) attack", 1);
+        "Subtract D1 from force member D0 base attack", 1);
 
-    // DecreaseForceMemberDEF
+    // DecreaseBaseDefense
     SetFunctionCmt(0x22c96, 
-        "Sub D1 from force member (D0) defense", 1);
+        "Subtract D1 from force member D0 base defense", 1);
 
-    // DecreaseForceMemberAGI
+    // DecreaseBaseAgility
     SetFunctionCmt(0x22c9e, 
-        "Sub D1 from force member (D0) agility", 1);
+        "Subtract D1 from force member D0 base agility", 1);
 
-    // DecreaseForceMemberMOVE
+    // DecreaseBaseMove
     SetFunctionCmt(0x22ca6, 
-        "Sub D1 from force member (D0) move", 1);
+        "Subtract D1 from force member D0 base move", 1);
 
-    // DecreaseForceMemberHP
+    // DecreaseCurrentHP
     SetFunctionCmt(0x22cae, 
-        "Sub D1 from force member (D0) HP", 1);
+        "Subtract D1 from force member D0 current HP", 1);
 
-    // DecreaseForceMemberMP
+    // DecreaseCurrentMP
     SetFunctionCmt(0x22cb6, 
-        "Sub D1 from force member (D0) MP", 1);
+        "Subtract D1 from force member D0 current MP", 1);
 
-    // DecreaseMaxHPFromForceID
+    // DecreaseMaxHPforCombatant
     SetFunctionCmt(0x22cbe, 
-        "Sub D1 from max HP by force index", 1);
+        "Subtract D1 from force member's max HP for combatant D0", 1);
 
-    // DecreaseMaxMPFromForceID
+    // DecreaseMaxMPforCombatant
     SetFunctionCmt(0x22ccc, 
-        "Sub D1 from max MP by force index", 1);
+        "Subtract D1 from force member's max MP for combatant D0", 1);
 
-    // DecreaseATTFromForceID
+    // DecreaseBaseAttackForCombatant
     SetFunctionCmt(0x22cda, 
-        "Sub D1 from attack by force index", 1);
+        "Subtract D1 from force member's base attack for combatant D0", 1);
 
-    // DecreaseDEFFromForceID
+    // DecreaseBaseDefenseForCombatant
     SetFunctionCmt(0x22ce8, 
-        "Sub D1 from defense by force index", 1);
+        "Subtract D1 from force member's base defense for combatant D0", 1);
 
-    // DecreaseAGIFromForceID
+    // DecreaseBaseAgilityForCombatant
     SetFunctionCmt(0x22cf6, 
-        "Sub D1 from agility by force index", 1);
+        "Subtract D1 from force member's base agility for combatant D0", 1);
 
-    // DecreaseMOVEFromForceID
+    // DecreaseBaseMoveForCombatant
     SetFunctionCmt(0x22d04, 
-        "Sub D1 from move by force index", 1);
+        "Subtract D1 from force member's base move for combatant D0", 1);
 
-    // DecreaseHPFromForceID
+    // DecreaseCurrentHPforCombatant
     SetFunctionCmt(0x22d12, 
-        "Sub D1 from current HP by force index", 1);
+        "Subtract D1 from force member's current HP for combatant D0", 1);
 
-    // DecreaseMPFromForceID
+    // DecreaseCurrentMPforCombatant
     SetFunctionCmt(0x22d20, 
-        "Sub D1 from current MP by force index", 1);
+        "Subtract D1 from force member's current MP for combatant D0", 1);
 
-    // FindEmptyItemSlot
+    // GiveItem
     SetFunctionCmt(0x22d2e, 
-        "Find first empty item slot of member (D0), and give D1 if available", 1);
+        "Move item D1 to force member D0 first empty item slot if available\n\
+\n\
+CCR: carry-bit set if empty item slot not found", 1);
 
-    // FindEmptyItemSlotFromTargetID
+    // GiveItemForCombatant
     SetFunctionCmt(0x22d58, 
-        "Find first empty item slot to D1 by force index", 1);
+        "Move item D1 to force member's first empty item slot for combatant D0 if available\n\
+\n\
+CCR: carry-bit set if empty item slot not found", 1);
 
     // RemoveItem
     SetFunctionCmt(0x22d70, 
-        "Remove Item D1 from member D0 and rotate remaining down", 1);
+        "Empty force member D0 item slot D1 and rotate remaining down", 1);
 
-    // RemoveItemFromTargetID
+    // RemoveItemForCombatant
     SetFunctionCmt(0x22d9e, 
-        "Remove Item D1 by force index", 1);
+        "Empty force member's item slot D1 for combatant D0 and rotate remaining down", 1);
 
-    // CountEmptyItemSlots
+    // CountOccupiedItemSlots
     SetFunctionCmt(0x22db6, 
-        "Count empty item slots of member (D0) to D1", 1);
+        "Count force member D0 empty item slots -> D1\n\
+\n\
+      CCR carry-bit set if all slots are occupied", 1);
 
-    // CountEmptyItemSlotsFromTargetID
+    // CountOccupiedItemSlotsForCombatant
     SetFunctionCmt(0x22dde, 
-        "Count empty item slots to D1 by force index", 1);
+        "Count force member's empty item slots for combatant D0 -> D1", 1);
 
     // BreakItem
     SetFunctionCmt(0x22df2, 
-        "Break Item D1 of member D0", 1);
+        "Break force member D0 item in slot D1", 1);
 
-    // BreakItemFromTargetID
+    // BreakItemForCombatant
     SetFunctionCmt(0x22e0c, 
-        "Break Item D1 by force index", 1);
+        "Break force member's item in slot D1 for combatant D0", 1);
 
-    // GetEquippedItemFromForceID
+    // GetEquippedItemForCombatant
     SetFunctionCmt(0x22e24, 
-        "Get equipped item matching flags D1 by force index D0 -> D2", 1);
+        "Get item and slot indexes of a given type currently equipped by combatant\n\
+\n\
+    In: D0 = force member index\n\
+        D1 = item type mask\n\
+\n\
+    Out: D2 = item index\n\
+         D3 = item slot index\n\
+         CCR carry-bit set if no equipped item found", 1);
 
-    // EquipItemFromForceID
+    // EquipItemForCombatant
     SetFunctionCmt(0x22e36, 
-        "Equip item D2 by force index", 1);
+        "Equip force member with item in slot D2 for combatant D0", 1);
 
-    // LoadEquippableItemsFromForceID
+    // LoadEquippableItemsForCombatant
     SetFunctionCmt(0x22e48, 
-        "Load list of equippable items by force index", 1);
+        "Load table of equippable items for combatant D0", 1);
 
-    // IsItemEquippableFromForceID
+    // IsItemEquippableForCombatant
     SetFunctionCmt(0x22e5a, 
-        "Check if item D2 can be equipped by force index", 1);
+        "Check if item D2 type D1 can be equipped for combatant D0", 1);
 
-    // IsItemUnequippableFromForceID
+    // GetItemsCurseSettingsForCombatant
     SetFunctionCmt(0x22e6c, 
-        "Check if can't unequip by force index", 1);
+        "Check if force member is allowed to unequip for combatant D0", 1);
 
     // GetItemEntryAddress
     SetFunctionCmt(0x22e7e, 
@@ -1093,43 +1222,52 @@ set default values in sprite table", 1);
 
     // GetItemType
     SetFunctionCmt(0x22e92, 
-        "Get word-sized type flags of item D1 -> D2", 1);
+        "Get item D1 word-sized type flags -> D2", 1);
 
     // GetItemPrice
     SetFunctionCmt(0x22ea8, 
         "Get price of item D1 -> D2", 1);
 
-    // sub_22EB6
+    // GetEquippedWeaponIndex
     SetFunctionCmt(0x22eb6, 
-        "Prepare RAM Offsets for attack effect", 1);
+        "Out: d2.w, d3.w", 1);
 
     // GetEquippedItem
     SetFunctionCmt(0x22ec0, 
-        "Get equipped item matching flags D1 of force member D0 -> D2", 1);
+        "Get item and slot indexes of a given type currently equipped by entity\n\
+\n\
+    In: D0 = entity index\n\
+        D1 = item type mask\n\
+\n\
+    Out: D2 = item entry\n\
+         D3 = item slot index\n\
+         CCR carry-bit set if no equipped item found", 1);
 
     // EquipItem
     SetFunctionCmt(0x22efe, 
-        "Equip item D2 on character D0, unequip old item", 1);
+        "Equip force member D0 with item type D1 in slot D2, unequip old item", 1);
 
     // LoadEquippableItems
     SetFunctionCmt(0x22f36, 
-        "Load list of equippable items on character D0", 1);
+        "Load table of items equippable by force member D0", 1);
 
     // IsItemEquippable
     SetFunctionCmt(0x22f7a, 
-        "Check if item D2 can be equipped by character D0", 1);
+        "Check if item D2 type D1 can be equipped by force member D0\n\
+\n\
+      Out: CCR carry-bit set if false", 1);
 
-    // IsItemUnequippable
+    // GetItemsCurseSettings
     SetFunctionCmt(0x22fa6, 
-        "Check if character D0 can't unequip", 1);
+        "Get curse settings for all items equipped by entity D0 -> D1", 1);
 
-    // sub_22FD8
+    // GetItemCurseSetting
     SetFunctionCmt(0x22fd8, 
-        "Item D2 can't be unequipped", 1);
+        "Get curse setting of item type D1 currently equipped by entity D0 -> D4", 1);
 
-    // IsEnemyAndHasItemToDrop
+    // FindItemToDrop
     SetFunctionCmt(0x22ff2, 
-        "Check if battle member is an enemy and has items to drop", 1);
+        "Find enemy combatant D0 item index to drop -> D1 if it exists, else D1 = $FFFF", 1);
 
     // GetSpellEntryAddress
     SetFunctionCmt(0x23040, 
@@ -1143,247 +1281,305 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x23068, 
         "Get address of range D4 entry -> A1", 1);
 
-    // sub_2307A
+    // FindTargetableSpaces
     SetFunctionCmt(0x2307a, 
-        "Find targetable squares from range D4", 1);
+        "Find targetable spaces from range D4", 1);
 
-    // sub_230F2
+    // FindTargetsWithinArea
     SetFunctionCmt(0x230f2, 
-        "Like 2307A?", 1);
+        "In: D0 = caster index\n\
+    D1 = target index\n\
+    D4 = range index", 1);
 
     // GetAdjustedGroupFlags
     SetFunctionCmt(0x23136, 
-        "Check if caster D0 is enemy and adjust group flags D4 accordingly", 1);
+        "Check if casting combatant D0 is an enemy and adjust group flags D4 accordingly", 1);
 
-    // sub_23160
+    // JumpToRangeOrEquipEffect
     SetFunctionCmt(0x23160, 
         "Jump to range/equip effect routine", 1);
 
-    // sub_2337A
+    // IncreaseStatOnItemUse
     SetFunctionCmt(0x2337a, 
-        "Stat increasing item routine", 1);
+        "Stat increasing item routine\n\
+\n\
+      In: D0 = character index\n\
+          D1 = stat index", 1);
 
-    // sub_233E6
+    // CurePoison
     SetFunctionCmt(0x233e6, 
-        "Cure poison of character D0", 1);
+        "Cure poison of combatant D0", 1);
 
-    // EquipEffect_IncreaseATT
+    // EquipEffect_IncreaseAttack
     SetFunctionCmt(0x23418, 
-        "Add D5 to battle member (D0) attack", 1);
+        "Add D5 to combatant D0 modified attack", 1);
 
-    // EquipEffect_IncreaseDEF
+    // EquipEffect_IncreaseDefense
     SetFunctionCmt(0x23426, 
-        "Add D5 to battle member (D0) defense", 1);
+        "Add D5 to combatant D0 modified defense", 1);
 
-    // EquipEffect_IncreaseAGI
+    // EquipEffect_IncreaseAgility
     SetFunctionCmt(0x23434, 
-        "Add D5 to battle member (D0) agility", 1);
+        "Add D5 to combatant D0 modified agility", 1);
 
-    // EquipEffect_IncreaseMOVE
+    // EquipEffect_IncreaseMove
     SetFunctionCmt(0x23442, 
-        "Add D5 to battle member (D0) move", 1);
+        "Add D5 to combatant D0 modified move", 1);
 
     // sub_23450
     SetFunctionCmt(0x23450, 
-        "Add D5 to force member (D0) HP", 1);
+        "Add D5 to force member D0 current HP (not functional)", 1);
 
     // sub_2345E
     SetFunctionCmt(0x2345e, 
-        "Add D5 to force member (D0) MP", 1);
+        "Add D5 to force member D0 current MP (not functional)", 1);
 
     // sub_2346C
     SetFunctionCmt(0x2346c, 
-        "Add D5 to force member (D0) Max HP", 1);
+        "Add D5 to force member D0 max HP (not functional)", 1);
 
     // sub_2347A
     SetFunctionCmt(0x2347a, 
-        "Add D5 to force member (D0) attack", 1);
+        "Add D5 to force member D0 base attack (not functional)", 1);
 
     // sub_23488
     SetFunctionCmt(0x23488, 
-        "Add D5 to force member (D0) defense", 1);
+        "Add D5 to force member D0 base defense (not functional)", 1);
 
     // sub_23496
     SetFunctionCmt(0x23496, 
-        "Add D5 to force member (D0) agility", 1);
+        "Add D5 to force member D0 base agility (not functional)", 1);
 
     // sub_234A4
     SetFunctionCmt(0x234a4, 
-        "Add D5 to force member (D0) move", 1);
+        "Add D5 to force member D0 base move (not functional)", 1);
 
-    // EquipEffect_IncreaseATTAndSetCRIT
+    // EquipEffect_IncreaseAttackSetCritical
     SetFunctionCmt(0x234b2, 
-        "Add D5 to battle member (D0) attack, set crit to 13", 1);
+        "Add D5 to combatant D0 modified attack, set modified critical to 13", 1);
 
-    // EquipEffect_IncreaseATTAndDEF
+    // EquipEffect_IncreaseAttackAndDefense
     SetFunctionCmt(0x234ca, 
-        "Add D5 to battle member (D0) attack, set double attack setting to High", 1);
+        "Add 4 to combatant D0 modified attack and 8 to modified defense", 1);
 
     // EquipEffect_SetJogurtStatus
     SetFunctionCmt(0x2350a, 
-        "Set Jogurt status to battle member (D0)", 1);
+        "Set Jogurt status effect to combatant D0", 1);
 
-    // sub_2352A
+    // KindanNoHako
     SetFunctionCmt(0x2352a, 
         "Level Up Party (Kindan NoHako)", 1);
 
-    // sub_23566
+    // CreateMovementGrid
     SetFunctionCmt(0x23566, 
-        "Compute movable area, everywhere if above 9 MOVE", 1);
+        "Make movement area grid for combatant D0", 1);
 
-    // IsForceOrEnemy
+    // IsForceMemberOrEnemy
     SetFunctionCmt(0x23594, 
-        "Check if battle member D0 is force or enemy and return in D4", 1);
+        "Check if combatant D0 is force member or enemy, return in D4 (1 = enemy, 2 = force)", 1);
 
-    // sub_235A8
+    // FindTargetableSpacesForAttack
     SetFunctionCmt(0x235a8, 
-        "Get effect, range and targetable squares for attack", 1);
+        "Find targetable spaces for \"attack\" battle action", 1);
 
-    // sub_235BA
+    // Battleaction_Attack
     SetFunctionCmt(0x235ba, 
-        "Prepare effect,range etc for attack", 1);
+        "Prepare to attack (get attack range and effect, check for special attack)\n\
+\n\
+Out: D4 = attack range index\n\
+     D5 = attack effect index", 1);
 
     // UseItem
     SetFunctionCmt(0x2361e, 
-        "Use item D1", 1);
+        "Use item D1 in battle", 1);
 
     // GetItemUseRangeAndEffect
     SetFunctionCmt(0x23660, 
-        "Get use range and effect of item D1", 1);
+        "Get item D1 use range and effect indexes -> D4 = range, D5 = effect", 1);
 
-    // sub_23684
+    // Battleaction_UseItem
     SetFunctionCmt(0x23684, 
-        "Select item D1 of character D0", 1);
+        "Prepare to use item slot D1 from combatant D0 (load item index and slot number)\n\
+\n\
+Out: D4 = range index\n\
+     D5 = effect index", 1);
 
-    // sub_236A6
+    // FindTargetableSpacesForSpell
     SetFunctionCmt(0x236a6, 
-        "Get effect, range and targetable squares for current spell", 1);
+        "Find targetable spaces for the \"cast spell\" battleaction.", 1);
 
-    // sub_236B8
+    // Battleaction_CastSpell
     SetFunctionCmt(0x236b8, 
-        "Prepare effect,range of spell", 1);
+        "Prepare to cast spell D1 (load index, level and MP cost)\n\
+\n\
+Out: D4 = spell range index\n\
+     D5 = spell effect index", 1);
 
-    // sub_236F0
+    // SetupBattleaction
     SetFunctionCmt(0x236f0, 
-        "Get effect, range and targetable squares for current action", 1);
+        "Get effect, range and targetable spaces for current battleaction.", 1);
 
-    // sub_23772
+    // sub_23752
+    SetFunctionCmt(0x23752, 
+        "hardcoded \"GIVE\" item menu action range (?)", 1);
+
+    // MakeMoveEverywhereGrid
     SetFunctionCmt(0x23772, 
-        "Compute movable area based on class and terrain", 1);
+        "Make movement area grid for combatant D0 when modified move is greater than 9 (i.e., force leader in battle test mode)", 1);
 
-    // sub_238CC
+    // GetItemNameAddress
+    SetFunctionCmt(0x238c2, 
+        "Get item D1 name address and length\n\
+\n\
+Out: A0 = item name address\n\
+     D1 = item name length", 1);
+
+    // GetVariableLengthEntryAddress
     SetFunctionCmt(0x238cc, 
-        "Get D1th entry from table which is stored with length values, return in D1", 1);
+        "Get D1th entry address from table which is stored with length values\n\
+\n\
+Out: A0 = entry address\n\
+     D1 = entry length", 1);
 
-    // GetSpellName
+    // GetSpellNameAddress
     SetFunctionCmt(0x238ea, 
-        "Get name of spell D1", 1);
+        "Get spell D1 name address and length\n\
+\n\
+Out: A0 = spell name address\n\
+     D1 = spell name length", 1);
 
-    // GetClassName
+    // GetClassNameAddress
     SetFunctionCmt(0x238f6, 
-        "Get name of class D1", 1);
-
-    // sub_238FE
-    SetFunctionCmt(0x238fe, 
-        "Load data from 238CC into A1", 1);
+        "Get class D1 name address and length\n\
+\n\
+Out: A0 = class name address\n\
+     D1 = class name length", 1);
 
     // GetClassEntryAddress
     SetFunctionCmt(0x23914, 
-        "Get address of class D1 entry -> A0", 1);
+        "Get class D1 entry address -> A0", 1);
 
     // GetMoveCostEntryAddress
     SetFunctionCmt(0x23928, 
-        "Get offset into Move Cost Table based on class of member D0", 1);
+        "Get combatant D0 move cost entry address -> A0", 1);
 
     // GetLandEffectEntryAddress
     SetFunctionCmt(0x23930, 
-        "Get offset into Land Effect Table based on class of member D0", 1);
+        "Get combatant D0 land effect entry address -> A0", 1);
 
     // GetResistance
     SetFunctionCmt(0x23956, 
-        "Get resistance D2", 1);
+        "Get combatant D0 resistance to element D1 -> D2", 1);
 
     // sub_2397C
     SetFunctionCmt(0x2397c, 
-        "Get class special bit 5", 1);
+        "Get combatant D0 special bit 6 from class (unused)", 1);
 
-    // GetClassDoubleAttack
+    // GetBaseDoubleAttackMode
     SetFunctionCmt(0x23998, 
-        "Get class special bits 3+4", 1);
+        "Get combatant D0 base double attack mode from class -> D1", 1);
 
-    // sub_239B2
+    // IsFlyingOrHovering
     SetFunctionCmt(0x239b2, 
-        "Check if flying", 1);
+        "Check if combatant D0 has flying or hovering move type", 1);
 
-    // sub_239D2
+    // GetPortraitForCombatant
     SetFunctionCmt(0x239d2, 
-        "Get portrait by force index", 1);
+        "Get entity's portrait index for combatant D0 -> D1", 1);
 
-    // sub_239DE
+    // GetPortrait
     SetFunctionCmt(0x239de, 
-        "Get portrait (checks for jogurt and promoted)", 1);
+        "Get entity D0 portrait index -> D1 (check if changed into jogurt or promoted)", 1);
 
-    // GetMapSpriteFromForceID
+    // GetMapSpriteForCombatant
     SetFunctionCmt(0x23a3e, 
-        "Get map sprite by force index", 1);
+        "Get entity's map sprite index for combatant D0 -> D1", 1);
 
-    // GetMapSprite
+    // GetMapsprite
     SetFunctionCmt(0x23a4a, 
-        "Get map sprite of battle member (D0), Checks Jogurt change, adds 30 if promoted", 1);
+        "Get entity D0 map sprite index -> D1\n\
+\n\
+    - Check if changed into Jogurt\n\
+    - Apply outfits if applicable\n\
+    - Add 30 to index if promoted", 1);
 
-    // ApplyOutfitToMapSprite
+    // ApplyOutfitItems
     SetFunctionCmt(0x23a94, 
-        "Apply outfits to map sprite", 1);
+        "Apply outfit items -> D1 = new map sprite index", 1);
 
-    // sub_23B24
+    // LoadBattlespriteAndPaletteIndexes
     SetFunctionCmt(0x23b24, 
-        "Load battle sprite and palette IDs in RAM", 1);
+        "Load battle sprite and palette indexes in RAM", 1);
 
-    // IsChangedIntoJogurt
+    // GetAnimationDataAddress
+    SetFunctionCmt(0x23c2e, 
+        "Get address of animation data for battle sprite -> A0", 1);
+
+    // IsCombatantChangedIntoJogurt
+    SetFunctionCmt(0x23c5c, 
+        "Check if combatant D0 is under Jogurt status effect -> CCR zero-bit cleared if true", 1);
+
+    // IsEntityChangedIntoJogurt
     SetFunctionCmt(0x23c6c, 
-        "Check if character D0 is under Jogurt status effect", 1);
+        "Check if entity D0 is under Jogurt status effect -> CCR zero-bit cleared if true", 1);
 
-    // sub_23F6E
+    // DetermineAiAction
     SetFunctionCmt(0x23f6e, 
-        "Check action type", 1);
+        "Determine AI action -> CCR carry-bit set if regular attack", 1);
 
-    // sub_2401C
+    // AiAction_CastSpell
     SetFunctionCmt(0x2401c, 
-        "Cast spell AI", 1);
+        "Cast spell AI -> CCR carry-bit set if unable to proceed", 1);
 
-    // sub_24062
+    // LoadAiSpellcastData
     SetFunctionCmt(0x24062, 
         "Caster AI : prepare to cast spell D1", 1);
 
-    // sub_240BC
-    SetFunctionCmt(0x240bc, 
-        "Dark Dragon AI", 1);
-
-    // sub_240E8
+    // AiAction_UseItem
     SetFunctionCmt(0x240e8, 
-        "Use item AI", 1);
+        "Use item AI -> CCR carry-bit set if unable to proceed", 1);
 
-    // sub_24170
+    // LoadRangeData
     SetFunctionCmt(0x24170, 
-        "Load range data", 1);
+        "Load range D4 data", 1);
 
     // sub_2425C
     SetFunctionCmt(0x2425c, 
         "Trigger AI regions (or set AI regions to trigger?)", 1);
 
-    // GetLandEffectAtTargetPosition
+    // sub_24324
+    SetFunctionCmt(0x24324, 
+        "In: A3 = priority routine address", 1);
+
+    // ApplyClassToTargetPriority
+    SetFunctionCmt(0x24386, 
+        "Apply class to target priority -> d6.w\n\
+\n\
+2 points per class priority value.", 1);
+
+    // ApplyDistanceToTargetPriority
+    SetFunctionCmt(0x244ca, 
+        "Apply distance to target priority -> d6.w\n\
+\n\
+Starts at 400 points for adjacent targets, -40 points per distance greater than 1 space.", 1);
+
+    // GetLandEffectForCombatant
     SetFunctionCmt(0x24608, 
-        "Get land effect % of tile under battle member D0 -> D1", 1);
+        "Get land effect of space occupied by combatant D0 -> D1", 1);
 
-    // GetLandEffectAtCoord
+    // GetLandEffectAtPosition
     SetFunctionCmt(0x24616, 
-        "Get land effect % of tile (X D2, Y D1) -> D1", 1);
+        "Get land effect of space at position D2,D1 -> D1", 1);
 
-    // GetTerrainAtCoordAddress
+    // GetTerrainEntryAddress
     SetFunctionCmt(0x24646, 
-        "Get address of terrain under tile (X D2, Y D1) -> A0", 1);
+        "Get terrain entry address of space at position D2,D1 -> A0", 1);
 
-    // IncreaseStatsFromForceID
+    // GetTerrainBackgrounds
+    SetFunctionCmt(0x2468e, 
+        "Get background layers for terrain -> D0, D1", 1);
+
+    // IncreaseStatsOnLevelUpForCombatant
     SetFunctionCmt(0x246f8, 
         "Increase stats on level up by force index", 1);
 
@@ -1393,51 +1589,51 @@ set default values in sprite table", 1);
 
     // CalculateStatGain
     SetFunctionCmt(0x247f0, 
-        "Calculate maximum increase of stat given target D1, current D2 and level D3", 1);
-
-    // ShowLevelUpMessages
-    SetFunctionCmt(0x24852, 
-        "Show level up messages", 1);
+        "Calculate maximum increase of stat given target D1, current D2 and level D3 -> D2", 1);
 
     // Promote
     SetFunctionCmt(0x24912, 
-        "Promote Character (Save Level Promoted to A16A table, add 16 to class)", 1);
+        "Promote force member D0 (save level promoted at to $FFA16A table, add 16 to class index)", 1);
 
     // CalculateTotalStatGrowth
     SetFunctionCmt(0x249d8, 
-        "Compute total stat growth D1 for character D0", 1);
+        "Calculate force member D0 total growth for stat D1 -> D1", 1);
 
-    // CalculatePromotedBaseStats
+    // CalculateInitialStatValue
     SetFunctionCmt(0x249fc, 
-        "Calculate contribution of prepromoted levels to stat growth D1 for character D0", 1);
+        "Calculate force member D0 initial stat D1 value, factoring in promoted at level -> D1", 1);
 
-    // MapGrowthToStatOffset
+    // MapStatToForceEntryOffset
     SetFunctionCmt(0x24a2e, 
-        "Maps stat growth D1 to stat offset D3", 1);
+        "Map stat D1 to force entry offset -> D3", 1);
 
     // CalculateGrowthTarget
     SetFunctionCmt(0x24a44, 
-        "Compute growth target value based on level D1 and growth value D2", 1);
+        "Calculate growth target value based on level D1 and growth value D2 -> D1", 1);
 
     // CalculateGrowthPercent
     SetFunctionCmt(0x24a56, 
-        "Compute growth percent based on level D1 and growth value D2", 1);
+        "Calculate growth percent based on level D1 and growth curve D2 -> D1", 1);
 
-    // GetStatGrowthAddress
+    // GetGrowthEntryAddress
     SetFunctionCmt(0x24aa2, 
-        "Get stat growth address based on if promoted", 1);
+        "Get force member D0 growth entry address based on if promoted -> A0", 1);
 
-    // GetCharacterEntryAddress
+    // GetUnpromotedGrowthEntryAddress
+    SetFunctionCmt(0x24aae, 
+        "Get force member D0 unpromoted growth entry address -> A0", 1);
+
+    // GetInitialForceEntryAddress
     SetFunctionCmt(0x24ac4, 
-        "Get address of character's initial data", 1);
+        "Get force member D0 initial data entry address -> A0", 1);
 
     // IsPromoted
     SetFunctionCmt(0x24ada, 
-        "Check if force member is promoted", 1);
+        "Check if force member D0 is promoted", 1);
 
     // GetPromotedAtLevel
     SetFunctionCmt(0x24ae6, 
-        "Gets level character promoted at (0 if not promoted)", 1);
+        "Get force member D0 promoted at level -> D1 (0 if not promoted)", 1);
 
     // LearnSpell
     SetFunctionCmt(0x24afe, 
@@ -1453,91 +1649,78 @@ set default values in sprite table", 1);
 
     // CalculateTotalLevel
     SetFunctionCmt(0x24b8c, 
-        "Get total level of character D0 (Level + Promoted at Level)", 1);
+        "Get total level of character D0 (current level + level promoted at) -> D1", 1);
 
     // CalculateEffectiveLevel
     SetFunctionCmt(0x24bac, 
-        "Get level of character D0 (+10 if promoted)", 1);
+        "Get level of character D0 (+10 if promoted) -> D1", 1);
 
     // IsAsleep
     SetFunctionCmt(0x24bd2, 
         "Check if character D0 asleep", 1);
 
-    // sub_24BF2
-    SetFunctionCmt(0x24bf2, 
-        "Buff/Boost Type Statuses Routine", 1);
-
     // sub_24CA6
     SetFunctionCmt(0x24ca6, 
-        "Status Helper, sets RAM Bits for messages?", 1);
-
-    // sub_24CBA
-    SetFunctionCmt(0x24cba, 
-        "Poison Routine", 1);
-
-    // sub_24CEE
-    SetFunctionCmt(0x24cee, 
-        "Sleep Routine", 1);
+        "related to the battle cursor", 1);
 
     // ResetForceMemberStats
     SetFunctionCmt(0x24d0e, 
         "Clear statuses of all members and restore HP/MP to max", 1);
 
-    // DecrementStatusCounter
+    // DecrementStatusEffectCounter
     SetFunctionCmt(0x24d44, 
-        "Decrement Status D1 counter, check for end", 1);
+        "Decrement counter for status effect D1, with chance to end it early", 1);
 
-    // ClearStatusBitRandomly
+    // TerminateStatusEffectRandomly
     SetFunctionCmt(0x24d74, 
-        "Clear Status bit D1, 50% of the time", 1);
-
-    // sub_24D9E
-    SetFunctionCmt(0x24d9e, 
-        "Status Message Handler", 1);
+        "Clear status effect bit D1, 50% of the time", 1);
 
     // GetGold
     SetFunctionCmt(0x24dbc, 
-        "Get money to D1", 1);
+        "Get current gold -> D1", 1);
 
     // SetGold
     SetFunctionCmt(0x24dc4, 
-        "Set money to D1", 1);
+        "Set D1 -> current gold", 1);
 
     // IncreaseGold
     SetFunctionCmt(0x24dcc, 
-        "Add D1 to money, cap at 999999", 1);
+        "Add D1 to current gold, cap at 999999", 1);
 
     // DecreaseGold
     SetFunctionCmt(0x24de8, 
-        "Sub D1 from money, cap at 0", 1);
+        "Sub D1 from current gold, cap at 0", 1);
 
-    // IncreaseDealsItemStock
+    // IncrementDealsStock
     SetFunctionCmt(0x24dfe, 
-        "Add 1 to deals stock of item (D1)", 1);
+        "Add 1 to deals stock for item D1", 1);
 
-    // DecreaseDealsItemStock
+    // DecrementDealsStock
     SetFunctionCmt(0x24e1c, 
-        "Sub 1 from deals stock of item (D1)", 1);
+        "Sub 1 from deals stock for item D1", 1);
 
-    // GetDealsItemStock
+    // GetDealsStock
     SetFunctionCmt(0x24e2a, 
-        "Get deals stock of item (D1) to D2", 1);
+        "Get stock of item D1 currently in deals -> D2", 1);
 
-    // SetDealsItemStock
+    // SetDealsStock
     SetFunctionCmt(0x24e44, 
-        "Set deals stock of item (D1) to D2", 1);
+        "Set D2 -> stock of item D1 currently in deals", 1);
 
-    // GetDealsItemEntryAddress
+    // GetDealsStockEntryAddress
     SetFunctionCmt(0x24e64, 
-        "Get address into deals table from item id (D1)", 1);
+        "Get item D1 deals stock entry address -> A0", 1);
 
-    // GetDealsStockList
+    // LoadDealsInventory
     SetFunctionCmt(0x24e74, 
-        "Get list of all items in deal stock", 1);
+        "Load items currently in deals into shop inventory\n\
+\n\
+In: A0 = shop data address\n\
+    D0 = shop type (0: weapon shop, 1: item shop)", 1);
 
     // IsItemInDealsOrHeldByForce
     SetFunctionCmt(0x24ec4, 
-        "Check if item D1 not in deal stock and held by any character", 1);
+        "Check if item D1 not in deals stock or held by any character", 1);
 
     // IsItemHeldByCharacter
     SetFunctionCmt(0x24eda, 
@@ -1547,65 +1730,65 @@ set default values in sprite table", 1);
     SetFunctionCmt(0x24efe, 
         "Check if any character has item D1", 1);
 
-    // LoadATTFromForceID
+    // LoadBaseAttack
     SetFunctionCmt(0x24f1a, 
-        "Load force member attack to battle stats table", 1);
+        "Load force member's base attack to combatant D0 entry", 1);
 
-    // LoadDEFFromForceID
+    // LoadBaseDefense
     SetFunctionCmt(0x24f2c, 
-        "Load force member defense to battle stats table", 1);
+        "Load force member's base defense to combatant D0 entry", 1);
 
-    // LoadAGIFromForceID
+    // LoadBaseAgility
     SetFunctionCmt(0x24f3e, 
-        "Load force member agility to battle stats table", 1);
+        "Load force member's base agility to combatant D0 entry", 1);
 
-    // LoadMOVEFromForceID
+    // LoadBaseMove
     SetFunctionCmt(0x24f50, 
-        "Load force member move to battle stats table", 1);
+        "Load force member's base move to combatant D0 entry", 1);
 
-    // LoadCRITFromForceID
+    // LoadBaseCritical
     SetFunctionCmt(0x24f62, 
-        "Load force member crit to battle stats table", 1);
+        "Load force member's base critical to combatant D0 entry", 1);
 
-    // RefillHPFromTargetID
+    // RefillHP
+    SetFunctionCmt(0x24f74, 
+        "Refill force member D0 HP", 1);
+
+    // RefillMP
+    SetFunctionCmt(0x24f86, 
+        "Refill force member D0 MP", 1);
+
+    // RefillHPforCombatant
     SetFunctionCmt(0x24f98, 
-        "Set HP to max by force index", 1);
+        "Refill force member's HP for combatant D0", 1);
 
-    // RefillMPFromTargetID
+    // RefillMPforCombatant
     SetFunctionCmt(0x24fae, 
-        "Set MP to max by force index", 1);
+        "Refill force member's MP for combatant D0", 1);
 
-    // sub_24FC4
-    SetFunctionCmt(0x24fc4, 
-        "Clear RAM Table A4C0", 1);
-
-    // sub_24FE6
+    // InitializeBattleMap
     SetFunctionCmt(0x24fe6, 
         "Wrapper for 25026 and 24FEC", 1);
 
-    // sub_24FEC
+    // TrimBattleTerrain
     SetFunctionCmt(0x24fec, 
-        "Clear terrain values (ACC0) at map borders", 1);
+        "Trim battle terrain table down to map size", 1);
 
     // sub_25026
     SetFunctionCmt(0x25026, 
         "Load map size and terrain data", 1);
 
-    // sub_250DA
-    SetFunctionCmt(0x250da, 
-        "Clear terrain values at occupied squares", 1);
-
-    // sub_2510A
+    // LoadPredefinedTargetGrid
     SetFunctionCmt(0x2510a, 
-        "Reset walkable areas (A4C0) and initialize from A0", 1);
+        "Reset target grid (i.e., passability flags table) and load from A0", 1);
 
-    // sub_26E16
+    // LoadEndingCreditsForce
     SetFunctionCmt(0x26e16, 
         "Prepare Ending Sequence", 1);
 
-    // sub_26E7E
+    // WriteEndingCreditsBattlesceneScript
     SetFunctionCmt(0x26e7e, 
-        "Load Animation D1 of Ending Sequence", 1);
+        "In: d0.w", 1);
 
     // sub_27036
     SetFunctionCmt(0x27036, 
@@ -1614,5 +1797,132 @@ set default values in sprite table", 1);
     // sub_80EE0
     SetFunctionCmt(0x80ee0, 
         "Load address into table at 80EFE based on byte D of sprite data", 1);
+
+    // sub_1261F8
+    SetFunctionCmt(0x1261f8, 
+        "In: D0 = status effects", 1);
+
+    // ExecuteSpellAnimation
+    SetFunctionCmt(0x12647e, 
+        "In: D0 = spell animation index", 1);
+
+    // PlaySpellCastEffect
+    SetFunctionCmt(0x126686, 
+        "In: D2 = spell cast effect color index", 1);
+
+    // LoadSpellObjectLayout
+    SetFunctionCmt(0x12672a, 
+        "In: D0 = \n\
+    D1 = sprite layer\n\
+    D2 = number of graphics pieces to load\n\
+    D3 = X offset\n\
+    D4 = Y offset", 1);
+
+    // SetupScreenTint_Dark
+    SetFunctionCmt(0x1267ac, 
+        "Call copy palettes function, then apply dark screen tint effect", 1);
+
+    // SetupScreenTint_Grey
+    SetFunctionCmt(0x126826, 
+        "Call copy palettes function, then apply greyscale screen tint effect", 1);
+
+    // SetupScreenTint_Red
+    SetFunctionCmt(0x126908, 
+        "Call copy palettes function, then apply red screen tint effect", 1);
+
+    // SetupSpellAnimation_Bolt
+    SetFunctionCmt(0x126a38, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Blaze
+    SetFunctionCmt(0x126ab4, 
+        "In: D3 = spell animation version", 1);
+
+    // LoadSpellObject
+    SetFunctionCmt(0x126b20, 
+        "In: D3 = frame number\n\
+    D4 = is slot in use?\n\
+    D5 = Y position\n\
+    D6 = X position", 1);
+
+    // SetupSpellAnimation_AssaultShell
+    SetFunctionCmt(0x126b48, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Freeze
+    SetFunctionCmt(0x126be6, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_IceBreath
+    SetFunctionCmt(0x126c06, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_DemonBlaze
+    SetFunctionCmt(0x126c30, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Desoul
+    SetFunctionCmt(0x126c98, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Dispel
+    SetFunctionCmt(0x126d3c, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Muddle
+    SetFunctionCmt(0x126d54, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Slow
+    SetFunctionCmt(0x126d6c, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Sleep
+    SetFunctionCmt(0x126d84, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Healing
+    SetFunctionCmt(0x126dfe, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_MachineGun
+    SetFunctionCmt(0x126e82, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_Crossbow
+    SetFunctionCmt(0x126e9a, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_GreenLaser
+    SetFunctionCmt(0x12700a, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_LaserEye
+    SetFunctionCmt(0x12706c, 
+        "In: D3 = spell animation version", 1);
+
+    // SetupSpellAnimation_FireBreath
+    SetFunctionCmt(0x1271ce, 
+        "In: D3 = spell animation version", 1);
+
+    // sub_12AEC8
+    SetFunctionCmt(0x12aec8, 
+        "Pao bridge post-battle cutscene (i.e., the \"Pelle\" scene.)", 1);
+
+    // WasEntityKilledByLastAttack
+    SetFunctionCmt(0x12bfd0, 
+        "CCR zero-bit set if true", 1);
+
+    // sub_12C342
+    SetFunctionCmt(0x12c342, 
+        "Get mapsprite (used in cutscenes.)", 1);
+
+    // sub_12C446
+    SetFunctionCmt(0x12c446, 
+        "Pelle joins the Force.", 1);
+
+    // CheckSkipToTitleScreen
+    SetFunctionCmt(0x1304fe, 
+        "Wait D0 frames while checking for start button input", 1);
 
 }
