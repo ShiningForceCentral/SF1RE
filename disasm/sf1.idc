@@ -47506,7 +47506,7 @@ static Bytes_10(void) {
 	MakeByte	(0XFF9C01);
 	MakeName	(0XFF9C01,	"CURRENT_REGION");
 	MakeByte	(0XFF9C02);
-	MakeName	(0XFF9C02,	"CURRENT_MAP");
+	MakeName	(0XFF9C02,	"CURRENT_MAP_ENTRANCE");
 	MakeByte	(0XFF9C03);
 	MakeArray	(0XFF9C03,	0X2);
 	MakeName	(0XFF9C03,	"CURRENT_MAP_VERSION");
