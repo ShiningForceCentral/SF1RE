@@ -2,7 +2,7 @@ static main()
 {
     // Trap0_SoundCommand
     SetFunctionCmt(0x5fa, 
-        "if xxxx = $FFFF, then get d0.w", 1);
+        "if parameter = -1, then get command from d0.w", 1);
 
     // VInt
     SetFunctionCmt(0x6d8, 
@@ -92,7 +92,7 @@ static main()
     SetFunctionCmt(0x32ec, 
         "Simone's ending speech", 1);
 
-    // sub_3D80
+    // EndChapter
     SetFunctionCmt(0x3d80, 
         "End chapter", 1);
 
@@ -106,7 +106,7 @@ static main()
 
     // LoadEndingCutsceneCombatantData
     SetFunctionCmt(0x6a7e, 
-        "Load combatant data during ending cutscene", 1);
+        "Load combatant data during ending cutscene.", 1);
 
     // FindCombatantSlot
     SetFunctionCmt(0x73d4, 
@@ -187,7 +187,7 @@ Out: A0 = icon tiles address", 1);
     SetFunctionCmt(0xe156, 
         "Load portrait tiles.", 1);
 
-    // sub_E49E
+    // ExecuteShopScreen
     SetFunctionCmt(0xe49e, 
         "Out: D0 = selected item index if it exists, else D0 = $FFFFFFFF", 1);
 
@@ -230,13 +230,13 @@ Out: A0 = icon tiles address", 1);
     SetFunctionCmt(0x17ed6, 
         "Used in dialogue scripts", 1);
 
-    // sub_17F64
+    // CutsceneFunction_SetSpeechSfx
     SetFunctionCmt(0x17f64, 
-        "Set speech SFX", 1);
+        "Cutscene Function : SetSpeechSfx", 1);
 
-    // sub_17FE0
+    // CutsceneFunction_JoinForce
     SetFunctionCmt(0x17fe0, 
-        "\"Join Force\" cutscene command", 1);
+        "Cutscene Function : JoinForce", 1);
 
     // sub_18046
     SetFunctionCmt(0x18046, 
@@ -528,10 +528,10 @@ In: D0 = actor index\n\
 
     // IsTargetOpponent
     SetFunctionCmt(0x21934, 
-        "Check if target is an opponent, get its combatant index -> D1 if true, else D1 = $FFFF\n\
+        "Check if target is an opponent, get its combatant index -> d1.w if true, else -1\n\
 \n\
-In: A3 = target table entry address\n\
-    D0 = caster index", 1);
+In: a3 = target table entry address\n\
+    d0.w = caster index", 1);
 
     // sub_219C0
     SetFunctionCmt(0x219c0, 
@@ -610,47 +610,47 @@ CCR: carry-bit set if not found", 1);
 
     // GetEntity
     SetFunctionCmt(0x22298, 
-        "Get combatant D0 entity index -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w entity index -> d1.w if they exist, else -1", 1);
 
     // GetCombatantX
     SetFunctionCmt(0x222b0, 
-        "Get combatant D0 X -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w X -> d1.w if they exist, else -1", 1);
 
     // GetCombatantY
     SetFunctionCmt(0x222ca, 
-        "Get combatant D0 Y -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w Y -> d1.w if they exist, else -1", 1);
 
     // GetModifiedAttack
     SetFunctionCmt(0x222e4, 
-        "Get combatant D0 modified attack -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w modified attack -> d1.w if they exist, else -1", 1);
 
     // GetModifiedDefense
     SetFunctionCmt(0x222fe, 
-        "Get combatant D0 modified defense -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w modified defense -> d1.w if they exist, else -1", 1);
 
     // GetModifiedAgility
     SetFunctionCmt(0x22318, 
-        "Get combatant D0 modified agility -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w modified agility -> d1.w if they exist, else -1", 1);
 
     // GetModifiedMove
     SetFunctionCmt(0x22332, 
-        "Get combatant D0 modified move -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w modified move -> d1.w if they exist, else -1", 1);
 
     // GetModifiedCritical
     SetFunctionCmt(0x2234c, 
-        "Get combatant D0 modified critical -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w modified critical -> d1.w if they exist, else -1", 1);
 
     // GetModifiedDoubleAttackMode
     SetFunctionCmt(0x22366, 
-        "Get combatant D0 modified double attack mode -> D1 if they exist, else D1 = $FFFF", 1);
+        "Get combatant d0.w modified double attack mode -> d1.w if they exist, else -1", 1);
 
     // GetCombatantPosition
     SetFunctionCmt(0x22380, 
-        "Get combatant D0 position X,Y -> D2,D1", 1);
+        "Get combatant d0.w position X,Y -> d2,d1.w", 1);
 
     // GetStatusEffectCounter
     SetFunctionCmt(0x22390, 
-        "Get force member's status effect counter D1 for combatant D0 -> D2", 1);
+        "Get force member's status effect bitfield d1.w for combatant d0.w -> d2.w", 1);
 
     // GetClass
     SetFunctionCmt(0x223a0, 
@@ -684,11 +684,11 @@ CCR: carry-bit set if not found", 1);
     SetFunctionCmt(0x2242c, 
         "Get force member D0 experience -> D1", 1);
 
-    // GetMaxHP
+    // GetMaxHp
     SetFunctionCmt(0x22440, 
         "Get force member D0 max HP -> D1", 1);
 
-    // GetCurrentHP
+    // GetCurrentHp
     SetFunctionCmt(0x22452, 
         "Get force member D0 current HP -> D1", 1);
 
@@ -883,19 +883,19 @@ Out: A0 = name address for combatant\n\
     SetFunctionCmt(0x227aa, 
         "Set D1 -> force member D0 experience", 1);
 
-    // SetMaxHP
+    // SetMaxHp
     SetFunctionCmt(0x227bc, 
         "Set D1 -> force member D0 max HP", 1);
 
-    // SetCurrentHP
+    // SetCurrentHp
     SetFunctionCmt(0x227ce, 
         "Set D1 -> force member D0 current HP", 1);
 
-    // SetMaxMP
+    // SetMaxMp
     SetFunctionCmt(0x227e0, 
         "Set D1 -> force member D0 max MP", 1);
 
-    // SetCurrentMP
+    // SetCurrentMp
     SetFunctionCmt(0x227f2, 
         "Set D1 -> force member D0 current MP", 1);
 
@@ -935,19 +935,19 @@ Out: A0 = name address for combatant\n\
     SetFunctionCmt(0x22878, 
         "Set D1 -> force member's experience for combatant D0", 1);
 
-    // SetMaxHPforCombatant
+    // SetMaxHpForCombatant
     SetFunctionCmt(0x22886, 
         "Set D1 -> force member's max HP for combatant D0", 1);
 
-    // SetCurrentHPforCombatant
+    // SetCurrentHpForCombatant
     SetFunctionCmt(0x22894, 
         "Set D1 -> force member's current HP for combatant D0", 1);
 
-    // SetMaxMPforCombatant
+    // SetMaxMpForCombatant
     SetFunctionCmt(0x228a2, 
         "Set D1 -> force member's max MP for combatant D0", 1);
 
-    // SetCurrentMPforCombatant
+    // SetCurrentMpForCombatant
     SetFunctionCmt(0x228b0, 
         "Set D1 -> force member's current MP for combatant D0", 1);
 
@@ -961,59 +961,59 @@ Out: A0 = name address for combatant\n\
 
     // IncreaseModifiedAttack
     SetFunctionCmt(0x228e6, 
-        "Add D1 to combatant D0 modified attack, capping at 99", 1);
+        "Add d1.w to combatant d0.w modified attack, capping at 99", 1);
 
     // IncreaseModifiedDefense
     SetFunctionCmt(0x22910, 
-        "Add D1 to combatant D0 modified defense, capping at 99", 1);
+        "Add d1.w to combatant d0.w modified defense, capping at 99", 1);
 
     // IncreaseModifiedAgility
     SetFunctionCmt(0x2293a, 
-        "Add D1 to combatant D0 modified agility, capping at 99", 1);
+        "Add d1.w to combatant d0.w modified agility, capping at 99", 1);
 
     // IncreaseModifiedMove
     SetFunctionCmt(0x22964, 
-        "Add D1 to combatant D0 modified move, capping at 9", 1);
+        "Add d1.w to combatant d0.w modified move, capping at 9", 1);
 
     // IncreaseModifiedCritical
     SetFunctionCmt(0x2298e, 
-        "Add D1 to combatant D0 modified critical, capping at 99", 1);
+        "Add d1.w to combatant d0.w modified critical, capping at 99", 1);
 
     // IncreaseLevel
     SetFunctionCmt(0x229b8, 
-        "Add D1 to force member D0 level, capping at 99", 1);
+        "Add d1.w to force member d0.w level, capping at 99", 1);
 
     // IncreaseBaseAttack
     SetFunctionCmt(0x229e2, 
-        "Add D1 to force member D0 base attack, capping at 99", 1);
+        "Add d1.w to force member d0.w base attack, capping at 99", 1);
 
     // IncreaseBaseDefense
     SetFunctionCmt(0x22a0c, 
-        "Add D1 to force member D0 base defense, capping at 99", 1);
+        "Add d1.w to force member d0.w base defense, capping at 99", 1);
 
     // IncreaseBaseAgility
     SetFunctionCmt(0x22a36, 
-        "Add D1 to force member D0 base agility, capping at 99", 1);
+        "Add d1.w to force member d0.w base agility, capping at 99", 1);
 
     // IncreaseBaseMove
     SetFunctionCmt(0x22a60, 
-        "Add D1 to force member D0 base move, capping at 9", 1);
+        "Add d1.w to force member d0.w base move, capping at 9", 1);
 
     // IncreaseBaseCritical
     SetFunctionCmt(0x22a8a, 
-        "Add D1 to force member D0 base critical, capping at 99", 1);
+        "Add d1.w to force member d0.w base critical, capping at 99", 1);
 
-    // IncreaseMaxHP
+    // IncreaseMaxHp
     SetFunctionCmt(0x22ab4, 
-        "Add D1 to force member D0 max HP, capping at 99", 1);
+        "Add d1.w to force member d0.w max HP, capping at 99", 1);
 
-    // IncreaseCurrentHP
+    // IncreaseCurrentHp
     SetFunctionCmt(0x22adc, 
-        "Add D1 to force member D0 current HP, capping at max HP", 1);
+        "Add d1.w to force member d0.w current HP, capping at max HP", 1);
 
-    // IncreaseMaxMP
+    // IncreaseMaxMp
     SetFunctionCmt(0x22b06, 
-        "Add D1 to force member D0 max MP, capping at 99", 1);
+        "Add d1.w to force member d0.w max MP, capping at 99", 1);
 
     // IncreaseLevelForCombatant
     SetFunctionCmt(0x22b30, 
@@ -1043,25 +1043,25 @@ Out: A0 = name address for combatant\n\
     SetFunctionCmt(0x22b84, 
         "Add D1 to force member's experience for combatant D0", 1);
 
-    // IncreaseMaxHPforCombatant
+    // IncreaseMaxHpForCombatant
     SetFunctionCmt(0x22b92, 
         "Add D1 to force member's max HP for combatant D0", 1);
 
-    // IncreaseCurrentHPforCombatant
+    // IncreaseCurrentHpForCombatant
     SetFunctionCmt(0x22ba0, 
         "Add D1 to force member's current HP for combatant D0", 1);
 
-    // IncreaseMaxMPforCombatant
+    // IncreaseMaxMpForCombatant
     SetFunctionCmt(0x22bae, 
         "Add D1 to force member's max MP for combatant D0", 1);
 
-    // IncreaseCurrentMPforCombatant
+    // IncreaseCurrentMpForCombatant
     SetFunctionCmt(0x22bbc, 
         "Add D1 to force member's current MP for combatant D0", 1);
 
-    // IncreaseCurrentMP
+    // IncreaseCurrentMp
     SetFunctionCmt(0x22bca, 
-        "Add D1 to force member D0 current MP, capping at max MP", 1);
+        "Add d1.w to force member d0.w current MP, capping at max MP", 1);
 
     // IncreaseExperience
     SetFunctionCmt(0x22c00, 
@@ -1087,11 +1087,11 @@ Out: A0 = name address for combatant\n\
     SetFunctionCmt(0x22c76, 
         "Subtract D1 from combatant D0 modified move", 1);
 
-    // DecreaseMaxHP
+    // DecreaseMaxHp
     SetFunctionCmt(0x22c7e, 
         "Subtract D1 from force member D0 max HP", 1);
 
-    // DecreaseMaxMP
+    // DecreaseMaxMp
     SetFunctionCmt(0x22c86, 
         "Subtract D1 from force member D0 max MP", 1);
 
@@ -1111,19 +1111,19 @@ Out: A0 = name address for combatant\n\
     SetFunctionCmt(0x22ca6, 
         "Subtract D1 from force member D0 base move", 1);
 
-    // DecreaseCurrentHP
+    // DecreaseCurrentHp
     SetFunctionCmt(0x22cae, 
         "Subtract D1 from force member D0 current HP", 1);
 
-    // DecreaseCurrentMP
+    // DecreaseCurrentMp
     SetFunctionCmt(0x22cb6, 
         "Subtract D1 from force member D0 current MP", 1);
 
-    // DecreaseMaxHPforCombatant
+    // DecreaseMaxHpForCombatant
     SetFunctionCmt(0x22cbe, 
         "Subtract D1 from force member's max HP for combatant D0", 1);
 
-    // DecreaseMaxMPforCombatant
+    // DecreaseMaxMpForCombatant
     SetFunctionCmt(0x22ccc, 
         "Subtract D1 from force member's max MP for combatant D0", 1);
 
@@ -1143,11 +1143,11 @@ Out: A0 = name address for combatant\n\
     SetFunctionCmt(0x22d04, 
         "Subtract D1 from force member's base move for combatant D0", 1);
 
-    // DecreaseCurrentHPforCombatant
+    // DecreaseCurrentHpForCombatant
     SetFunctionCmt(0x22d12, 
         "Subtract D1 from force member's current HP for combatant D0", 1);
 
-    // DecreaseCurrentMPforCombatant
+    // DecreaseCurrentMpForCombatant
     SetFunctionCmt(0x22d20, 
         "Subtract D1 from force member's current MP for combatant D0", 1);
 
@@ -1267,7 +1267,7 @@ CCR: carry-bit set if empty item slot not found", 1);
 
     // FindItemToDrop
     SetFunctionCmt(0x22ff2, 
-        "Find enemy combatant D0 item index to drop -> D1 if it exists, else D1 = $FFFF", 1);
+        "Find enemy combatant d0.w item index to drop -> d1.w if it exists, else -1", 1);
 
     // GetSpellEntryAddress
     SetFunctionCmt(0x23040, 
@@ -1294,6 +1294,10 @@ CCR: carry-bit set if empty item slot not found", 1);
     // GetAdjustedGroupFlags
     SetFunctionCmt(0x23136, 
         "Check if casting combatant D0 is an enemy and adjust group flags D4 accordingly", 1);
+
+    // AdjustGroupFlags
+    SetFunctionCmt(0x23148, 
+        "Convert group designation for enemy actions.", 1);
 
     // JumpToRangeOrEquipEffect
     SetFunctionCmt(0x23160, 
@@ -1326,31 +1330,31 @@ CCR: carry-bit set if empty item slot not found", 1);
     SetFunctionCmt(0x23442, 
         "Add D5 to combatant D0 modified move", 1);
 
-    // sub_23450
+    // AfterTurn_RecoverHp
     SetFunctionCmt(0x23450, 
         "Add D5 to force member D0 current HP (not functional)", 1);
 
-    // sub_2345E
+    // AfterTurn_RecoverMp
     SetFunctionCmt(0x2345e, 
         "Add D5 to force member D0 current MP (not functional)", 1);
 
-    // sub_2346C
+    // AfterTurn_GainHp
     SetFunctionCmt(0x2346c, 
         "Add D5 to force member D0 max HP (not functional)", 1);
 
-    // sub_2347A
+    // AfterTurn_GainAttack
     SetFunctionCmt(0x2347a, 
         "Add D5 to force member D0 base attack (not functional)", 1);
 
-    // sub_23488
+    // AfterTurn_GainDefense
     SetFunctionCmt(0x23488, 
         "Add D5 to force member D0 base defense (not functional)", 1);
 
-    // sub_23496
+    // AfterTurn_GainAgility
     SetFunctionCmt(0x23496, 
         "Add D5 to force member D0 base agility (not functional)", 1);
 
-    // sub_234A4
+    // AfterTurn_GainMove
     SetFunctionCmt(0x234a4, 
         "Add D5 to force member D0 base move (not functional)", 1);
 
@@ -1473,7 +1477,9 @@ Out: A0 = class name address\n\
 
     // sub_2397C
     SetFunctionCmt(0x2397c, 
-        "Get combatant D0 special bit 6 from class (unused)", 1);
+        "Get combatant d0.w special bit 6 from class (unused)\n\
+\n\
+Out: set: d1.w = 2 / clear: d1.w = 1", 1);
 
     // GetBaseDoubleAttackMode
     SetFunctionCmt(0x23998, 
@@ -1750,19 +1756,19 @@ In: A0 = shop data address\n\
     SetFunctionCmt(0x24f62, 
         "Load force member's base critical to combatant D0 entry", 1);
 
-    // RefillHP
+    // RefillHp
     SetFunctionCmt(0x24f74, 
         "Refill force member D0 HP", 1);
 
-    // RefillMP
+    // RefillMp
     SetFunctionCmt(0x24f86, 
         "Refill force member D0 MP", 1);
 
-    // RefillHPforCombatant
+    // RefillHpForCombatant
     SetFunctionCmt(0x24f98, 
         "Refill force member's HP for combatant D0", 1);
 
-    // RefillMPforCombatant
+    // RefillMpForCombatant
     SetFunctionCmt(0x24fae, 
         "Refill force member's MP for combatant D0", 1);
 
@@ -1794,9 +1800,9 @@ In: A0 = shop data address\n\
     SetFunctionCmt(0x27036, 
         "Flag AI Regions as triggered", 1);
 
-    // sub_80EE0
+    // GetMapspriteScriptAddress
     SetFunctionCmt(0x80ee0, 
-        "Load address into table at 80EFE based on byte D of sprite data", 1);
+        "Load address into table at $80EFE based on byte 13 of sprite data.", 1);
 
     // sub_1261F8
     SetFunctionCmt(0x1261f8, 
@@ -1810,7 +1816,7 @@ In: A0 = shop data address\n\
     SetFunctionCmt(0x126686, 
         "In: D2 = spell cast effect color index", 1);
 
-    // LoadSpellObjectLayout
+    // LoadSpellEntityLayout
     SetFunctionCmt(0x12672a, 
         "In: D0 = \n\
     D1 = sprite layer\n\
@@ -1838,7 +1844,7 @@ In: A0 = shop data address\n\
     SetFunctionCmt(0x126ab4, 
         "In: D3 = spell animation version", 1);
 
-    // LoadSpellObject
+    // LoadSpellEntity
     SetFunctionCmt(0x126b20, 
         "In: D3 = frame number\n\
     D4 = is slot in use?\n\
@@ -1905,7 +1911,7 @@ In: A0 = shop data address\n\
     SetFunctionCmt(0x1271ce, 
         "In: D3 = spell animation version", 1);
 
-    // sub_12AEC8
+    // abcs10
     SetFunctionCmt(0x12aec8, 
         "Pao bridge post-battle cutscene (i.e., the \"Pelle\" scene.)", 1);
 
@@ -1924,5 +1930,9 @@ In: A0 = shop data address\n\
     // CheckSkipToTitleScreen
     SetFunctionCmt(0x1304fe, 
         "Wait D0 frames while checking for start button input", 1);
+
+    // sub_1645A4
+    SetFunctionCmt(0x1645a4, 
+        "navigate naming window", 1);
 
 }
