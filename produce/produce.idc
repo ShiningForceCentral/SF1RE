@@ -429,7 +429,8 @@ static produceSpecificSectionFour(mainFile,sectionName,start,end,fs,sectionComme
     produceAsmScript(file,"data\\stats\\enemies\\specialaiactions",0x24006,0x2401C,"Special AI actions");
     produceAsmScript(file,"code\\common\\stats\\statsengine_5",0x2401C,0x240DC,"Character stats engine");
     produceAsmScript(file,"data\\stats\\enemies\\darkdragonspells",0x240DC,0x240E8,"Dark Dragon spells table");
-    produceAsmScript(file,"data\\battles\\global\\aipriority",0x240E8,0x244CA,"AI priority values by movetype and class");
+    produceAsmSection(file,0x240E8,0x243AA);
+    produceAsmScript(file,"data\\battles\\global\\aipriority",0x243AA,0x244CA,"AI priority values by movetype and class");
     produceAsmScript(file,"code\\common\\stats\\statsengine_6",0x244CA,0x246EC,"Character stats engine");
     produceAsmScript(file,"code\\common\\stats\\levelup",0x246EC,0x24BAC,"Level up functions");
     produceAsmScript(file,"code\\common\\stats\\statsfunctions",0x24BAC,0x24FC4,"Stats functions");
@@ -459,8 +460,8 @@ static produceSpecificSectionFour(mainFile,sectionName,start,end,fs,sectionComme
     produceAsmScript(file,"code\\gameflow\\battle\\battleinit",0x26F46,0x2704E,"Battle initialization functions");
     produceAsmScript(file,"data\\battles\\global\\battlemapheaders",0x2704E,0x2751A,"Battle map headers relative pointer table");
     produceAsmSection(file,0x2751A,0x2751C);
-    produceAsmScript(file,"data\\stats\\enemies\\enemydefs",0x2751C,0x27AC4,"Enemy definitions");
-    produceAsmScript(file,"data\\battles\\global\\battleterrain",0x27AC4,0x29EA4,"Battle terrain data");
+    produceAsmScript(file,"data\\stats\\enemies\\enemydefs",0x2751C,0x279AC,"Enemy definitions");
+    produceAsmScript(file,"data\\battles\\global\\battleterrain",0x279AC,0x29EA4,"Battle terrain data");
     produceAsmScript(file,"data\\battles\\global\\battledata",0x29EA4,0x2BF84,"Position/enemy/ai data for battles");
     produceAsmSection(file,0x2BF84,0x2C000);
     
@@ -502,9 +503,9 @@ static produceSpecificSectionSix(mainFile,sectionName,start,end,fs,sectionCommen
     writestr(file,form("\n; GAME SECTION %s :\n; %s\n",sectionName,sectionComment));
     writestr(file,form("; FREE SPACE : %d bytes.\n\n\n",fs));
     
-    //produceAsmSection(file,0x38000,0x39928);
-    produceAsmScript(file,"data\\graphics\\mapsprites\\entries",0x38000,0x58000,"Map sprites");
-    //produceAsmSection(file,0x57F5E,0x58000);
+    produceAsmSection(file,0x38000,0x39928);
+    produceAsmScript(file,"data\\graphics\\mapsprites\\entries",0x39928,0x57F5E,"Mapsprites");
+    produceAsmSection(file,0x57F5E,0x58000);
     
     fclose(file);
     Message("DONE.\n");    
