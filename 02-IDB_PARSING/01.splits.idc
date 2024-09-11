@@ -316,7 +316,7 @@ static splitSingleChunks(file) {
     splitSingleChunk(0x26666,0x2688E,"table_ForceAnimationData","data/stats/allies/forceanimationdata.bin",file);
     splitSingleChunk(0x2688E,0x269FE,"table_EnemyAnimationData","data/stats/enemies/enemyanimationdata.bin",file);
     splitSingleChunk(0x269FE,0x26BF2,"table_TerrainData","data/battles/global/terraindata.bin",file);
-    splitSingleChunk(0x26BF6,0x26C1A,"table_GrowthCurves","data/stats/allies/growthcurves.bin",file);
+    splitSingleChunk(0x26BF6,0x26C1A,"rpt_GrowthCurves","data/stats/allies/growthcurves.bin",file);
     splitSingleChunk(0x26C1A,0x26CCE,"table_UnpromotedGrowths","data/stats/allies/unpromotedgrowths.bin",file);
     splitSingleChunk(0x26CCE,0x26D70,"table_PromotedGrowths","data/stats/allies/promotedgrowths.bin",file);
     splitSingleChunk(0x26D70,0x26E16,"table_SpellLearningData","data/stats/allies/spelllearningdata.bin",file);
